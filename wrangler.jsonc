@@ -1,14 +1,21 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "rocha-paula",
-  "compatibility_date": "2026-06-27",
-  "observability": {
-    "enabled": true
-  },
-  "assets": {
-    "directory": "."
-  },
-  "compatibility_flags": [
-    "nodejs_compat"
-  ]
+  "name": "techcraft-worker",
+  "main": "worker.js",
+  "compatibility_date": "2024-01-01",
+
+  // URL do banco Turso — pode deixar aqui pois não é segredo
+  "vars": {
+    "TURSO_URL": "libsql://consultoria-web-davy561.aws-us-east-1.turso.io"
+  }
+
+  // ⚠️ TURSO_TOKEN deve ser adicionado como Secret no painel Cloudflare
+  // Workers → seu worker → Settings → Variables → Add secret
+  // Nome: TURSO_TOKEN
+  // Valor: token gerado no Turso (botão Create Token)
 }
+
+TOKEN TURSO
+
+Token:eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicnciLCJpYXQiOjE3ODI1ODcxNzMsImlkIjoiMDE5ZjBhNzktMjEwMS03ZDk2LWIzNmItOTA2M2JiZWE5MTM4IiwicmlkIjoiMTgzM2MyMGEtM2MyMS00OTRkLThkNjUtZWE3NzMxMzM2MDc1In0.skDzgAPUGiWx9tZoFcD0nN4Tx1AWeKl_8KQqviluFPjUR28yAjZ4ns-c9LnlUBZLLPvlKmMtYxhxpZtT6On8DA
+
+Acesso:libsql://consultoria-web-davy561.aws-us-east-1.turso.io
