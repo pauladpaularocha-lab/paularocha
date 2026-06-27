@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechCraft - Consultoria e Desenvolvimento Web</title>
+  <meta name="description" content="Criamos websites de alta performance, landing pages e consultoria digital para posicionar sua empresa no topo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #06b6d4; /* Azul Ciano Elétrico */
+      --accent: #7c3aed; /* Roxo Premium */
+      --background: #0b0f19; /* Azul Escuro Espacial */
+      --card: #111827; /* Grafite tecnológico */
+      --foreground: #f8fafc;
+      --border: #1f2937;
+      --muted: #9ca3af;
+      --muted-foreground: #cbd5e1;
+      --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+      --shadow-glow: 0 0 30px rgba(6, 182, 212, 0.15);
+      --whatsapp: #25d366;
+      --whatsapp-dark: #128c7e;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--background);
+      color: var(--foreground);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header e Menu Superior */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.03em;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted-foreground);
+      font-size: 0.825rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+      background: rgba(6, 182, 212, 0.1);
+      border-color: rgba(6, 182, 212, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary);
+      color: #0b0f19;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    @media (min-width: 900px) {
+      .nav-links {
+        display: flex;
+      }
+    }
+
+    /* Divisórias Elegantes em Degradê */
+    .section-divider-line {
+      height: 1px;
+      width: 100%;
+      background: linear-gradient(90deg, transparent, var(--border), rgba(6, 182, 212, 0.3), var(--border), transparent);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding-top: 180px;
+      padding-bottom: 120px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 48px;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      background: rgba(6, 182, 212, 0.05);
+      color: var(--primary);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin-top: 24px;
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.15;
+      color: #ffffff;
+    }
+
+    @media (min-width: 768px) {
+      .hero h1 {
+        font-size: 3.5rem;
+      }
+    }
+
+    .gradient-text {
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      margin-top: 24px;
+      font-size: 1.125rem;
+      color: var(--muted);
+      max-width: 540px;
+    }
+
+    .hero-actions {
+      margin-top: 36px;
+    }
+
+    .hero-image {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: var(--shadow-glow);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+    }
+
+    /* Seções Genéricas */
+    section {
+      padding: 100px 0;
+    }
+
+    .bg-alternate {
+      background: linear-gradient(180deg, #0b0f19 0%, #0e1424 50%, #0b0f19 100%);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 64px;
+    }
+
+    .section-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+    }
+
+    .section-title {
+      margin-top: 12px;
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    /* Serviços */
+    .services-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .service-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-size: 1.25rem;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* NOVA SEÇÃO: Portfólio */
+    .portfolio-grid {
+      display: grid;
+      gap: 32px;
+    }
+
+    @media (min-width: 768px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .portfolio-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .portfolio-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .portfolio-img-wrapper {
+      width: 100%;
+      height: 260px;
+      overflow: hidden;
+      background: #1f2937;
+    }
+
+    .portfolio-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .portfolio-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .portfolio-content {
+      padding: 32px;
+    }
+
+    .portfolio-content h3 {
+      font-size: 1.5rem;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    .portfolio-content p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .portfolio-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.875rem;
+    }
+
+    /* NOVA SEÇÃO: Processo de Trabalho */
+    .process-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .process-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .process-card {
+      background: rgba(17, 24, 39, 0.5);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      position: relative;
+    }
+
+    .process-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .process-card h3 {
+      font-size: 1.15rem;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .process-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* NOVA SEÇÃO: Depoimentos */
+    .testimonials-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .testimonial-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+    }
+
+    .testimonial-card p {
+      color: var(--muted-foreground);
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+
+    .client-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .client-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--border);
+      object-fit: cover;
+    }
+
+    .client-meta h4 {
+      font-size: 0.95rem;
+      color: #ffffff;
+    }
+
+    .client-meta span {
+      font-size: 0.8rem;
+      color: var(--primary);
+    }
+
+    /* Consultoria e Orçamento */
+    .contact-grid {
+      display: grid;
+      gap: 48px;
+    }
+
+    @media (min-width: 1024px) {
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .contact-info h2 {
+      font-size: 2.25rem;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+
+    .contact-info p {
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .whatsapp-card {
+      background: rgba(37, 211, 102, 0.03);
+      border: 1px solid rgba(37, 211, 102, 0.15);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .whatsapp-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      padding: 16px 28px;
+      border-radius: 8px;
+      background: var(--whatsapp);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+
+    .whatsapp-button:hover {
+      background: var(--whatsapp-dark);
+      transform: translateY(-2px);
+    }
+
+    .whatsapp-button svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+
+    /* Formulário */
+    .project-form {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--muted-foreground);
+    }
+
+    .form-group input, 
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--background);
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus, 
+    .form-group textarea:focus {
+      border-color: var(--primary);
+    }
+
+    .btn-submit {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      border-radius: 8px;
+      border: none;
+      background: var(--gradient-primary);
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .btn-submit:hover {
+      opacity: 0.95;
+    }
+
+    /* NOVA SEÇÃO: FAQ Interativo */
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    details {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-weight: 700;
+      color: #ffffff;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary .toggle {
+      color: var(--primary);
+      font-size: 1.25rem;
+      transition: transform 0.2s;
+    }
+
+    details[open] summary .toggle {
+      transform: rotate(45deg);
+    }
+
+    details p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #070a12;
+      padding: 48px 0 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="#" class="brand">TechCraft</a>
+      <div class="nav-links">
+        <a href="#servicos">Serviços</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#processo">Processo</a>
+        <a href="#depoimentos">Cases</a>
+        <a href="#orcamento">Orçamento</a>
+      </div>
+      <a href="#orcamento" class="nav-cta">Solicitar Orçamento</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <span class="badge">🚀 Desenvolvimento & Estratégia</span>
+            <h1>Construímos websites que transformam <span class="gradient-text">visitantes em clientes</span>.</h1>
+            <p>Consultoria especializada e engenharia web sob medida. Desenvolvemos plataformas velozes, seguras e totalmente otimizadas para escalar o seu negócio digital.</p>
+            <div class="hero-actions">
+              <a href="#orcamento" class="btn-submit" style="max-width:260px;">Solicitar Orçamento</a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&auto=format&fit=crop&q=80" alt="Desenvolvimento de Código e Tecnologia" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider-line"></div>
+
+    <!-- Serviços -->
+    <section id="servicos" class="bg-alternate">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Soluções</span>
+          <h2 class="section-title">Como ajudamos sua empresa</h2>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <span class="service-icon">💡</span>
+            <h3>Consultoria Digital</h3>
+            <p>Análise completa de presença online, arquitetura de informação e mapeamento de conversão para o seu público técnico.</p>
+          </div>
+          <div class="service-card">
+            <span class="service-icon">💻</span>
+            <h3>Criação de Websites</h3>
+            <p>Desenvolvimento focado em performance, design responsivo de alto padrão e código limpo amigável para o SEO.</p>
+          </div>
+          <div class="service-card">
+            <span class="service-icon">📈</span>
+            <h3>Landing Pages</h3>
+            <p>Páginas de vendas de altíssima conversão projetadas milimetricamente para campanhas de tráfego pago.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider-line"></div>
+
+    <!-- Portfólio (NOVA) -->
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Portfólio</span>
+          <h2 class="section-title">Nossos Projetos Recentes</h2>
+        </div>
+        <div class="portfolio-grid">
+          <div class="portfolio-card">
+            <div class="portfolio-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80" alt="Plataforma SaaS" />
+            </div>
+            <div class="portfolio-content">
+              <h3>Plataforma SaaS Fintech</h3>
+              <p>Interface corporativa limpa, com foco em usabilidade e carregamento abaixo de 1 segundo.</p>
+              <a href="#orcamento" class="portfolio-link">Solicitar projeto similar →</a>
+            </div>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=600&auto=format&fit=crop&q=80" alt="E-commerce Moderno" />
+            </div>
+            <div class="portfolio-content">
+              <h3>E-commerce de Alta Performance</h3>
+              <p>Loja virtual integrada, responsiva e otimizada para máxima conversão em dispositivos móveis.</p>
+              <a href="#orcamento" class="portfolio-link">Solicitar projeto similar →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider-line"></div>
+
+    <!-- Processo de Trabalho (NOVA) -->
+    <section id="processo" class="bg-alternate">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Metodologia</span>
+          <h2 class="section-title">Como criamos seu site</h2>
+        </div>
+        <div class="process-grid">
+          <div class="process-card">
+            <div class="process-number">01</div>
+            <h3>Estratégia</h3>
+            <p>Alinhamento de objetivos comerciais e planejamento da estrutura ideal.</p>
+          </div>
+          <div class="process-card">
+            <div class="process-number">02</div>
+            <h3>Design UI/UX</h3>
+            <p>Criação da identidade visual exclusiva da interface para sua aprovação.</p>
+          </div>
+          <div class="process-card">
+            <div class="process-number">03</div>
+            <h3>Engenharia</h3>
+            <p>Desenvolvimento do código limpo, focado em SEO e alta velocidade.</p>
+          </div>
+          <div class="process-card">
+            <div class="process-number">04</div>
+            <h3>Lançamento</h3>
+            <p>Testes rigorosos e publicação do seu site com suporte garantido.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider-line"></div>
+
+    <!-- Depoimentos (NOVA) -->
+    <section id="depoimentos">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Prova Social</span>
+          <h2 class="section-title">O que dizem nossos parceiros</h2>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <p>"O novo site transformou nossa presença digital. O volume de leads qualificados que recebemos organicamente dobrou em 60 dias."</p>
+            <div class="client-info">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&fit=crop" class="client-avatar" alt="Carla Dias" />
+              <div class="client-meta">
+                <h4>Carla Dias</h4>
+                <span>Diretora de Marketing</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <p>"Profissionais extremamente técnicos e comprometidos com a entrega. O código é limpo e a velocidade da página superou nossas expectativas."</p>
+            <div class="client-info">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&fit=crop" class="client-avatar" alt="Marcos Vianna" />
+              <div class="client-meta">
+                <h4>Marcos Vianna</h4>
+                <span>Fundador da TechVibe</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <p>"Estávamos travados com uma agência antiga. A TechCraft assumiu o projeto, estruturou nossa landing page e os resultados vieram na mesma semana."</p>
+            <div class="client-info">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&fit=crop" class="client-avatar" alt="Julia Lopes" />
+              <div class="client-meta">
+                <h4>Julia Lopes</h4>
+                <span>COO da Nexus Digital</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider-line"></div>
+
+    <!-- Seção de Orçamento & Contato Integrado -->
+    <section id="orcamento" class="bg-alternate">
+      <div class="container">
+        <div class="contact-grid">
+          
+          <div class="contact-info">
+            <h2>Vamos tirar o seu novo projeto do papel?</h2>
+            <p>Preencha o formulário ao lado contando mais sobre os seus objetivos ou, se preferir uma resposta instantânea, inicie um atendimento direto pelo nosso canal oficial de mensagens.</p>
+            
+            <div class="whatsapp-card">
+              <p style="color: #ffffff; font-weight: 600; margin-bottom: 16px;">Precisa de atendimento imediato?</p>
+              <a href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20fazer%20uma%20consultoria%20para%20construção%20de%20um%20website." target="_blank" rel="noopener noreferrer" class="whatsapp-button">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                </svg>
+                Fale Conosco via WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <!-- Formulário com o termo "Solicitar Orçamento" ajustado -->
+          <form class="project-form" onsubmit="event.preventDefault(); alert('Formulário enviado com sucesso! Nosso consultor entrará em contato.');">
+            <div class="form-group">
+              <label for="name">Seu Nome</label>
+              <input type="text" id="name" required placeholder="Ex: João Silva" />
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail Corporativo</label>
+              <input type="email" id="email" required placeholder="Ex: joao@empresa.com" />
+            </div>
+            <div class="form-group">
+              <label for="title">Título do Projeto</label>
+              <input type="text" id="title" required placeholder="Ex: Criação de E-commerce ou Redesenho Institucional" />
+            </div>
+            <div class="form-group">
+              <label for="description">Descrição do que você precisa</label>
+              <textarea id="description" rows="5" required placeholder="Conte em algumas linhas o objetivo do site, referências e recursos obrigatórios..."></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Solicitar Orçamento</button>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider-line"></div>
+
+    <!-- FAQ Interativo (NOVA) -->
+    <section id="faq">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">FAQ</span>
+          <h2 class="section-title">Perguntas Frequentes</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>Qual o prazo médio de entrega de um website?<span class="toggle">+</span></summary>
+            <p>O prazo varia de acordo com a complexidade. Uma Landing Page estratégica costuma ser entregue entre 7 e 12 dias, enquanto portais institucionais completos ou e-commerces levam de 20 a 35 dias.</p>
+          </details>
+          <details>
+            <summary>O site já vem otimizado para o Google (SEO)?<span class="toggle">+</span></summary>
+            <p>Sim. Todo site desenvolvido por nossa consultoria já nasce estruturado sob as melhores diretrizes do Google: semântica correta das tags, alta velocidade de carregamento e otimização mobile.</p>
+          </details>
+          <details>
+            <summary>Vocês oferecem suporte após a entrega do projeto?<span class="toggle">+</span></summary>
+            <p>Com certeza. Incluímos um período de 30 dias de suporte técnico gratuito para acompanhamento pós-lançamento e gravamos um vídeo exclusivo ensinando como gerenciar textos e imagens do seu novo painel.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 TechCraft. Todos os direitos reservados. Desenvolvimento Web de Alta Performance.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
