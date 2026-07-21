@@ -67,30 +67,33 @@
         .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--deep-emerald); line-height: 1.2; margin-bottom: 20px; }
         .hero-content p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; }
         
-        /* CARD DA LOGO COM FLUTUAÇÃO SUAVE */
+        /* LOGO SEM BORDA BRANCA GIGANTE */
         .hero-card { 
-            background: #ffffff; 
-            padding: 20px; 
-            border-radius: 28px; 
-            box-shadow: 0 12px 32px rgba(31, 110, 109, 0.12); 
-            border: 1px solid rgba(120, 181, 162, 0.25);
+            background: transparent; 
+            padding: 0; 
+            border-radius: 0; 
+            box-shadow: none; 
+            border: none;
             text-align: center; 
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            animation: floatLogo 4s ease-in-out infinite;
-        }
-
-        .hero-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 18px 40px rgba(31, 110, 109, 0.18);
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .hero-card img { 
             width: 100%; 
-            max-width: 360px; 
-            border-radius: 20px; 
+            max-width: 380px; 
+            border-radius: 24px; 
             height: auto; 
             display: block; 
-            margin: 0 auto; 
+            box-shadow: 0 15px 35px rgba(20, 80, 67, 0.12);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            animation: floatLogo 4s ease-in-out infinite;
+        }
+
+        .hero-card img:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(20, 80, 67, 0.18);
         }
 
         @keyframes floatLogo {
@@ -320,7 +323,7 @@
             <div class="about-content">
                 <div class="about-text">
                     <p>Há mais de 2 anos em atividade, o nosso Studio nasceu com a missão de oferecer um espaço de acolhimento e transformação através do movimento e da reabilitação física de excelência em Cataguases.</p>
-                    <p>Acreditamos que cada indivíduo necessita de um olhar atento. Por isso, nosso compromisso é proporcionar um atendimento individualizado, seguro e guiado por profissionais altamente qualificadas.</p>
+                    <p>Acreditamos que cada indivíduo necessita de um olhar atento. Por isso, nosso compromisso é proporcionar um atendimento individualizado, seguro e guiado por profissionais highly qualificadas.</p>
                 </div>
 
                 <div class="team-highlights">
@@ -349,7 +352,7 @@
 
         <div class="gallery-grid">
             <div class="gallery-card">
-                <img src="studio1.jpeg" alt="Studio de Pilates Equipado">
+                <img src="studio1.jpg.jpeg" alt="Studio de Pilates Equipado">
                 <div class="gallery-caption">
                     <h4>Equipamentos Completos</h4>
                     <p>Aparelhos modernos para trabalhar força, mobilidade e postura de forma segura.</p>
@@ -357,7 +360,7 @@
             </div>
 
             <div class="gallery-card">
-                <img src="studio2.jpeg" alt="Espaço do Studio de Pilates">
+                <img src="studio2.jpg.jpeg" alt="Espaço do Studio de Pilates">
                 <div class="gallery-caption">
                     <h4>Ambiente Aconchegante</h4>
                     <p>Estrutura pensada para o seu conforto, foco e tranquilidade a cada sessão.</p>
@@ -365,7 +368,7 @@
             </div>
 
             <div class="gallery-card">
-                <img src="studio3.jpeg" alt="Atendimento no Studio">
+                <img src="studio3.jpg.jpeg" alt="Atendimento no Studio">
                 <div class="gallery-caption">
                     <h4>Atendimento Personalizado</h4>
                     <p>Acompanhamento próximo e individualizado para você alcançar seus objetivos.</p>
