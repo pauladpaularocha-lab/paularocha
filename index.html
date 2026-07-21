@@ -53,20 +53,21 @@
         .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--deep-emerald); line-height: 1.2; margin-bottom: 20px; }
         .hero-content p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; }
         
-        /* CARD COM EFEITO FLUTUANTE NA LOGO */
+        /* CARD DA LOGO REFINADO E COM FLUTUAÇÃO SUAVE */
         .hero-card { 
-            background: #fff; 
-            padding: 24px; 
+            background: #ffffff; 
+            padding: 20px; 
             border-radius: 28px; 
-            box-shadow: 0 15px 35px rgba(31, 110, 109, 0.12); 
+            box-shadow: 0 12px 32px rgba(31, 110, 109, 0.12); 
+            border: 1px solid rgba(120, 181, 162, 0.25);
             text-align: center; 
             transition: transform 0.4s ease, box-shadow 0.4s ease;
             animation: floatLogo 4s ease-in-out infinite;
         }
 
         .hero-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 45px rgba(31, 110, 109, 0.2);
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(31, 110, 109, 0.18);
         }
 
         .hero-card img { 
@@ -76,12 +77,11 @@
             height: auto; 
             display: block; 
             margin: 0 auto; 
-            transition: var(--transition);
         }
 
         @keyframes floatLogo {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-8px); }
             100% { transform: translateY(0px); }
         }
 
