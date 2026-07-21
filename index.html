@@ -44,6 +44,9 @@
         .btn-cta { background: linear-gradient(135deg, var(--primary-dark-teal), var(--deep-emerald)); color: #fff !important; padding: 10px 22px; border-radius: 30px; font-weight: 600 !important; box-shadow: 0 4px 15px rgba(31, 110, 109, 0.25); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: var(--transition); }
         .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(31, 110, 109, 0.35); }
 
+        .btn-secondary { background: transparent; color: var(--deep-emerald) !important; border: 2px solid var(--primary-dark-teal); padding: 12px 26px; border-radius: 30px; font-weight: 600; text-decoration: none; transition: var(--transition); display: inline-flex; align-items: center; }
+        .btn-secondary:hover { background: rgba(31, 110, 109, 0.08); transform: translateY(-2px); }
+
         /* HERO SECTION */
         .hero { padding: 150px 24px 80px; background: linear-gradient(135deg, rgba(120, 181, 162, 0.15) 0%, rgba(245, 249, 247, 1) 100%); }
         .hero-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
@@ -81,8 +84,6 @@
         .btn-whatsapp:hover { transform: translateY(-3px); }
 
         footer { background: var(--deep-emerald); color: #fff; text-align: center; padding: 25px 24px; font-size: 0.88rem; }
-        .float-whatsapp { position: fixed; bottom: 25px; right: 25px; background: #25D366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.25); text-decoration: none; z-index: 999; transition: var(--transition); }
-        .float-whatsapp:hover { transform: scale(1.1); }
 
         @media (max-width: 900px) {
             .hero-container, .contact-container { grid-template-columns: 1fr; }
@@ -117,8 +118,8 @@
             <div class="hero-content">
                 <h1>O Movimento que Transforma. O Cuidado que Você Merece.</h1>
                 <p>Recupere sua mobilidade e viva sem dores com atendimento personalizado em Pilates e Fisioterapia em Cataguases - MG.</p>
-                <a href="https://wa.me/5532999531990?text=Olá!%20Gostaria%20de%20agendar%20uma%20avaliação." class="btn-cta" style="padding: 14px 28px; font-size: 1rem;" target="_blank">
-                    <i class="fab fa-whatsapp"></i> Agendar Avaliação
+                <a href="#servicos" class="btn-secondary">
+                    Conhecer Serviços
                 </a>
             </div>
             <div class="hero-card">
@@ -141,7 +142,7 @@
             </div>
             <div class="service-card">
                 <h3>Fisioterapia e Terapias Manuais</h3>
-                <p>Liberação miofascial e mobilizações articulares direcionadas para o alívio imediato da dor e reabilitação funcional.</p>
+                <p>Liberação miofascial e mobilizaciones articulares direcionadas para o alívio imediato da dor e reabilitação funcional.</p>
             </div>
             <div class="service-card">
                 <h3>Eletrotermofototerapia</h3>
@@ -216,11 +217,6 @@
     <footer>
         <p>&copy; 2026 Thamyres Lobo Pilates e Fisioterapia. Todos os direitos reservados.</p>
     </footer>
-
-    <!-- BOTÃO FIXO WHATSAPP -->
-    <a href="https://wa.me/5532999531990?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20informações." class="float-whatsapp" target="_blank" title="Fale conosco no WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
 
 </body>
 </html>
