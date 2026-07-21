@@ -27,474 +27,67 @@
             --transition: all 0.3s ease;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-cream);
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, .brand-font {
-            font-family: 'Playfair Display', serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--bg-cream); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
 
         /* HEADER & NAVIGATION */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-        }
+        header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 1000; box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 10px 24px; }
+        .logo-box { display: flex; align-items: center; text-decoration: none; }
+        .logo-box img { height: 55px; width: auto; border-radius: 6px; }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 24px;
-        }
+        .nav-links { display: flex; list-style: none; gap: 28px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 0.95rem; transition: var(--transition); }
+        .nav-links a:hover { color: var(--primary-dark-teal); }
 
-        .logo-box {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .logo-box img {
-            height: 50px;
-            width: auto;
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-text .title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--deep-emerald);
-            letter-spacing: 1px;
-        }
-
-        .logo-text .subtitle {
-            font-size: 0.7rem;
-            color: var(--primary-dark-teal);
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 28px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-dark-teal);
-        }
-
-        .btn-cta {
-            background: linear-gradient(135deg, var(--primary-dark-teal), var(--deep-emerald));
-            color: #fff !important;
-            padding: 10px 22px;
-            border-radius: 30px;
-            font-weight: 600 !important;
-            box-shadow: 0 4px 15px rgba(31, 110, 109, 0.25);
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(31, 110, 109, 0.35);
-        }
+        .btn-cta { background: linear-gradient(135deg, var(--primary-dark-teal), var(--deep-emerald)); color: #fff !important; padding: 10px 22px; border-radius: 30px; font-weight: 600 !important; box-shadow: 0 4px 15px rgba(31, 110, 109, 0.25); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: var(--transition); }
+        .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(31, 110, 109, 0.35); }
 
         /* HERO SECTION */
-        .hero {
-            padding: 150px 24px 80px;
-            background: linear-gradient(135deg, rgba(120, 181, 162, 0.15) 0%, rgba(245, 249, 247, 1) 100%);
-            position: relative;
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .hero-content h1 {
-            font-size: 2.8rem;
-            color: var(--deep-emerald);
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        .hero-content p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-        }
-
-        .hero-badges {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            background: #fff;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--primary-dark-teal);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-            border: 1px solid rgba(120, 181, 162, 0.3);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .hero-card {
-            background: #fff;
-            padding: 30px;
-            border-radius: 24px;
-            box-shadow: var(--shadow);
-            text-align: center;
-        }
-
-        .hero-card img {
-            width: 100%;
-            max-width: 320px;
-            height: auto;
-        }
+        .hero { padding: 150px 24px 80px; background: linear-gradient(135deg, rgba(120, 181, 162, 0.15) 0%, rgba(245, 249, 247, 1) 100%); }
+        .hero-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--deep-emerald); line-height: 1.2; margin-bottom: 20px; }
+        .hero-content p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; }
+        
+        .hero-card { background: #fff; padding: 20px; border-radius: 24px; box-shadow: var(--shadow); text-align: center; }
+        .hero-card img { width: 100%; max-width: 360px; border-radius: 16px; height: auto; }
 
         /* SECTIONS */
-        .section {
-            padding: 90px 24px;
-        }
+        .section { padding: 80px 24px; }
+        .section-title { text-align: center; max-width: 700px; margin: 0 auto 50px; }
+        .section-title h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--deep-emerald); margin-bottom: 10px; }
+        .section-title p { color: var(--text-muted); font-size: 1.05rem; }
 
-        .section-title {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 60px;
-        }
+        .services-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card { background: var(--bg-white); padding: 35px 30px; border-radius: 20px; box-shadow: var(--shadow); border-top: 4px solid var(--primary-teal); transition: var(--transition); }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--deep-emerald); margin-bottom: 14px; }
+        .service-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
 
-        .section-title h2 {
-            font-size: 2.2rem;
-            color: var(--deep-emerald);
-            margin-bottom: 12px;
-        }
+        /* TECH BOX */
+        .tech-box { background: linear-gradient(135deg, var(--deep-emerald), var(--primary-dark-teal)); color: #fff; border-radius: 24px; max-width: 1200px; margin: 40px auto 0; padding: 50px 40px; }
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 30px; }
+        .tech-card { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); padding: 25px; border-radius: 16px; }
 
-        .section-title p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-        }
+        /* CONTACT SECTION */
+        .contact-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .contact-info { background: #fff; padding: 40px; border-radius: 20px; box-shadow: var(--shadow); }
+        .info-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; }
+        .info-item i { width: 40px; height: 40px; background: rgba(120, 181, 162, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-dark-teal); font-size: 1.1rem; flex-shrink: 0; }
 
-        /* SERVICES GRID */
-        .services-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
+        .cta-box { background: linear-gradient(135deg, var(--primary-teal), var(--primary-dark-teal)); padding: 40px; border-radius: 20px; color: #fff; display: flex; flex-direction: column; justify-content: center; box-shadow: var(--shadow); }
+        .btn-whatsapp { background: #25D366; color: #fff; padding: 14px 28px; border-radius: 30px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; font-size: 1.05rem; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); transition: var(--transition); width: fit-content; }
+        .btn-whatsapp:hover { transform: translateY(-3px); }
 
-        .service-card {
-            background: var(--bg-white);
-            padding: 35px 30px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border-top: 4px solid var(--primary-teal);
-        }
+        footer { background: var(--deep-emerald); color: #fff; text-align: center; padding: 25px 24px; font-size: 0.88rem; }
+        .float-whatsapp { position: fixed; bottom: 25px; right: 25px; background: #25D366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.25); text-decoration: none; z-index: 999; transition: var(--transition); }
+        .float-whatsapp:hover { transform: scale(1.1); }
 
-        .service-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(120, 181, 162, 0.15);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-dark-teal);
-            font-size: 1.5rem;
-            margin-bottom: 24px;
-        }
-
-        .service-card h3 {
-            font-size: 1.4rem;
-            color: var(--deep-emerald);
-            margin-bottom: 14px;
-        }
-
-        .service-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        .service-list {
-            list-style: none;
-        }
-
-        .service-list li {
-            font-size: 0.9rem;
-            color: var(--text-dark);
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .service-list li i {
-            color: var(--accent-green);
-            font-size: 0.8rem;
-        }
-
-        /* TECH HIGHLIGHT (Laser & Ultrassom) */
-        .tech-box {
-            background: linear-gradient(135deg, var(--deep-emerald), var(--primary-dark-teal));
-            color: #fff;
-            border-radius: 24px;
-            max-width: 1200px;
-            margin: 40px auto 0;
-            padding: 50px 40px;
-        }
-
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .tech-card {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 25px;
-            border-radius: 16px;
-        }
-
-        .tech-card i {
-            font-size: 1.8rem;
-            color: var(--primary-teal);
-            margin-bottom: 12px;
-        }
-
-        .tech-card h4 {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-        }
-
-        .tech-card p {
-            font-size: 0.88rem;
-            opacity: 0.85;
-        }
-
-        /* GALLERY / CLINIC SHOWCASE */
-        .gallery-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .gallery-item {
-            background: var(--bg-white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .gallery-info {
-            padding: 20px;
-        }
-
-        .gallery-info h4 {
-            color: var(--deep-emerald);
-            font-size: 1.1rem;
-            margin-bottom: 6px;
-        }
-
-        .gallery-info p {
-            color: var(--text-muted);
-            font-size: 0.88rem;
-        }
-
-        /* CONTACT & FOOTER */
-        .contact-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .contact-info {
-            background: #fff;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-        }
-
-        .contact-info h3 {
-            font-size: 1.6rem;
-            color: var(--deep-emerald);
-            margin-bottom: 20px;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .info-item i {
-            width: 40px;
-            height: 40px;
-            background: rgba(120, 181, 162, 0.15);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-dark-teal);
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-
-        .cta-box {
-            background: linear-gradient(135deg, var(--primary-teal), var(--primary-dark-teal));
-            padding: 40px;
-            border-radius: 20px;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            box-shadow: var(--shadow);
-        }
-
-        .cta-box h3 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-
-        .cta-box p {
-            font-size: 1.05rem;
-            margin-bottom: 30px;
-            opacity: 0.95;
-        }
-
-        .btn-whatsapp {
-            background: #25D366;
-            color: #fff;
-            padding: 14px 28px;
-            border-radius: 30px;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.05rem;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            transition: var(--transition);
-            width: fit-content;
-        }
-
-        .btn-whatsapp:hover {
-            transform: translateY(-3px);
-        }
-
-        footer {
-            background: var(--deep-emerald);
-            color: #fff;
-            text-align: center;
-            padding: 25px 24px;
-            font-size: 0.88rem;
-        }
-
-        .float-whatsapp {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: #25D366;
-            color: #fff;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-            z-index: 999;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .float-whatsapp:hover {
-            transform: scale(1.1);
-        }
-
-        /* RESPONSIVO */
         @media (max-width: 900px) {
-            .hero-container, .contact-container {
-                grid-template-columns: 1fr;
-            }
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-            .nav-links {
-                display: none;
-            }
+            .hero-container, .contact-container { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -504,21 +97,15 @@
     <header>
         <nav class="nav-container">
             <a href="#" class="logo-box">
-                <!-- Substitua pelo caminho real da sua imagem da logo sem o fundo branco -->
-                <img src="logo.png" alt="Thamyres Lobo Logo">
-                <div class="logo-text">
-                    <span class="title">THAMYRES LOBO</span>
-                    <span class="subtitle">Pilates & Fisioterapia</span>
-                </div>
+                <img src="logo.png" alt="Thamyres Lobo Pilates e Fisioterapia">
             </a>
             <ul class="nav-links">
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#servicos">Serviços</a></li>
                 <li><a href="#tecnologia">Tecnologia</a></li>
-                <li><a href="#espaco">O Studio</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
-            <a href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20agendar%20um%20horário." class="btn-cta" target="_blank">
+            <a href="https://wa.me/5532999531990?text=Olá!%20Gostaria%20de%20agendar%20um%20horário." class="btn-cta" target="_blank">
                 <i class="fab fa-whatsapp"></i> Agendar Horário
             </a>
         </nav>
@@ -528,17 +115,11 @@
     <section class="hero" id="inicio">
         <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-badges">
-                    <span class="badge"><i class="fas fa-check-circle"></i> Pilates Personalizado</span>
-                    <span class="badge"><i class="fas fa-check-circle"></i> Fisioterapia Especializada</span>
-                </div>
                 <h1>O Movimento que Transforma. O Cuidado que Você Merece.</h1>
-                <p>Recupere sua mobilidade, melhore sua postura e viva sem dores com atendimento humanizado e técnicas avançadas de reabilitação física.</p>
-                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                    <a href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20agendar%20uma%20aula%20experimental." class="btn-cta" style="padding: 14px 28px; font-size: 1rem;" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Agendar Avaliação
-                    </a>
-                </div>
+                <p>Recupere sua mobilidade e viva sem dores com atendimento personalizado em Pilates e Fisioterapia em Cataguases - MG.</p>
+                <a href="https://wa.me/5532999531990?text=Olá!%20Gostaria%20de%20agendar%20uma%20avaliação." class="btn-cta" style="padding: 14px 28px; font-size: 1rem;" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Agendar Avaliação
+                </a>
             </div>
             <div class="hero-card">
                 <img src="logo.png" alt="Thamyres Lobo Pilates e Fisioterapia">
@@ -549,103 +130,42 @@
     <!-- SERVIÇOS -->
     <section class="section" id="servicos">
         <div class="section-title">
-            <h2>Tratamentos Integrados</h2>
-            <p>Combine o fortalecimento do Pilates com a precisão dos tratamentos fisioterapêuticos para garantir máxima qualidade de vida.</p>
+            <h2>Nossos Serviços</h2>
+            <p>Tratamentos especializados e atendimento individualizado para sua saúde.</p>
         </div>
         
         <div class="services-grid">
-            <!-- PILATES -->
             <div class="service-card">
-                <div class="service-icon"><i class="fas fa-child-reaching"></i></div>
                 <h3>Studio de Pilates</h3>
-                <p>Aulas personalizadas para fortalecimento postural, flexibilidade e estabilização do core.</p>
-                <ul class="service-list">
-                    <li><i class="fas fa-check"></i> Equipamentos completos (Reformer, Barrel, Chair)</li>
-                    <li><i class="fas fa-check"></i> Turmas reduzidas e atenção individual</li>
-                    <li><i class="fas fa-check"></i> Foco em prevenção de dores e alinhamento</li>
-                    <li><i class="fas fa-check"></i> Pilates para gestantes e idosos</li>
-                </ul>
+                <p>Aulas em aparelhos (Reformer, Barrel, Chair) focadas em fortalecimento postural, flexibilidade e equilíbrio.</p>
             </div>
-
-            <!-- FISIOTERAPIA MANUAL -->
             <div class="service-card">
-                <div class="service-icon"><i class="fas fa-hands-holding"></i></div>
                 <h3>Terapias Manuais</h3>
-                <p>Técnicas especializadas para alívio da dor muscular e restauração do movimento articular.</p>
-                <ul class="service-list">
-                    <li><i class="fas fa-check"></i> Liberação Miofascial</li>
-                    <li><i class="fas fa-check"></i> Mobilização e manipulação articular</li>
-                    <li><i class="fas fa-check"></i> Alívio de pontos de gatilho e tensões</li>
-                    <li><i class="fas fa-check"></i> Reabilitação postural funcional</li>
-                </ul>
+                <p>Liberação miofascial e mobilizações articulares direcionadas para o alívio imediato da dor muscular.</p>
             </div>
-
-            <!-- FISIOTERAPIA TECNOLÓGICA -->
             <div class="service-card">
-                <div class="service-icon"><i class="fas fa-heart-pulse"></i></div>
-                <h3>Eletrotermofototerapia</h3>
-                <p>Recursos tecnológicos para aceleração da recuperação e controle avançado de processos inflamatórios.</p>
-                <ul class="service-list">
-                    <li><i class="fas fa-check"></i> Aplicação de Laserterapia</li>
-                    <li><i class="fas fa-check"></i> Ultrassom Terapêutico</li>
-                    <li><i class="fas fa-check"></i> Redução rápida de dores e inchaços</li>
-                    <li><i class="fas fa-check"></i> Estímulo à cicatrização tecidual</li>
-                </ul>
+                <h3>Laser & Ultrassom</h3>
+                <p>Tratamento com eletrotermofototerapia para acelerar a regeneração e combater processos inflamatórios.</p>
             </div>
         </div>
 
-        <!-- DESTAQUE TECNOLÓGICO -->
+        <!-- TECNOLOGIA -->
         <div class="tech-box" id="tecnologia">
-            <h3 style="font-size: 1.8rem; margin-bottom: 10px;">Tecnologia Avançada para Alívio da Dor</h3>
-            <p style="opacity: 0.9; max-width: 600px;">Utilizamos equipamentos certificados que aceleram o processo de regeneração e garantem um tratamento mais eficiente.</p>
+            <h3 style="font-size: 1.8rem; margin-bottom: 10px;">Tecnologia no Tratamento da Dor</h3>
+            <p style="opacity: 0.9; max-width: 600px;">Equipamentos de alta precisão a serviço do seu bem-estar.</p>
             
             <div class="tech-grid">
                 <div class="tech-card">
-                    <i class="fas fa-compact-disc"></i>
-                    <h4>Laser Terapêutico</h4>
-                    <p>Atua diretamente na analgesia e no combate à inflamação, acelerando a recuperação de lesões musculares e articulares.</p>
+                    <h4 style="font-size: 1.2rem; margin-bottom: 8px;">Laser Terapêutico</h4>
+                    <p style="font-size: 0.88rem; opacity: 0.85;">Analgesia e ação anti-inflamatória em lesões musculares e articulares.</p>
                 </div>
                 <div class="tech-card">
-                    <i class="fas fa-wave-square"></i>
-                    <h4>Ultrassom</h4>
-                    <p>Promove efeitos térmicos e mecânicos profundos, estimulando a circulação sanguínea e a flexibilidade dos tecidos.</p>
+                    <h4 style="font-size: 1.2rem; margin-bottom: 8px;">Ultrassom</h4>
+                    <p style="font-size: 0.88rem; opacity: 0.85;">Estímulo profundo da circulação sanguínea e recuperação tecidual.</p>
                 </div>
                 <div class="tech-card">
-                    <i class="fas fa-user-shield"></i>
-                    <h4>Atendimento Personalizado</h4>
-                    <p>Protocolos montados sob medida para a sua necessidade específica após uma avaliação criteriosa.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- O STUDIO -->
-    <section class="section" id="espaco" style="background: var(--bg-white);">
-        <div class="section-title">
-            <h2>Conheça a Nossa Clínica</h2>
-            <p>Um ambiente preparado para oferecer o máximo conforto, climatizado e equipado com aparelhos de alta qualidade.</p>
-        </div>
-
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="foto_barrel.jpg" alt="Equipamento Barrel no Studio">
-                <div class="gallery-info">
-                    <h4>Espaço de Pilates & Barrel</h4>
-                    <p>Trabalho focado em extensão da coluna, postura e flexibilidade.</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="foto_reformer.jpg" alt="Equipamento Reformer">
-                <div class="gallery-info">
-                    <h4>Reformer & Estação de Exercícios</h4>
-                    <p>Exercícios com resistência controlada para fortalecimento seguro.</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="foto_clinica.jpg" alt="Ambiente do Studio">
-                <div class="gallery-info">
-                    <h4>Estrutura Completa</h4>
-                    <p>Espaço climatizado, aconchegante e totalmente higienizado.</p>
+                    <h4 style="font-size: 1.2rem; margin-bottom: 8px;">Avaliação Individual</h4>
+                    <p style="font-size: 0.88rem; opacity: 0.85;">Protocolos exclusivos desenhados sob medida para suas necessidades.</p>
                 </div>
             </div>
         </div>
@@ -655,39 +175,38 @@
     <section class="section" id="contato">
         <div class="contact-container">
             <div class="contact-info">
-                <h3>Agende sua Visita</h3>
-                <p style="color: var(--text-muted); margin-bottom: 25px;">Estamos prontos para atender você com toda a dedicação.</p>
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--deep-emerald); margin-bottom: 20px;">Entre em Contato</h3>
                 
                 <div class="info-item">
                     <i class="fas fa-map-marker-alt"></i>
                     <div>
-                        <h5 style="color: var(--deep-emerald);">Localização</h5>
-                        <p style="color: var(--text-muted); font-size: 0.9rem;">Insira o endereço da sua clínica aqui</p>
+                        <h5 style="color: var(--deep-emerald); font-size: 1rem;">Endereço</h5>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">Rua Nogueira Neves, 22 - Loja 07<br>Centro - Cataguases / MG</p>
                     </div>
                 </div>
 
                 <div class="info-item">
                     <i class="fab fa-whatsapp"></i>
                     <div>
-                        <h5 style="color: var(--deep-emerald);">WhatsApp</h5>
-                        <p style="color: var(--text-muted); font-size: 0.9rem;">(00) 90000-0000</p>
+                        <h5 style="color: var(--deep-emerald); font-size: 1rem;">WhatsApp</h5>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">(32) 99953-1990</p>
                     </div>
                 </div>
 
                 <div class="info-item">
                     <i class="fas fa-clock"></i>
                     <div>
-                        <h5 style="color: var(--deep-emerald);">Horário de Atendimento</h5>
-                        <p style="color: var(--text-muted); font-size: 0.9rem;">Segunda a Sexta: 07:00 às 20:00</p>
+                        <h5 style="color: var(--deep-emerald); font-size: 1rem;">Atendimento</h5>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">Agendamento prévio</p>
                     </div>
                 </div>
             </div>
 
             <div class="cta-box">
-                <h3>Pronto para viver com mais qualidade?</h3>
-                <p>Clique abaixo e fale diretamente conosco via WhatsApp para tirar dúvidas ou agendar sua consulta.</p>
-                <a href="https://wa.me/5500000000000?text=Olá!%20Quero%20agendar%20um%20horário." class="btn-whatsapp" target="_blank">
-                    <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 15px;">Pronto para transformar sua saúde?</h3>
+                <p style="margin-bottom: 25px; opacity: 0.95;">Clique no botão abaixo para agendar sua avaliação diretamente no WhatsApp.</p>
+                <a href="https://wa.me/5532999531990?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20horário." class="btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Conversar no WhatsApp
                 </a>
             </div>
         </div>
@@ -699,7 +218,7 @@
     </footer>
 
     <!-- BOTÃO FIXO WHATSAPP -->
-    <a href="https://wa.me/5500000000000?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20informações." class="float-whatsapp" target="_blank" title="Fale conosco no WhatsApp">
+    <a href="https://wa.me/5532999531990?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20informações." class="float-whatsapp" target="_blank" title="Fale conosco no WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
