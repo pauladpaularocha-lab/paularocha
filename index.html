@@ -31,13 +31,13 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Montserrat', sans-serif; background-color: var(--bg-cream); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
 
-        /* HEADER & NAVIGATION MEJORADO */
+        /* HEADER & NAVIGATION */
         header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 1000; box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 24px; }
         .logo-box { display: flex; align-items: center; text-decoration: none; }
         .logo-box img { height: 50px; width: auto; border-radius: 6px; display: block; }
 
-        /* MENU MAIS AMIGÁVEL & INTERATIVO */
+        /* MENU INTERATIVO */
         .nav-links { display: flex; list-style: none; gap: 12px; align-items: center; }
         
         .nav-links a { 
@@ -48,12 +48,11 @@
             padding: 8px 18px;
             border-radius: 20px;
             transition: var(--transition);
-            position: relative;
         }
 
         .nav-links a:hover { 
             color: var(--primary-dark-teal); 
-            background: rgba(120, 181, 162, 0.18); /* Cápsula suave no hover */
+            background: rgba(120, 181, 162, 0.18); 
         }
 
         .btn-cta { background: linear-gradient(135deg, var(--primary-dark-teal), var(--deep-emerald)); color: #fff !important; padding: 10px 22px; border-radius: 30px; font-weight: 600 !important; box-shadow: 0 4px 15px rgba(31, 110, 109, 0.25); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: var(--transition); }
@@ -112,48 +111,122 @@
         .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--deep-emerald); margin-bottom: 14px; }
         .service-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
 
-        /* TECH BOX / DIFERENCIAIS AMIGÁVEIS */
-        .tech-box { 
-            background: linear-gradient(135deg, var(--deep-emerald), var(--primary-dark-teal)); 
-            color: #fff; 
-            border-radius: 28px; 
-            max-width: 1200px; 
-            margin: 50px auto 0; 
-            padding: 50px 40px; 
-            box-shadow: 0 15px 35px rgba(20, 80, 67, 0.15);
+        /* SEÇÃO QUEM SOMOS */
+        .about-section {
+            background: var(--bg-white);
         }
 
-        .tech-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
-            gap: 25px; 
-            margin-top: 35px; 
+        .about-box {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(120, 181, 162, 0.12) 0%, rgba(245, 249, 247, 0.8) 100%);
+            border: 1px solid rgba(120, 181, 162, 0.3);
+            border-radius: 28px;
+            padding: 50px 40px;
+            box-shadow: var(--shadow);
         }
 
-        .tech-card { 
-            background: rgba(255, 255, 255, 0.1); 
-            border: 1px solid rgba(255, 255, 255, 0.2); 
-            padding: 30px 25px; 
-            border-radius: 20px; 
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            margin-bottom: 18px;
+            line-height: 1.8;
+        }
+
+        .team-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .team-card {
+            background: #ffffff;
+            padding: 24px;
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(20, 80, 67, 0.05);
+            border-left: 4px solid var(--primary-dark-teal);
+        }
+
+        .team-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--deep-emerald);
+            margin-bottom: 6px;
+        }
+
+        .team-card span {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-dark-teal);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .team-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        /* GALERIA DO STUDIO */
+        .gallery-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .gallery-card {
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(120, 181, 162, 0.2);
             transition: var(--transition);
         }
 
-        .tech-card:hover {
-            background: rgba(255, 255, 255, 0.16);
-            transform: translateY(-4px);
+        .gallery-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(20, 80, 67, 0.12);
         }
 
-        .tech-card-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.18);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            color: #fff;
-            margin-bottom: 18px;
+        .gallery-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.03);
+        }
+
+        .gallery-caption {
+            padding: 20px 24px;
+            background: #fff;
+        }
+
+        .gallery-caption h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--deep-emerald);
+            margin-bottom: 6px;
+        }
+
+        .gallery-caption p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
         }
 
         /* CONTACT SECTION */
@@ -186,7 +259,8 @@
             <ul class="nav-links">
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#servicos">Nossos Cuidados</a></li>
-                <li><a href="#diferenciais">Por que Nós?</a></li>
+                <li><a href="#quemsomos">Quem Somos</a></li>
+                <li><a href="#espaco">Nosso Espaço</a></li>
                 <li><a href="#contato">Fale Conosco</a></li>
             </ul>
             <a href="https://wa.me/5532999531990?text=Olá!%20Gostaria%20de%20agendar%20um%20horário." class="btn-cta" target="_blank">
@@ -232,34 +306,75 @@
                 <p>Aplicação de Laser Terapêutico e Ultrassom para acelerar a regeneração tecidual e combater processos inflamatórios.</p>
             </div>
         </div>
+    </section>
 
-        <!-- DIFERENCIAIS AMIGÁVEIS DA CLÍNICA -->
-        <div class="tech-box" id="diferenciais">
-            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 10px;">Por que Escolher a Nossa Clínica?</h3>
-            <p style="opacity: 0.9; max-width: 600px; font-size: 1rem;">Um ambiente tranquilo e dedicado inteiramente ao seu bem-estar e à sua saúde.</p>
-            
-            <div class="tech-grid">
-                <div class="tech-card">
-                    <div class="tech-card-icon"><i class="fas fa-heart"></i></div>
-                    <h4 style="font-size: 1.2rem; margin-bottom: 8px;">Cuidado Único</h4>
-                    <p style="font-size: 0.9rem; opacity: 0.9;">Atenção dedicada do início ao fim, respeitando o seu ritmo e os seus objetivos de saúde.</p>
+    <!-- SEÇÃO QUEM SOMOS -->
+    <section class="section about-section" id="quemsomos">
+        <div class="section-title">
+            <h2>Quem Somos</h2>
+            <p>Tradição, dedicação e paixão pelo cuidado com a sua saúde e bem-estar.</p>
+        </div>
+
+        <div class="about-box">
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Há mais de 2 anos no mercado, o nosso Studio nasceu com a missão de oferecer um espaço de acolhimento e transformação através do movimento e da reabilitação física de excelência em Cataguases.</p>
+                    <p>Acreditamos que cada pessoa possui necessidades únicas. Por isso, nosso compromisso é proporcionar um atendimento personalizado, seguro e focado na sua melhor qualidade de vida.</p>
                 </div>
-                <div class="tech-card">
-                    <div class="tech-card-icon"><i class="fas fa-magic"></i></div>
-                    <h4 style="font-size: 1.2rem; margin-bottom: 8px;">Tecnologia & Conforto</h4>
-                    <p style="font-size: 0.9rem; opacity: 0.9;">Equipamentos modernos que ajudam na sua recuperação de forma rápida e sem desconforto.</p>
+
+                <div class="team-highlights">
+                    <div class="team-card">
+                        <h4>Thamyres Lobo</h4>
+                        <span>Responsável Principal</span>
+                        <p>Fisioterapeuta com mais de 7 anos de experiência no mercado, dedicada a transformar a vida de seus pacientes através do Pilates e da reabilitação física.</p>
+                    </div>
+
+                    <div class="team-card">
+                        <h4>Micaelly Saraiva</h4>
+                        <span>Equipe de Fisioterapia & Pilates</span>
+                        <p>Integrante essencial do nosso time, trazendo atendimento cuidadoso, técnico e focado na evolução individual de cada aluno e paciente.</p>
+                    </div>
                 </div>
-                <div class="tech-card">
-                    <div class="tech-card-icon"><i class="fas fa-smile"></i></div>
-                    <h4 style="font-size: 1.2rem; margin-bottom: 8px;">Ambiente Aconchegante</h4>
-                    <p style="font-size: 0.9rem; opacity: 0.9;">Espaço climatizado, bem localizado no Centro e preparado para você se sentir em casa.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOSSO ESPAÇO / STUDIO -->
+    <section class="section" id="espaco">
+        <div class="section-title">
+            <h2>Conheça o Nosso Studio</h2>
+            <p>Um ambiente moderno, aconchegante e totalmente climatizado para sua melhor experiência.</p>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-card">
+                <img src="studio1.jpg" alt="Aparelhos de Pilates no Studio">
+                <div class="gallery-caption">
+                    <h4>Equipamentos Completos</h4>
+                    <p>Aparelhos modernos para trabalhar força, mobilidade e postura de forma segura.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <img src="studio2.jpg" alt="Espaço do Studio de Pilates">
+                <div class="gallery-caption">
+                    <h4>Ambiente Aconchegante</h4>
+                    <p>Estrutura pensada para o seu conforto, foco e tranquilidade a cada sessão.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <img src="studio3.jpg" alt="Atendimento de Fisioterapia e Pilates">
+                <div class="gallery-caption">
+                    <h4>Atendimento Personalizado</h4>
+                    <p>Acompanhamento próximo e individualizado para você alcançar seus objetivos.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CONTATO -->
-    <section class="section" id="contato">
+    <section class="section" id="contato" style="background: var(--bg-white);">
         <div class="contact-container">
             <div class="contact-info">
                 <h3 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--deep-emerald); margin-bottom: 20px;">Entre em Contato</h3>
