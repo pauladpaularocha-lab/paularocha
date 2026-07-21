@@ -237,8 +237,29 @@
         /* CONTACT SECTION */
         .contact-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
         .contact-info { background: #fff; padding: 40px; border-radius: 20px; box-shadow: var(--shadow); }
-        .info-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; }
-        .info-item i { width: 40px; height: 40px; background: rgba(120, 181, 162, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-dark-teal); font-size: 1.1rem; flex-shrink: 0; }
+        .info-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 24px; }
+        
+        /* ESTILIZAÇÃO DOS ÍCONES COM CORES VIBRANTES E ESPECÍFICAS */
+        .info-item .icon-bg { 
+            width: 46px; 
+            height: 46px; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 1.15rem; 
+            flex-shrink: 0; 
+            transition: var(--transition);
+        }
+
+        .icon-map { background: rgba(229, 62, 62, 0.12); color: #E53E3E; }
+        .icon-whatsapp { background: rgba(37, 211, 102, 0.15); color: #25D366; }
+        .icon-instagram { background: rgba(225, 48, 108, 0.12); color: #E1306C; }
+        .icon-clock { background: rgba(214, 158, 46, 0.15); color: #D69E2E; }
+
+        .info-item:hover .icon-bg {
+            transform: scale(1.08);
+        }
 
         .cta-box { background: linear-gradient(135deg, var(--primary-teal), var(--primary-dark-teal)); padding: 40px; border-radius: 20px; color: #fff; display: flex; flex-direction: column; justify-content: center; box-shadow: var(--shadow); }
         .btn-whatsapp { background: #25D366; color: #fff; padding: 14px 28px; border-radius: 30px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; font-size: 1.05rem; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); transition: var(--transition); width: fit-content; }
@@ -267,11 +288,6 @@
                 <li><a href="#quemsomos">Quem Somos</a></li>
                 <li><a href="#espaco">Nosso Espaço</a></li>
                 <li><a href="#contato">Fale Conosco</a></li>
-                <li>
-                    <a href="https://www.instagram.com/fisiothamyreslobo/" target="_blank" title="Siga-nos no Instagram" style="display: inline-flex; align-items: center; gap: 6px;">
-                        <i class="fab fa-instagram" style="font-size: 1.1rem; color: var(--primary-dark-teal);"></i> Instagram
-                    </a>
-                </li>
             </ul>
             <a href="https://wa.me/5532999531990?text=Olá!%20Gostaria%20de%20agendar%20um%20horário." class="btn-cta" target="_blank">
                 <i class="fab fa-whatsapp"></i> Agendar Horário
@@ -390,7 +406,9 @@
                 <h3 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--deep-emerald); margin-bottom: 20px;">Entre em Contato</h3>
                 
                 <div class="info-item">
-                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="icon-bg icon-map">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
                     <div>
                         <h5 style="color: var(--deep-emerald); font-size: 1rem;">Endereço</h5>
                         <p style="color: var(--text-muted); font-size: 0.95rem;">Rua Nogueira Neves, 22 - Loja 07<br>Centro - Cataguases / MG</p>
@@ -398,7 +416,9 @@
                 </div>
 
                 <div class="info-item">
-                    <i class="fab fa-whatsapp"></i>
+                    <div class="icon-bg icon-whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
                     <div>
                         <h5 style="color: var(--deep-emerald); font-size: 1rem;">WhatsApp</h5>
                         <p style="color: var(--text-muted); font-size: 0.95rem;">(32) 99953-1990</p>
@@ -406,7 +426,9 @@
                 </div>
 
                 <div class="info-item">
-                    <i class="fab fa-instagram"></i>
+                    <div class="icon-bg icon-instagram">
+                        <i class="fab fa-instagram"></i>
+                    </div>
                     <div>
                         <h5 style="color: var(--deep-emerald); font-size: 1rem;">Instagram</h5>
                         <p style="color: var(--text-muted); font-size: 0.95rem;">
@@ -418,7 +440,9 @@
                 </div>
 
                 <div class="info-item">
-                    <i class="fas fa-clock"></i>
+                    <div class="icon-bg icon-clock">
+                        <i class="fas fa-clock"></i>
+                    </div>
                     <div>
                         <h5 style="color: var(--deep-emerald); font-size: 1rem;">Horário de Atendimento</h5>
                         <p style="color: var(--text-muted); font-size: 0.95rem;">Segunda a Sexta: 07h às 12h e 14h às 19h<br><small style="opacity: 0.8;">(Atendimento mediante agendamento prévio)</small></p>
