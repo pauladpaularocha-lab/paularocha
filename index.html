@@ -31,15 +31,30 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Montserrat', sans-serif; background-color: var(--bg-cream); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
 
-        /* HEADER & NAVIGATION */
+        /* HEADER & NAVIGATION MEJORADO */
         header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 1000; box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 10px 24px; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 24px; }
         .logo-box { display: flex; align-items: center; text-decoration: none; }
         .logo-box img { height: 50px; width: auto; border-radius: 6px; display: block; }
 
-        .nav-links { display: flex; list-style: none; gap: 28px; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 0.95rem; transition: var(--transition); }
-        .nav-links a:hover { color: var(--primary-dark-teal); }
+        /* MENU MAIS AMIGÁVEL & INTERATIVO */
+        .nav-links { display: flex; list-style: none; gap: 12px; align-items: center; }
+        
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--text-dark); 
+            font-weight: 600; 
+            font-size: 0.92rem; 
+            padding: 8px 18px;
+            border-radius: 20px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover { 
+            color: var(--primary-dark-teal); 
+            background: rgba(120, 181, 162, 0.18); /* Cápsula suave no hover */
+        }
 
         .btn-cta { background: linear-gradient(135deg, var(--primary-dark-teal), var(--deep-emerald)); color: #fff !important; padding: 10px 22px; border-radius: 30px; font-weight: 600 !important; box-shadow: 0 4px 15px rgba(31, 110, 109, 0.25); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: var(--transition); }
         .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(31, 110, 109, 0.35); }
@@ -170,9 +185,9 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#inicio">Início</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#diferenciais">Diferenciais</a></li>
-                <li><a href="#contato">Contato</a></li>
+                <li><a href="#servicos">Nossos Cuidados</a></li>
+                <li><a href="#diferenciais">Por que Nós?</a></li>
+                <li><a href="#contato">Fale Conosco</a></li>
             </ul>
             <a href="https://wa.me/5532999531990?text=Olá!%20Gostaria%20de%20agendar%20um%20horário." class="btn-cta" target="_blank">
                 <i class="fab fa-whatsapp"></i> Agendar Horário
