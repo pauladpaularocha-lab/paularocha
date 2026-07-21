@@ -53,7 +53,7 @@
         .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--deep-emerald); line-height: 1.2; margin-bottom: 20px; }
         .hero-content p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; }
         
-        /* CARD DA LOGO REFINADO E COM FLUTUAÇÃO SUAVE */
+        /* CARD DA LOGO REFINADO */
         .hero-card { 
             background: #ffffff; 
             padding: 20px; 
@@ -97,10 +97,49 @@
         .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--deep-emerald); margin-bottom: 14px; }
         .service-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
 
-        /* TECH BOX / DIFERENCIAIS */
-        .tech-box { background: linear-gradient(135deg, var(--deep-emerald), var(--primary-dark-teal)); color: #fff; border-radius: 24px; max-width: 1200px; margin: 40px auto 0; padding: 50px 40px; }
-        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 30px; }
-        .tech-card { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); padding: 25px; border-radius: 16px; }
+        /* TECH BOX / DIFERENCIAIS AMIGÁVEIS */
+        .tech-box { 
+            background: linear-gradient(135deg, var(--deep-emerald), var(--primary-dark-teal)); 
+            color: #fff; 
+            border-radius: 28px; 
+            max-width: 1200px; 
+            margin: 50px auto 0; 
+            padding: 50px 40px; 
+            box-shadow: 0 15px 35px rgba(20, 80, 67, 0.15);
+        }
+
+        .tech-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+            gap: 25px; 
+            margin-top: 35px; 
+        }
+
+        .tech-card { 
+            background: rgba(255, 255, 255, 0.1); 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            padding: 30px 25px; 
+            border-radius: 20px; 
+            transition: var(--transition);
+        }
+
+        .tech-card:hover {
+            background: rgba(255, 255, 255, 0.16);
+            transform: translateY(-4px);
+        }
+
+        .tech-card-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.18);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 18px;
+        }
 
         /* CONTACT SECTION */
         .contact-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -179,23 +218,26 @@
             </div>
         </div>
 
-        <!-- DIFERENCIAIS DA CLÍNICA -->
+        <!-- DIFERENCIAIS AMIGÁVEIS DA CLÍNICA -->
         <div class="tech-box" id="diferenciais">
-            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 10px;">Diferenciais do Nosso Atendimento</h3>
-            <p style="opacity: 0.9; max-width: 600px;">Um espaço pensado para sua evolução contínua e bem-estar.</p>
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 10px;">Por que Escolher a Nossa Clínica?</h3>
+            <p style="opacity: 0.9; max-width: 600px; font-size: 1rem;">Um ambiente tranquilo e dedicado inteiramente ao seu bem-estar e à sua saúde.</p>
             
             <div class="tech-grid">
                 <div class="tech-card">
-                    <h4 style="font-size: 1.2rem; margin-bottom: 8px;">Atendimento Individualizado</h4>
-                    <p style="font-size: 0.88rem; opacity: 0.85;">Avaliação criteriosa e protocolos exclusivos desenhados sob medida para seu objetivo.</p>
+                    <div class="tech-card-icon"><i class="fas fa-heart"></i></div>
+                    <h4 style="font-size: 1.2rem; margin-bottom: 8px;">Cuidado Único</h4>
+                    <p style="font-size: 0.9rem; opacity: 0.9;">Atenção dedicada do início ao fim, respeitando o seu ritmo e os seus objetivos de saúde.</p>
                 </div>
                 <div class="tech-card">
-                    <h4 style="font-size: 1.2rem; margin-bottom: 8px;">Tecnologia de Ponta</h4>
-                    <p style="font-size: 0.88rem; opacity: 0.85;">Equipamentos modernos que potencializam a analgesia e a recuperação rápida.</p>
+                    <div class="tech-card-icon"><i class="fas fa-magic"></i></div>
+                    <h4 style="font-size: 1.2rem; margin-bottom: 8px;">Tecnologia & Conforto</h4>
+                    <p style="font-size: 0.9rem; opacity: 0.9;">Equipamentos modernos que ajudam na sua recuperação de forma rápida e sem desconforto.</p>
                 </div>
                 <div class="tech-card">
-                    <h4 style="font-size: 1.2rem; margin-bottom: 8px;">Espaço Confortável</h4>
-                    <p style="font-size: 0.88rem; opacity: 0.85;">Ambiente climatizado, totalmente equipado e com localização central no município.</p>
+                    <div class="tech-card-icon"><i class="fas fa-smile"></i></div>
+                    <h4 style="font-size: 1.2rem; margin-bottom: 8px;">Ambiente Aconchegante</h4>
+                    <p style="font-size: 0.9rem; opacity: 0.9;">Espaço climatizado, bem localizado no Centro e preparado para você se sentir em casa.</p>
                 </div>
             </div>
         </div>
