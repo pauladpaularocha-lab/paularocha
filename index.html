@@ -115,24 +115,19 @@
         .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--deep-emerald); margin-bottom: 14px; }
         .service-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
 
-        /* SEÇÃO QUEM SOMOS */
+        /* SEÇÃO QUEM SOMOS - MOLDURA ÚNICA UNIFICADA */
         .about-section {
             background: var(--bg-white);
         }
 
-        .about-wrapper {
+        .about-box {
             max-width: 1200px;
             margin: 0 auto;
-        }
-
-        /* FUNDO SUAVE E ELEGANTE PARA A APRESENTAÇÃO */
-        .about-content-card {
             background: linear-gradient(135deg, rgba(120, 181, 162, 0.12) 0%, rgba(245, 249, 247, 0.8) 100%);
-            border: 1px solid rgba(120, 181, 162, 0.25);
+            border: 1px solid rgba(120, 181, 162, 0.3);
             border-radius: 28px;
-            padding: 45px 35px;
-            margin-bottom: 40px;
-            box-shadow: 0 8px 25px rgba(20, 80, 67, 0.04);
+            padding: 50px 40px;
+            box-shadow: var(--shadow);
         }
 
         .about-manifesto {
@@ -155,14 +150,14 @@
             line-height: 1.8;
         }
 
-        /* ESTATÍSTICAS MINIMALISTAS DENTRO DO PAINEL SUAVE */
+        /* ESTATÍSTICAS MINIMALISTAS */
         .stats-inline {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 40px;
             flex-wrap: wrap;
-            padding-top: 10px;
+            margin-bottom: 45px;
         }
 
         .stat-item {
@@ -197,12 +192,13 @@
             gap: 30px;
         }
 
+        /* CARDS DA EQUIPE INTEGRADOS NA MESMA CAIXA DE FUNDO */
         .team-card {
-            background: var(--bg-cream);
+            background: #ffffff;
             padding: 32px 28px;
-            border-radius: 24px;
-            box-shadow: var(--shadow);
-            border-top: 4px solid var(--primary-dark-teal);
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(20, 80, 67, 0.05);
+            border-left: 4px solid var(--primary-dark-teal);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
         }
@@ -511,41 +507,39 @@
         </div>
     </section>
 
-    <!-- SEÇÃO QUEM SOMOS (COM PAINEL SUAVE) -->
+    <!-- SEÇÃO QUEM SOMOS (TUDO INTEGRADO NA MESMA CAIXA) -->
     <section class="section about-section" id="quemsomos">
         <div class="section-title">
             <h2>Quem Somos</h2>
             <p>Comprometimento, dedicação e paixão pelo cuidado com a sua saúde e bem-estar.</p>
         </div>
 
-        <div class="about-wrapper">
-            <!-- MOLDURA SUAVE DE FUNDO -->
-            <div class="about-content-card">
-                <div class="about-manifesto">
-                    <h3>Um espaço criado com o propósito de oferecer saúde, reabilitação e qualidade de vida.</h3>
-                    <p>Aqui no Studio, entendemos que cada corpo tem sua história. Por isso, nosso compromisso é oferecer um acompanhamento atencioso, seguro e humanizado, guiado por profissionais qualificadas e apaixonadas pelo que fazem.</p>
-                </div>
+        <div class="about-box">
+            <!-- MENSAGEM -->
+            <div class="about-manifesto">
+                <h3>Um espaço criado com o propósito de oferecer saúde, reabilitação e qualidade de vida.</h3>
+                <p>Aqui no Studio, entendemos que cada corpo tem sua história. Por isso, nosso compromisso é oferecer um acompanhamento atencioso, seguro e humanizado, guiado por profissionais qualificadas e apaixonadas pelo que fazem.</p>
+            </div>
 
-                <!-- ESTATÍSTICAS MINIMALISTAS -->
-                <div class="stats-inline">
-                    <div class="stat-item">
-                        <div class="stat-number">+2 Anos</div>
-                        <div class="stat-desc">de história em Cataguases</div>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <div class="stat-number">+7 Anos</div>
-                        <div class="stat-desc">de experiência clínica</div>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-desc">foco no seu bem-estar</div>
-                    </div>
+            <!-- ESTATÍSTICAS -->
+            <div class="stats-inline">
+                <div class="stat-item">
+                    <div class="stat-number">+2 Anos</div>
+                    <div class="stat-desc">de história em Cataguases</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">+7 Anos</div>
+                    <div class="stat-desc">de experiência clínica</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-desc">foco no seu bem-estar</div>
                 </div>
             </div>
 
-            <!-- EQUIPE -->
+            <!-- EQUIPE DENTRO DO MESMO PAINEL -->
             <div class="team-highlights">
                 <div class="team-card">
                     <h4>Thamyres Lobo</h4>
