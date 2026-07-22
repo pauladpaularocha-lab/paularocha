@@ -115,7 +115,7 @@
         .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--deep-emerald); margin-bottom: 14px; }
         .service-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
 
-        /* SEÇÃO QUEM SOMOS - MOLDURA ÚNICA UNIFICADA */
+        /* SEÇÃO QUEM SOMOS */
         .about-section {
             background: var(--bg-white);
         }
@@ -192,20 +192,34 @@
             gap: 30px;
         }
 
-        /* CARDS DA EQUIPE INTEGRADOS NA MESMA CAIXA DE FUNDO */
+        /* CARDS DA EQUIPE COM FOTO E MOUSE-HOVER */
         .team-card {
             background: #ffffff;
-            padding: 32px 28px;
-            border-radius: 20px;
+            border-radius: 24px;
+            overflow: hidden;
             box-shadow: 0 6px 20px rgba(20, 80, 67, 0.05);
-            border-left: 4px solid var(--primary-dark-teal);
+            border: 1px solid rgba(120, 181, 162, 0.25);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
+            display: flex;
+            flex-direction: column;
         }
 
         .team-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 16px 35px rgba(20, 80, 67, 0.12);
+        }
+
+        .team-avatar {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+        }
+
+        .team-info {
+            padding: 28px 24px;
         }
 
         .team-card h4 {
@@ -507,7 +521,7 @@
         </div>
     </section>
 
-    <!-- SEÇÃO QUEM SOMOS (TUDO INTEGRADO NA MESMA CAIXA) -->
+    <!-- SEÇÃO QUEM SOMOS -->
     <section class="section about-section" id="quemsomos">
         <div class="section-title">
             <h2>Quem Somos</h2>
@@ -539,18 +553,23 @@
                 </div>
             </div>
 
-            <!-- EQUIPE DENTRO DO MESMO PAINEL -->
+            <!-- EQUIPE COM FOTO DA THAMYRES -->
             <div class="team-highlights">
                 <div class="team-card">
-                    <h4>Thamyres Lobo</h4>
-                    <span>Fisioterapeuta & Instrutora de Pilates</span>
-                    <p>Responsável principal pelo Studio, é fisioterapeuta com mais de 7 anos de experiência de mercado e formação especializada em Pilates, dedicada a promover saúde e reabilitação integrativa.</p>
+                    <img src="thamyres.jpeg" alt="Thamyres Lobo Fisioterapeuta" class="team-avatar" onclick="openModal(this)">
+                    <div class="team-info">
+                        <h4>Thamyres Lobo</h4>
+                        <span>Fisioterapeuta & Instrutora de Pilates</span>
+                        <p>Responsável principal pelo Studio, é fisioterapeuta com mais de 7 anos de experiência de mercado e formação especializada em Pilates, dedicada a promover saúde e reabilitação integrativa.</p>
+                    </div>
                 </div>
 
                 <div class="team-card">
-                    <h4>Micaelly Saraiva</h4>
-                    <span>Fisioterapeuta & Instrutora de Pilates</span>
-                    <p>Fisioterapeuta com curso de formação em Pilates, integra nossa equipe com um olhar cuidadoso, técnico e focado no bem-estar e na evolução contínua de cada paciente.</p>
+                    <div class="team-info" style="padding-top: 32px;">
+                        <h4>Micaelly Saraiva</h4>
+                        <span>Fisioterapeuta & Instrutora de Pilates</span>
+                        <p>Fisioterapeuta com curso de formação em Pilates, integra nossa equipe com um olhar cuidadoso, técnico e focado no bem-estar e na evolução contínua de cada paciente.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -560,7 +579,7 @@
     <section class="section" id="espaco">
         <div class="section-title">
             <h2>Conheça o Nosso Studio</h2>
-            <p>Um espaço aconchegante, climatizado e preparado com todo o carinho para você se sentir em casa.</p>
+            <p>Um espaço aconchegante, climatizado e prepared com todo o carinho para você se sentir em casa.</p>
         </div>
 
         <div class="gallery-grid">
