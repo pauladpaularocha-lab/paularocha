@@ -236,7 +236,7 @@
             width: 100%;
             height: 380px; 
             object-fit: cover;
-            object-position: center 70%; /* Ajustado para enquadrar a Thamyres */
+            object-position: center 70%; /* Foco exatamente no rosto da Thamyres */
             display: block;
         }
 
@@ -268,7 +268,7 @@
             line-height: 1.6;
         }
 
-        /* GALERIA DO STUDIO */
+        /* GALERIA DO STUDIO COM DESTAQUE DESTACADO NAS IMAGENS */
         .gallery-grid {
             max-width: 1200px;
             margin: 0 auto;
@@ -281,19 +281,26 @@
             background: #fff;
             border-radius: 24px;
             overflow: hidden;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(120, 181, 162, 0.2);
+            box-shadow: 0 8px 25px rgba(20, 80, 67, 0.08);
+            border: 2px solid rgba(120, 181, 162, 0.35);
             transition: var(--transition);
+            position: relative;
         }
 
         .gallery-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 15px 35px rgba(20, 80, 67, 0.12);
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(20, 80, 67, 0.18);
+            border-color: var(--primary-dark-teal);
+        }
+
+        .img-container {
+            position: relative;
+            overflow: hidden;
         }
 
         .gallery-card img {
             width: 100%;
-            height: 260px;
+            height: 270px;
             object-fit: cover;
             display: block;
             transition: transform 0.5s ease;
@@ -301,17 +308,41 @@
         }
 
         .gallery-card:hover img {
-            transform: scale(1.03);
+            transform: scale(1.05);
+        }
+
+        /* ETIQUETA "CLIQUE PARA AMPLIAR" */
+        .zoom-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(20, 80, 67, 0.82);
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            backdrop-filter: blur(4px);
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .gallery-card:hover .zoom-badge {
+            background: var(--primary-dark-teal);
+            transform: scale(1.05);
         }
 
         .gallery-caption {
-            padding: 20px 24px;
+            padding: 22px 24px;
             background: #fff;
         }
 
         .gallery-caption h4 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: var(--deep-emerald);
             margin-bottom: 6px;
         }
@@ -584,7 +615,7 @@
             <!-- EQUIPE COM FOTO DA THAMYRES -->
             <div class="team-highlights">
                 <div class="team-card">
-                    <img src="thamyres1.jpeg" alt="Thamyres Lobo Fisioterapeuta" class="team-avatar" onclick="openModal(this)">
+                    <img src="thamyres.jpeg" alt="Thamyres Lobo Fisioterapeuta" class="team-avatar" onclick="openModal(this)">
                     <div class="team-info">
                         <h4>Thamyres Lobo</h4>
                         <span>Fisioterapeuta & Instrutora de Pilates</span>
@@ -615,7 +646,10 @@
 
         <div class="gallery-grid">
             <div class="gallery-card">
-                <img src="Pilates.jpeg" alt="Studio de Pilates Equipado" onclick="openModal(this)">
+                <div class="img-container">
+                    <img src="Pilates.jpg" alt="Studio de Pilates Equipado" onclick="openModal(this)">
+                    <span class="zoom-badge"><i class="fas fa-search-plus"></i> Ampliar</span>
+                </div>
                 <div class="gallery-caption">
                     <h4>Equipamentos Completos</h4>
                     <p>Aparelhos modernos para trabalhar força, mobilidade e postura de forma segura.</p>
@@ -623,7 +657,10 @@
             </div>
 
             <div class="gallery-card">
-                <img src="Fisioterapia.jpeg" alt="Espaço do Studio de Pilates" onclick="openModal(this)">
+                <div class="img-container">
+                    <img src="Fisioterapia.jpeg" alt="Espaço do Studio de Pilates" onclick="openModal(this)">
+                    <span class="zoom-badge"><i class="fas fa-search-plus"></i> Ampliar</span>
+                </div>
                 <div class="gallery-caption">
                     <h4>Ambiente Aconchegante</h4>
                     <p>Estrutura pensada para o seu conforto, foco e tranquilidade a cada sessão.</p>
@@ -631,7 +668,10 @@
             </div>
 
             <div class="gallery-card">
-                <img src="studio3.jpeg" alt="Atendimento no Studio" onclick="openModal(this)">
+                <div class="img-container">
+                    <img src="studio3.jpeg" alt="Atendimento no Studio" onclick="openModal(this)">
+                    <span class="zoom-badge"><i class="fas fa-search-plus"></i> Ampliar</span>
+                </div>
                 <div class="gallery-caption">
                     <h4>Atendimento Personalizado</h4>
                     <p>Acompanhamento próximo e individualizado para você alcançar seus objetivos.</p>
