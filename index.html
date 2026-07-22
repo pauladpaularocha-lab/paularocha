@@ -234,6 +234,7 @@
             object-fit: cover;
             display: block;
             transition: transform 0.5s ease;
+            cursor: pointer; /* Indica que a imagem é clicável */
         }
 
         .gallery-card:hover img {
@@ -255,6 +256,55 @@
         .gallery-caption p {
             font-size: 0.9rem;
             color: var(--text-muted);
+        }
+
+        /* MODAL DE IMAGEM AMPLIADA (LIGHTBOX) */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .image-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            object-fit: contain;
+            animation: zoomIn 0.3s ease;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: #fff;
+            font-size: 2.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .close-modal:hover {
+            color: var(--primary-teal);
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
 
         /* CONTACT SECTION */
@@ -432,14 +482,14 @@
     <section class="section about-section" id="quemsomos">
         <div class="section-title">
             <h2>Quem Somos</h2>
-            <p>Tradição, dedicação e paixão pelo cuidado com a sua saúde e bem-estar.</p>
+            <p>Comprometimento, dedicação e paixão pelo cuidado com a sua saúde e bem-estar.</p>
         </div>
 
         <div class="about-box">
             <div class="about-content">
                 <div class="about-text">
                     <p class="highlight-lead">Há mais de 2 anos em atividade, o nosso Studio nasceu com a missão de oferecer um espaço de acolhimento e transformação através do movimento e da reabilitação física de excelência em Cataguases.</p>
-                    <p>Acreditamos que cada indivíduo necessita de um olhar atento. Por isso, nosso compromisso é proporcionar um atendimento individualizado, seguro e guiado por profissionais highly qualificadas.</p>
+                    <p>Acreditamos que cada indivíduo necessita de um olhar atento. Por isso, nosso compromisso é proporcionar um atendimento individualizado, seguro e guiado por profissionais altamente qualificadas.</p>
                 </div>
 
                 <div class="team-highlights">
@@ -463,12 +513,13 @@
     <section class="section" id="espaco">
         <div class="section-title">
             <h2>Conheça o Nosso Studio</h2>
-            <p>Um ambiente moderno, aconchegante e totalmente climatizado para sua melhor experiência.</p>
+            <!-- Frase mais amigável e acolhedora -->
+            <p>Um espaço aconchegante, climatizado e preparado com todo o carinho para você se sentir em casa.</p>
         </div>
 
         <div class="gallery-grid">
             <div class="gallery-card">
-                <img src="studio1.jpeg" alt="Studio de Pilates Equipado">
+                <img src="studio1.jpeg" alt="Studio de Pilates Equipado" onclick="openModal(this)">
                 <div class="gallery-caption">
                     <h4>Equipamentos Completos</h4>
                     <p>Aparelhos modernos para trabalhar força, mobilidade e postura de forma segura.</p>
@@ -476,7 +527,7 @@
             </div>
 
             <div class="gallery-card">
-                <img src="studio2.jpeg" alt="Espaço do Studio de Pilates">
+                <img src="studio2.jpeg" alt="Espaço do Studio de Pilates" onclick="openModal(this)">
                 <div class="gallery-caption">
                     <h4>Ambiente Aconchegante</h4>
                     <p>Estrutura pensada para o seu conforto, foco e tranquilidade a cada sessão.</p>
@@ -484,7 +535,7 @@
             </div>
 
             <div class="gallery-card">
-                <img src="studio3.jpeg" alt="Atendimento no Studio">
+                <img src="studio3.jpeg" alt="Atendimento no Studio" onclick="openModal(this)">
                 <div class="gallery-caption">
                     <h4>Atendimento Personalizado</h4>
                     <p>Acompanhamento próximo e individualizado para você alcançar seus objetivos.</p>
@@ -492,6 +543,12 @@
             </div>
         </div>
     </section>
+
+    <!-- MODAL DE IMAGEM AMPLIADA -->
+    <div id="imageModal" class="image-modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="imgExpanded">
+    </div>
 
     <!-- CONTATO -->
     <section class="section" id="contato" style="background: var(--bg-white);">
@@ -568,6 +625,22 @@
     <footer>
         <p>&copy; 2026 Thamyres Lobo Pilates e Fisioterapia. Todos os direitos reservados.</p>
     </footer>
+
+    <!-- SCRIPT PARA ABRIR A IMAGEM -->
+    <script>
+        function openModal(element) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("imgExpanded");
+            modal.classList.add("active");
+            modalImg.src = element.src;
+            modalImg.alt = element.alt;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("imageModal");
+            modal.classList.remove("active");
+        }
+    </script>
 
 </body>
 </html>
