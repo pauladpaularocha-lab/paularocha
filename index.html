@@ -103,6 +103,28 @@
             100% { transform: translateY(0px); }
         }
 
+        /* DIVISOR DISCRETO ENTRE SEÇÕES */
+        .section-divider {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(120, 181, 162, 0.35) 50%, transparent 100%);
+            position: relative;
+        }
+
+        .section-divider::after {
+            content: '•';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: inherit;
+            color: var(--primary-dark-teal);
+            font-size: 1.2rem;
+            padding: 0 15px;
+            opacity: 0.6;
+        }
+
         /* SECTIONS */
         .section { padding: 80px 24px; }
         .section-title { text-align: center; max-width: 700px; margin: 0 auto 50px; }
@@ -498,6 +520,9 @@
         </div>
     </section>
 
+    <!-- DIVISOR DISCRETO -->
+    <div class="section-divider"></div>
+
     <!-- SERVIÇOS -->
     <section class="section" id="servicos">
         <div class="section-title">
@@ -520,6 +545,9 @@
             </div>
         </div>
     </section>
+
+    <!-- DIVISOR DISCRETO -->
+    <div class="section-divider"></div>
 
     <!-- SEÇÃO QUEM SOMOS -->
     <section class="section about-section" id="quemsomos">
@@ -575,11 +603,14 @@
         </div>
     </section>
 
+    <!-- DIVISOR DISCRETO -->
+    <div class="section-divider"></div>
+
     <!-- NOSSO ESPAÇO / STUDIO -->
     <section class="section" id="espaco">
         <div class="section-title">
             <h2>Conheça o Nosso Studio</h2>
-            <p>Um espaço aconchegante, climatizado e prepared com todo o carinho para você se sentir em casa.</p>
+            <p>Um espaço aconchegante, climatizado e preparado com todo o carinho para você se sentir em casa.</p>
         </div>
 
         <div class="gallery-grid">
@@ -614,6 +645,9 @@
         <span class="close-modal">&times;</span>
         <img class="modal-content" id="imgExpanded">
     </div>
+
+    <!-- DIVISOR DISCRETO -->
+    <div class="section-divider"></div>
 
     <!-- CONTATO -->
     <section class="section" id="contato" style="background: var(--bg-white);">
