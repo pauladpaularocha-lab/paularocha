@@ -214,7 +214,7 @@
             gap: 30px;
         }
 
-        /* CARDS DA EQUIPE COM FOTO REENQUADRADA */
+        /* CARDS DA EQUIPE */
         .team-card {
             background: #ffffff;
             border-radius: 24px;
@@ -236,8 +236,16 @@
             width: 100%;
             height: 380px; 
             object-fit: cover;
-            object-position: center 70%; /* Foco exatamente no rosto da Thamyres */
             display: block;
+        }
+
+        /* AJUSTES INDIVIDUAIS DE ENQUADRAMENTO DA FOTO */
+        .avatar-thamyres {
+            object-position: center 70%;
+        }
+
+        .avatar-micaelly {
+            object-position: center top !important; /* Força o alinhamento para mostrar o rosto no topo da foto */
         }
 
         .team-info {
@@ -525,7 +533,7 @@
             <ul class="nav-links">
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#servicos">Nossos Cuidados</a></li>
-                <li><a href="#quemsomos">Quem Somos?</a></li>
+                <li><a href="#quemsomos">Quem Somos</a></li>
                 <li><a href="#espaco">Nosso Espaço</a></li>
                 <li><a href="#contato">Fale Conosco</a></li>
             </ul>
@@ -612,10 +620,10 @@
                 </div>
             </div>
 
-            <!-- EQUIPE COM FOTO DA THAMYRES -->
+            <!-- EQUIPE CORRIGIDA -->
             <div class="team-highlights">
                 <div class="team-card">
-                    <img src="thamyres1.jpeg" alt="Thamyres Lobo Fisioterapeuta" class="team-avatar" onclick="openModal(this)">
+                    <img src="thamyres1.jpeg" alt="Thamyres Lobo Fisioterapeuta" class="team-avatar avatar-thamyres" onclick="openModal(this)">
                     <div class="team-info">
                         <h4>Thamyres Lobo</h4>
                         <span>Fisioterapeuta & Instrutora de Pilates</span>
@@ -626,7 +634,6 @@
                 <div class="team-card">
                     <img src="Micaelly.jpeg" alt="Micaelly Saraiva" class="team-avatar avatar-micaelly" onclick="openModal(this)">
                     <div class="team-info">
-                    <div class="team-info" style="padding-top: 32px;">
                         <h4>Micaelly Saraiva</h4>
                         <span>Fisioterapeuta & Instrutora de Pilates</span>
                         <p>Fisioterapeuta com curso de formação em Pilates, integra nossa equipe com um olhar cuidadoso, técnico e focado no bem-estar e na evolução contínua de cada paciente.</p>
@@ -745,7 +752,7 @@
             <!-- CTA BOX -->
             <div class="cta-box">
                 <h3>Dê o primeiro passo para uma vida sem dores!</h3>
-                <p>Agende sua avaliação inicial e descubra como o Pilates e a Fisioterapia podem devolver sua disposição e qualidade de vida.</p>
+                <p>Agende sua avaliação inicial e descubra como o Pilates e a Fisioterapia podem devolver sua disposition e qualidade de vida.</p>
                 
                 <ul class="cta-benefits">
                     <li><i class="fas fa-check-circle"></i> Avaliação física individualizada</li>
