@@ -136,7 +136,6 @@
             gap: 30px;
         }
 
-        /* TEXTO QUEM SOMOS CENTRALIZADO E DESTAQUE REFORÇADO */
         .about-text {
             text-align: center;
             max-width: 850px;
@@ -166,12 +165,20 @@
             margin-top: 20px;
         }
 
+        /* CARDS DA EQUIPE COM ANIMAÇÃO AO PASSAR O MOUSE */
         .team-card {
             background: #ffffff;
             padding: 28px 24px;
             border-radius: 20px;
             box-shadow: 0 6px 20px rgba(20, 80, 67, 0.05);
             border-left: 4px solid var(--primary-dark-teal);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 30px rgba(20, 80, 67, 0.12);
         }
 
         .team-card h4 {
@@ -276,7 +283,7 @@
             transform: scale(1.08);
         }
 
-        /* CTA BOX COMPLETA COM LISTA ATUALIZADA */
+        /* CTA BOX COMPLETA */
         .cta-box { 
             background: linear-gradient(135deg, var(--deep-emerald), var(--primary-dark-teal)); 
             padding: 42px 36px; 
@@ -425,14 +432,14 @@
     <section class="section about-section" id="quemsomos">
         <div class="section-title">
             <h2>Quem Somos</h2>
-            <p>Comprometimento, dedicação e paixão pelo cuidado com a sua saúde e bem-estar.</p>
+            <p>Tradição, dedicação e paixão pelo cuidado com a sua saúde e bem-estar.</p>
         </div>
 
         <div class="about-box">
             <div class="about-content">
                 <div class="about-text">
                     <p class="highlight-lead">Há mais de 2 anos em atividade, o nosso Studio nasceu com a missão de oferecer um espaço de acolhimento e transformação através do movimento e da reabilitação física de excelência em Cataguases.</p>
-                    <p>Acreditamos que cada indivíduo necessita de um olhar atento. Por isso, nosso compromisso é proporcionar um atendimento individualizado, seguro e guiado por profissionais altamente qualificadas.</p>
+                    <p>Acreditamos que cada indivíduo necessita de um olhar atento. Por isso, nosso compromisso é proporcionar um atendimento individualizado, seguro e guiado por profissionais highly qualificadas.</p>
                 </div>
 
                 <div class="team-highlights">
@@ -537,7 +544,7 @@
                 </div>
             </div>
 
-            <!-- CTA BOX COM FRASE CORRIGIDA -->
+            <!-- CTA BOX -->
             <div class="cta-box">
                 <h3>Dê o primeiro passo para uma vida sem dores!</h3>
                 <p>Agende sua avaliação inicial e descubra como o Pilates e a Fisioterapia podem devolver sua disposição e qualidade de vida.</p>
@@ -552,7 +559,7 @@
                     <i class="fab fa-whatsapp"></i> Agendar pelo WhatsApp
                 </a>
 
-                <span class="cta-note"><i class="fas fa-shield-alt"></i> Atendimento rápido</span>
+                <span class="cta-note"><i class="fas fa-shield-alt"></i> Atendimento rápido no WhatsApp</span>
             </div>
         </div>
     </section>
