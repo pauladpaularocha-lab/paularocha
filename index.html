@@ -239,7 +239,6 @@
             display: block;
         }
 
-        /* AJUSTES INDIVIDUAIS DE ENQUADRAMENTO DA FOTO */
         .avatar-thamyres {
             object-position: center 70%;
         }
@@ -357,6 +356,127 @@
         .gallery-caption p {
             font-size: 0.9rem;
             color: var(--text-muted);
+        }
+
+        /* FAQ SECTION (PERGUNTAS FREQUENTES) */
+        .faq-container {
+            max-width: 850px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background: var(--bg-white);
+            border: 1px solid rgba(120, 181, 162, 0.3);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(20, 80, 67, 0.04);
+            transition: var(--transition);
+        }
+
+        .faq-question {
+            padding: 22px 28px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--deep-emerald);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .faq-question i {
+            color: var(--primary-dark-teal);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 28px;
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 28px 22px 28px;
+        }
+
+        /* LOCALIZAÇÃO / GOOGLE MAPS */
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(120, 181, 162, 0.3);
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+        }
+
+        .map-info {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(120, 181, 162, 0.08) 0%, rgba(245, 249, 247, 0.5) 100%);
+        }
+
+        .map-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--deep-emerald);
+            margin-bottom: 12px;
+        }
+
+        .map-info p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            margin-bottom: 24px;
+        }
+
+        .map-address-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 28px;
+        }
+
+        .map-address-card i {
+            font-size: 1.4rem;
+            color: #E53E3E;
+            background: rgba(229, 62, 62, 0.12);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .map-iframe-box {
+            width: 100%;
+            height: 100%;
+            min-height: 380px;
+        }
+
+        .map-iframe-box iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
         }
 
         /* MODAL DE IMAGEM AMPLIADA (LIGHTBOX) */
@@ -513,11 +633,12 @@
         footer { background: var(--deep-emerald); color: #fff; text-align: center; padding: 25px 24px; font-size: 0.88rem; }
 
         @media (max-width: 900px) {
-            .hero-container, .contact-container { grid-template-columns: 1fr; }
+            .hero-container, .contact-container, .map-container { grid-template-columns: 1fr; }
             .hero-content h1 { font-size: 2.2rem; }
             .nav-links { display: none; }
             .stat-divider { display: none; }
             .stats-inline { gap: 20px; }
+            .map-iframe-box { height: 300px; min-height: 300px; }
         }
     </style>
 </head>
@@ -532,8 +653,10 @@
             <ul class="nav-links">
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#servicos">Nossos Cuidados</a></li>
-                <li><a href="#quemsomos">Quem Somos?</a></li>
+                <li><a href="#quemsomos">Quem Somos</a></li>
                 <li><a href="#espaco">Nosso Espaço</a></li>
+                <li><a href="#faq">Dúvidas</a></li>
+                <li><a href="#localizacao">Localização</a></li>
                 <li><a href="#contato">Fale Conosco</a></li>
             </ul>
             <a href="https://wa.me/5532999531990?text=Olá!%20Gostaria%20de%20agendar%20um%20horário." class="btn-cta" target="_blank">
@@ -649,7 +772,7 @@
     <section class="section" id="espaco">
         <div class="section-title">
             <h2>Conheça o Nosso Espaço</h2>
-            <p>Um local aconchegante, climatizado e prepared com todo o carinho para você se sentir em casa.</p>
+            <p>Um local aconchegante, climatizado e preparado com todo o carinho para você se sentir em casa.</p>
         </div>
 
         <div class="gallery-grid">
@@ -693,6 +816,103 @@
         <span class="close-modal">&times;</span>
         <img class="modal-content" id="imgExpanded">
     </div>
+
+    <!-- DIVISOR DISCRETO -->
+    <div class="section-divider"></div>
+
+    <!-- PERGUNTAS FREQUENTES (FAQ) -->
+    <section class="section" id="faq">
+        <div class="section-title">
+            <h2>Principais Dúvidas</h2>
+            <p>Respostas simples para as perguntas mais comuns de nossos alunos e pacientes.</p>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Preciso ter experiência ou flexibilidade para começar o Pilates?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Não! O Pilates é para todos os níveis. As aulas e os exercícios em aparelhos são 100% adaptados às suas limitações, nível de condicionamento e objetivos individuais.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Como funciona a avaliação inicial?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Realizamos uma avaliação física e postural detalhada para identificar pontos de tensão, encurtamentos ou lesões. Com base nisso, elaboramos um plano de acompanhamento feito sob medida para você.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>O Studio atende quem tem dores crônicas ou lesões?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Com certeza. Nossa equipe é formada por fisioterapeutas especializadas. O Pilates clínico e a fisioterapia manual são altamente indicados no tratamento e prevenção de dores na coluna, articulações e lesões musculares.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Quantas vezes por semana é recomendado praticar?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Para resultados perceptíveis na postura e no alívio de dores, recomendamos de 2 a 3 sessões por semana. No entanto, mesmo 1 sessão semanal bem direcionada traz excelentes benefícios para o corpo.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Como faço para agendar minha aula ou sessão?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Todos os atendimentos são agendados previamente para garantir exclusividade e conforto. Você pode clicar em qualquer botão do site para falar diretamente conosco pelo WhatsApp.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIVISOR DISCRETO -->
+    <div class="section-divider"></div>
+
+    <!-- SEÇÃO ONDE ESTAMOS / GOOGLE MAPS -->
+    <section class="section" id="localizacao">
+        <div class="section-title">
+            <h2>Onde Estamos</h2>
+            <p>Fácil acesso no centro de Cataguases para o seu conforto.</p>
+        </div>
+
+        <div class="map-container">
+            <div class="map-info">
+                <h3>Venha Conhecer o Nosso Espaço</h3>
+                <p>Estamos localizados em uma área central de fácil acesso, climatizada e estruturada para oferecer a você a melhor experiência em cuidados e reabilitação.</p>
+                
+                <div class="map-address-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h5 style="color: var(--deep-emerald); font-size: 1.05rem;">Endereço</h5>
+                        <p style="margin-bottom: 0;">Rua Nogueira Neves, 22 - Loja 07<br>Centro - Cataguases / MG</p>
+                    </div>
+                </div>
+
+                <a href="https://maps.google.com/?q=Rua+Nogueira+Neves,+22,+Centro,+Cataguases+-+MG" target="_blank" class="btn-secondary" style="width: fit-content; text-decoration: none;">
+                    <i class="fas fa-directions" style="margin-right: 8px;"></i> Abrir no Google Maps
+                </a>
+            </div>
+
+            <div class="map-iframe-box">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3714.478953188902!2d-42.6985038!3d-21.3908819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80352ef13eb53d%3A0xa1b2c3d4e5f6g7h8!2sRua%20Nogueira%20Neves%2C%2022%20-%20Centro%2C%20Cataguases%20-%20MG!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
 
     <!-- DIVISOR DISCRETO -->
     <div class="section-divider"></div>
@@ -749,7 +969,7 @@
                 </div>
             </div>
 
-            <!-- CTA BOX - TEXTO DO BOTÃO DIVERSIFICADO -->
+            <!-- CTA BOX -->
             <div class="cta-box">
                 <h3>Dê o primeiro passo para uma vida sem dores!</h3>
                 <p>Agende sua avaliação inicial e descubra como o Pilates e a Fisioterapia podem devolver sua disposição e qualidade de vida.</p>
@@ -774,7 +994,7 @@
         <p>&copy; 2026 Thamyres Lobo Pilates e Fisioterapia. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- SCRIPT PARA ABRIR A IMAGEM -->
+    <!-- SCRIPT PARA ABRIR A IMAGEM E ACCORDION FAQ -->
     <script>
         function openModal(element) {
             const modal = document.getElementById("imageModal");
@@ -787,6 +1007,21 @@
         function closeModal() {
             const modal = document.getElementById("imageModal");
             modal.classList.remove("active");
+        }
+
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const isOpen = faqItem.classList.contains('active');
+            
+            // Fecha todos os outros itens para manter o visual limpo
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Se não estava aberto, abre o clicado
+            if (!isOpen) {
+                faqItem.classList.add('active');
+            }
         }
     </script>
 
