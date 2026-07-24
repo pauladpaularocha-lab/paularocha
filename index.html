@@ -38,14 +38,14 @@
         .logo-box img { height: 48px; width: auto; border-radius: 6px; display: block; }
 
         /* MENU INTERATIVO */
-        .nav-links { display: flex; list-style: none; gap: 6px; align-items: center; }
+        .nav-links { display: flex; list-style: none; gap: 4px; align-items: center; }
         
         .nav-links a { 
             text-decoration: none; 
             color: #fff; 
             font-weight: 500; 
-            font-size: 0.88rem; 
-            padding: 8px 12px;
+            font-size: 0.84rem; 
+            padding: 8px 10px;
             border-radius: 20px;
             transition: var(--transition);
             white-space: nowrap;
@@ -343,14 +343,14 @@
         .gallery-caption h4 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--deep-emerald); margin-bottom: 6px; }
         .gallery-caption p { font-size: 0.9rem; color: var(--text-muted); }
 
-        /* FAQ */
+        /* CURIOSIDADES / FAQ (Estilo Acordeão) */
         .faq-container { max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
         .faq-item { background: var(--bg-white); border: 1px solid rgba(120, 181, 162, 0.3); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(20, 80, 67, 0.04); transition: var(--transition); }
         .faq-question { padding: 22px 28px; font-weight: 600; font-size: 1.05rem; color: var(--deep-emerald); display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; }
         .faq-question i { color: var(--primary-dark-teal); transition: transform 0.3s ease; }
         .faq-item.active .faq-question i { transform: rotate(180deg); }
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0 28px; color: var(--text-muted); font-size: 0.98rem; line-height: 1.7; }
-        .faq-item.active .faq-answer { max-height: 200px; padding: 0 28px 22px 28px; }
+        .faq-item.active .faq-answer { max-height: 250px; padding: 0 28px 22px 28px; }
 
         /* LOCALIZAÇÃO */
         .map-container {
@@ -405,7 +405,7 @@
 
         footer { background: var(--deep-emerald); color: #fff; text-align: center; padding: 25px 24px; font-size: 0.88rem; }
 
-        @media (max-width: 1050px) { .nav-links { display: none; } }
+        @media (max-width: 1100px) { .nav-links { display: none; } }
         @media (max-width: 900px) {
             .contact-container, .map-container { grid-template-columns: 1fr; }
             .hero-content h1 { font-size: 2.3rem; }
@@ -428,6 +428,7 @@
                 <li><a href="#servicos">Nossos Cuidados</a></li>
                 <li><a href="#quemsomos">Quem Somos</a></li>
                 <li><a href="#espaco">Nosso Espaço</a></li>
+                <li><a href="#curiosidades">Curiosidades</a></li>
                 <li><a href="#faq">Dúvidas</a></li>
                 <li><a href="#localizacao">Localização</a></li>
                 <li><a href="#contato">Fale Conosco</a></li>
@@ -594,6 +595,59 @@
         <span class="close-modal">&times;</span>
         <img class="modal-content" id="imgExpanded">
     </div>
+
+    <!-- DIVISOR DISCRETO -->
+    <div class="section-divider"></div>
+
+    <!-- NOVA SEÇÃO: CURIOSIDADES SOBRE O PILATES -->
+    <section class="section" id="curiosidades" style="background: var(--bg-white);">
+        <div class="section-title">
+            <h2>Você Sabia? Curiosidades sobre o Pilates</h2>
+            <p>Descubra fatos fascinantes sobre a história e os benefícios do método que conquistou o mundo.</p>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>💡 O Pilates nem sempre teve esse nome?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Originalmente criado por Joseph Pilates na década de 1920, o método foi batizado por ele próprio de <strong>"Contrologia"</strong>. O nome fazia referência ao controle consciente que a mente deve exercer sobre os músculos do corpo durante os movimentos.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>🛏️ Os primeiros aparelhos nasceram em hospitais?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Sim! Durante a Primeira Guerra Mundial, Joseph Pilates improvisou molas de camas hospitalares para exercitar pacientes acamados. Essa genialidade deu origem aos primeiros protótipos dos famosos aparelhos que utilizamos hoje, como o Reformer e o Cadillac.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>🕺 O Pilates foi criado inicialmente para homens e atletas?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Muitos pensam que o Pilates é exclusivo para o público feminino, mas ele foi amplamente adotado por dançarinos de balé, boxeadores e atletas na época para recuperação rápida de lesões, ganho de força e melhora da postura.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>📏 É verdade que o Pilates ajuda a "crescer"?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    De certa forma, sim! Como o método foca fortemente na descompressão da coluna vertebral, correção postural e fortalecimento dos músculos profundos do tronco, muitas pessoas percebem um ganho aparente de altura e uma sensação de leveza imediata após as aulas.
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- DIVISOR DISCRETO -->
     <div class="section-divider"></div>
