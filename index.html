@@ -139,10 +139,11 @@
             opacity: 0.6;
         }
 
-        /* SECTIONS */
+        /* SECTIONS & TÍTULOS COM ÍCONES */
         .section { padding: 80px 24px; }
         .section-title { text-align: center; max-width: 700px; margin: 0 auto 50px; }
-        .section-title h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--deep-emerald); margin-bottom: 10px; }
+        .section-title h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--deep-emerald); margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+        .section-title h2 i { color: var(--primary-dark-teal); font-size: 1.8rem; }
         .section-title p { color: var(--text-muted); font-size: 1.05rem; }
 
         /* SERVIÇOS */
@@ -343,7 +344,7 @@
         .gallery-caption h4 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--deep-emerald); margin-bottom: 6px; }
         .gallery-caption p { font-size: 0.9rem; color: var(--text-muted); }
 
-        /* NOVA SEÇÃO: CURIOSIDADES EM GRID DE CARDS CHAMATIVOS */
+        /* CURIOSIDADES EM GRID DE CARDS */
         .curiosidades-grid {
             max-width: 1200px;
             margin: 0 auto;
@@ -530,7 +531,7 @@
     <!-- SERVIÇOS -->
     <section class="section" id="servicos">
         <div class="section-title">
-            <h2>Nossos Serviços</h2>
+            <h2><i class="fas fa-hand-holding-medical"></i> Nossos Serviços</h2>
             <p>Tratamentos especializados e atendimento individualizado para sua saúde.</p>
         </div>
         
@@ -567,7 +568,7 @@
     <!-- SEÇÃO QUEM SOMOS -->
     <section class="section about-section" id="quemsomos">
         <div class="section-title">
-            <h2>Quem Somos</h2>
+            <h2><i class="fas fa-user-friends"></i> Quem Somos</h2>
             <p>Comprometimento, dedicação e paixão pelo cuidado com a sua saúde e bem-estar.</p>
         </div>
 
@@ -622,7 +623,7 @@
     <!-- NOSSO ESPAÇO / STUDIO -->
     <section class="section" id="espaco">
         <div class="section-title">
-            <h2>Conheça o Nosso Espaço</h2>
+            <h2><i class="fas fa-spa"></i> Conheça o Nosso Espaço</h2>
             <p>Um local aconchegante, climatizado e preparado com todo o carinho para você se sentir em casa.</p>
         </div>
 
@@ -674,7 +675,7 @@
     <!-- SEÇÃO CURIOSIDADES EM GRID DE CARDS -->
     <section class="section" id="curiosidades" style="background: var(--bg-white);">
         <div class="section-title">
-            <h2>Você Sabia? Curiosidades sobre o Pilates</h2>
+            <h2><i class="fas fa-lightbulb"></i> Você Sabia? Curiosidades sobre o Pilates</h2>
             <p>Descubra fatos fascinantes sobre a história e os benefícios do método que conquistou o mundo.</p>
         </div>
 
@@ -719,7 +720,7 @@
     <!-- PERGUNTAS FREQUENTES (FAQ) -->
     <section class="section" id="faq">
         <div class="section-title">
-            <h2>Principais Dúvidas</h2>
+            <h2><i class="fas fa-question-circle"></i> Principais Dúvidas</h2>
             <p>Respostas simples para as perguntas mais comuns de nossos alunos e pacientes.</p>
         </div>
 
@@ -782,7 +783,7 @@
     <!-- SEÇÃO ONDE ESTAMOS -->
     <section class="section" id="localizacao">
         <div class="section-title">
-            <h2>Onde Estamos</h2>
+            <h2><i class="fas fa-map-marker-alt"></i> Onde Estamos</h2>
             <p>Fácil acesso no centro de Cataguases para o seu conforto.</p>
         </div>
 
@@ -815,10 +816,15 @@
 
     <!-- CONTATO -->
     <section class="section" id="contato" style="background: var(--bg-white);">
+        <div class="section-title" style="margin-bottom: 30px;">
+            <h2><i class="fas fa-comments"></i> Fale Conosco</h2>
+            <p>Tire suas dúvidas e agende sua aula experimental.</p>
+        </div>
+
         <div class="contact-container">
             <div class="contact-info">
-                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--deep-emerald); margin-bottom: 6px;">Fale Conosco</h3>
-                <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 24px;">Tire suas dúvidas e agende sua aula experimental.</p>
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--deep-emerald); margin-bottom: 6px;">Informações de Contato</h3>
+                <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 24px;">Entre em contato conosco através dos canais abaixo.</p>
                 
                 <div class="info-item">
                     <div class="icon-bg icon-map">
