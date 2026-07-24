@@ -343,7 +343,79 @@
         .gallery-caption h4 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--deep-emerald); margin-bottom: 6px; }
         .gallery-caption p { font-size: 0.9rem; color: var(--text-muted); }
 
-        /* CURIOSIDADES / FAQ (Estilo Acordeão) */
+        /* NOVA SEÇÃO: CURIOSIDADES EM GRID DE CARDS CHAMATIVOS */
+        .curiosidades-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .curiosidade-card {
+            background: var(--bg-white);
+            padding: 35px 28px;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(120, 181, 162, 0.3);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .curiosidade-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-teal), var(--primary-dark-teal));
+        }
+
+        .curiosidade-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(20, 80, 67, 0.15);
+            border-color: var(--primary-dark-teal);
+        }
+
+        .curiosidade-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(120, 181, 162, 0.15);
+            color: var(--primary-dark-teal);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 22px;
+            transition: var(--transition);
+        }
+
+        .curiosidade-card:hover .curiosidade-icon {
+            background: var(--primary-dark-teal);
+            color: #fff;
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .curiosidade-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--deep-emerald);
+            margin-bottom: 12px;
+            line-height: 1.35;
+        }
+
+        .curiosidade-card p {
+            color: var(--text-muted);
+            font-size: 0.93rem;
+            line-height: 1.6;
+        }
+
+        /* FAQ (Dúvidas Frequentes) */
         .faq-container { max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
         .faq-item { background: var(--bg-white); border: 1px solid rgba(120, 181, 162, 0.3); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(20, 80, 67, 0.04); transition: var(--transition); }
         .faq-question { padding: 22px 28px; font-weight: 600; font-size: 1.05rem; color: var(--deep-emerald); display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; }
@@ -599,52 +671,44 @@
     <!-- DIVISOR DISCRETO -->
     <div class="section-divider"></div>
 
-    <!-- NOVA SEÇÃO: CURIOSIDADES SOBRE O PILATES -->
+    <!-- SEÇÃO CURIOSIDADES EM GRID DE CARDS -->
     <section class="section" id="curiosidades" style="background: var(--bg-white);">
         <div class="section-title">
             <h2>Você Sabia? Curiosidades sobre o Pilates</h2>
             <p>Descubra fatos fascinantes sobre a história e os benefícios do método que conquistou o mundo.</p>
         </div>
 
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>💡 O Pilates nem sempre teve esse nome?</span>
-                    <i class="fas fa-chevron-down"></i>
+        <div class="curiosidades-grid">
+            <div class="curiosidade-card">
+                <div class="curiosidade-icon">
+                    <i class="fas fa-lightbulb"></i>
                 </div>
-                <div class="faq-answer">
-                    Originalmente criado por Joseph Pilates na década de 1920, o método foi batizado por ele próprio de <strong>"Contrologia"</strong>. O nome fazia referência ao controle consciente que a mente deve exercer sobre os músculos do corpo durante os movimentos.
-                </div>
+                <h3>O nome original era Contrologia</h3>
+                <p>Criado por Joseph Pilates na década de 1920, o método foi batizado inicialmente de Contrologia, destacando o controle consciente da mente sobre os músculos.</p>
             </div>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>🛏️ Os primeiros aparelhos nasceram em hospitais?</span>
-                    <i class="fas fa-chevron-down"></i>
+            <div class="curiosidade-card">
+                <div class="curiosidade-icon">
+                    <i class="fas fa-bed"></i>
                 </div>
-                <div class="faq-answer">
-                    Sim! Durante a Primeira Guerra Mundial, Joseph Pilates improvisou molas de camas hospitalares para exercitar pacientes acamados. Essa genialidade deu origem aos primeiros protótipos dos famosos aparelhos que utilizamos hoje, como o Reformer e o Cadillac.
-                </div>
+                <h3>Aparelhos de hospital</h3>
+                <p>Durante a Primeira Guerra Mundial, Joseph improvisou molas de camas hospitalares para exercitar pacientes acamados, dando origem aos primeiros Reformers.</p>
             </div>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>🕺 O Pilates foi criado inicialmente para homens e atletas?</span>
-                    <i class="fas fa-chevron-down"></i>
+            <div class="curiosidade-card">
+                <div class="curiosidade-icon">
+                    <i class="fas fa-running"></i>
                 </div>
-                <div class="faq-answer">
-                    Muitos pensam que o Pilates é exclusivo para o público feminino, mas ele foi amplamente adotado por dançarinos de balé, boxeadores e atletas na época para recuperação rápida de lesões, ganho de força e melhora da postura.
-                </div>
+                <h3>Criado para atletas e homens</h3>
+                <p>Embora muito associado ao público feminino hoje, o método nasceu para auxiliar no condicionamento de atletas, dançarinos de balé e boxeadores.</p>
             </div>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>📏 É verdade que o Pilates ajuda a "crescer"?</span>
-                    <i class="fas fa-chevron-down"></i>
+            <div class="curiosidade-card">
+                <div class="curiosidade-icon">
+                    <i class="fas fa-child-reaching"></i>
                 </div>
-                <div class="faq-answer">
-                    De certa forma, sim! Como o método foca fortemente na descompressão da coluna vertebral, correção postural e fortalecimento dos músculos profundos do tronco, muitas pessoas percebem um ganho aparente de altura e uma sensação de leveza imediata após as aulas.
-                </div>
+                <h3>Sensação de "crescer"</h3>
+                <p>Com o foco intenso na descompressão da coluna e correção postural, o Pilates melhora o alinhamento corporal e gera uma sensação imediata de leveza e altura.</p>
             </div>
         </div>
     </section>
