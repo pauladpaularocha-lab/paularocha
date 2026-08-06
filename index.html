@@ -251,6 +251,12 @@
             50% { transform: translateY(-6px); }
         }
 
+        /* Animação do dedinho apontando estilo GIF */
+        @keyframes pointingHand {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(5px); }
+        }
+
         .chat-widget-wrapper {
             position: fixed;
             bottom: 25px;
@@ -273,7 +279,7 @@
             box-shadow: 0 8px 20px rgba(20, 80, 67, 0.15);
             border: 1px solid rgba(120, 181, 162, 0.4);
             margin-bottom: 12px;
-            max-width: 210px;
+            max-width: 220px;
             position: relative;
             cursor: pointer;
             animation: floatBounce 3s ease-in-out infinite;
@@ -294,6 +300,19 @@
             border-left: 8px solid transparent;
             border-right: 8px solid transparent;
             border-top: 8px solid #fff;
+        }
+
+        .chat-speech-bubble .highlight-name {
+            color: var(--primary-dark-teal);
+            font-weight: 700;
+        }
+
+        .chat-speech-bubble .animated-finger {
+            display: inline-block;
+            font-size: 1.1rem;
+            animation: pointingHand 1s ease-in-out infinite;
+            vertical-align: middle;
+            margin-left: 2px;
         }
 
         .chat-speech-bubble .bubble-close {
@@ -955,9 +974,9 @@
 
     <!-- CHATBOT WIDGET WRAPPER -->
     <div class="chat-widget-wrapper">
-        <!-- BALÃO DE FALA -->
+        <!-- BALÃO DE FALA COM TEXTO DESTACADO E DEDINHO ANIMADO -->
         <div class="chat-speech-bubble" id="chatBubble" onclick="toggleChatWidget()">
-            <span>Olá, eu sou a Tha! Como posso te ajudar?</span>
+            <span>Olá, eu sou a <span class="highlight-name">Thá!</span> Como posso te ajudar? <span class="animated-finger">👇</span></span>
             <span class="bubble-close" onclick="closeBubble(event)">&times;</span>
         </div>
 
