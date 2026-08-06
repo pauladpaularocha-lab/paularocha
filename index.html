@@ -232,8 +232,211 @@
         footer { background: var(--deep-emerald); color: #fff; text-align: center; padding: 25px 24px; font-size: 0.88rem; }
 
         /* ==========================================
-           AJUSTES RESPONSIVOS (MOBILE E TABLET)
+           WIDGET CHATBOT FLUTUANTE
            ========================================== */
+        .chat-widget-toggle {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-dark-teal);
+            color: #fff;
+            border: none;
+            box-shadow: 0 8px 25px rgba(20, 80, 67, 0.3);
+            cursor: pointer;
+            z-index: 1500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            transition: var(--transition);
+            padding: 0;
+        }
+
+        .chat-widget-toggle:hover {
+            transform: scale(1.08);
+            background-color: var(--deep-emerald);
+        }
+
+        .chat-widget-container {
+            position: fixed;
+            bottom: 95px;
+            right: 25px;
+            width: 360px;
+            max-width: calc(100vw - 40px);
+            height: 480px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            z-index: 1500;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(120, 181, 162, 0.3);
+        }
+
+        .chat-widget-container.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .chat-header {
+            background: var(--deep-emerald);
+            color: #fff;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-header-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--primary-teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .chat-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .chat-header h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            margin: 0;
+        }
+
+        .chat-header span {
+            font-size: 0.75rem;
+            opacity: 0.85;
+            display: block;
+        }
+
+        .chat-close-btn {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .chat-body {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background-color: var(--bg-cream);
+        }
+
+        .chat-msg {
+            max-width: 82%;
+            padding: 10px 14px;
+            border-radius: 14px;
+            font-size: 0.88rem;
+            line-height: 1.45;
+        }
+
+        .chat-msg.bot {
+            background: #fff;
+            color: var(--text-dark);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        .chat-msg.user {
+            background: var(--primary-dark-teal);
+            color: #fff;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .chat-quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .quick-btn {
+            background: #fff;
+            border: 1px solid var(--primary-teal);
+            color: var(--primary-dark-teal);
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .quick-btn:hover {
+            background: var(--primary-teal);
+            color: #fff;
+        }
+
+        .chat-footer {
+            padding: 12px;
+            background: #fff;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            display: flex;
+            gap: 8px;
+        }
+
+        .chat-footer input {
+            flex: 1;
+            border: 1px solid rgba(120, 181, 162, 0.4);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            outline: none;
+        }
+
+        .chat-footer input:focus {
+            border-color: var(--primary-dark-teal);
+        }
+
+        .chat-send-btn {
+            background: var(--primary-dark-teal);
+            color: #fff;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .chat-send-btn:hover {
+            background: var(--deep-emerald);
+        }
+
+        /* AJUSTES RESPONSIVOS */
         @media (max-width: 1050px) {
             .menu-toggle { display: block; }
             .nav-links {
@@ -300,7 +503,7 @@
         </nav>
     </header>
 
-    <!-- HERO COM IMAGEM DE FUNDO E FILTRO ESCURO -->
+    <!-- HERO SECTION -->
     <section class="hero" id="inicio">
         <div class="hero-container">
             <div class="hero-content">
@@ -313,7 +516,6 @@
         </div>
     </section>
 
-    <!-- DIVISOR DISCRETO -->
     <div class="section-divider"></div>
 
     <!-- SERVIÇOS -->
@@ -350,10 +552,9 @@
         </div>
     </section>
 
-    <!-- DIVISOR DISCRETO -->
     <div class="section-divider"></div>
 
-    <!-- SEÇÃO QUEM SOMOS -->
+    <!-- QUEM SOMOS -->
     <section class="section about-section" id="quemsomos">
         <div class="section-title">
             <h2><i class="fas fa-user-friends"></i> Quem Somos</h2>
@@ -405,10 +606,9 @@
         </div>
     </section>
 
-    <!-- DIVISOR DISCRETO -->
     <div class="section-divider"></div>
 
-    <!-- NOSSO ESPAÇO / STUDIO -->
+    <!-- ESPAÇO -->
     <section class="section" id="espaco">
         <div class="section-title">
             <h2><i class="fas fa-spa"></i> Conheça o Nosso Espaço</h2>
@@ -451,16 +651,14 @@
         </div>
     </section>
 
-    <!-- MODAL DE IMAGEM AMPLIADA -->
     <div id="imageModal" class="image-modal" onclick="closeModal()">
         <span class="close-modal">&times;</span>
         <img class="modal-content" id="imgExpanded">
     </div>
 
-    <!-- DIVISOR DISCRETO -->
     <div class="section-divider"></div>
 
-    <!-- SEÇÃO CURIOSIDADES EM GRID DE CARDS -->
+    <!-- CURIOSIDADES -->
     <section class="section" id="curiosidades" style="background: var(--bg-white);">
         <div class="section-title">
             <h2><i class="fas fa-lightbulb"></i> Você Sabia? Curiosidades sobre o Pilates</h2>
@@ -502,10 +700,9 @@
         </div>
     </section>
 
-    <!-- DIVISOR DISCRETO -->
     <div class="section-divider"></div>
 
-    <!-- PERGUNTAS FREQUENTES (FAQ) -->
+    <!-- FAQ -->
     <section class="section" id="faq">
         <div class="section-title">
             <h2><i class="fas fa-question-circle"></i> Principais Dúvidas</h2>
@@ -565,10 +762,9 @@
         </div>
     </section>
 
-    <!-- DIVISOR DISCRETO -->
     <div class="section-divider"></div>
 
-    <!-- SEÇÃO ONDE ESTAMOS -->
+    <!-- LOCALIZAÇÃO -->
     <section class="section" id="localizacao">
         <div class="section-title">
             <h2><i class="fas fa-map-marker-alt"></i> Onde Estamos</h2>
@@ -599,7 +795,6 @@
         </div>
     </section>
 
-    <!-- DIVISOR DISCRETO -->
     <div class="section-divider"></div>
 
     <!-- CONTATO -->
@@ -684,7 +879,48 @@
         <p>&copy; 2026 Thamyres Lobo Pilates e Fisioterapia. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- SCRIPT -->
+    <!-- CHATBOT WIDGET -->
+    <button class="chat-widget-toggle" id="chatToggle" onclick="toggleChatWidget()" aria-label="Abrir Atendimento">
+        <div id="chatIcon" style="width: 100%; height: 100%; border-radius: 50%; overflow: hidden;">
+            <img src="avatar-bot.png" alt="Assistente Virtual" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+    </button>
+
+    <div class="chat-widget-container" id="chatContainer">
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <div class="chat-avatar">
+                    <img src="avatar-bot.png" alt="Mascote Thamyres Lobo">
+                </div>
+                <div>
+                    <h4>Assistente Thamyres Lobo</h4>
+                    <span><i class="fas fa-circle" style="color: #25D366; font-size: 0.5rem;"></i> Online agora</span>
+                </div>
+            </div>
+            <button class="chat-close-btn" onclick="toggleChatWidget()">&times;</button>
+        </div>
+
+        <div class="chat-body" id="chatBody">
+            <div class="chat-msg bot">
+                Olá! Seja bem-vindo(a) ao Studio Thamyres Lobo. Como posso te ajudar hoje?
+            </div>
+            <div class="chat-quick-replies">
+                <button class="quick-btn" onclick="sendQuickReply('Horário de Atendimento')">Horários</button>
+                <button class="quick-btn" onclick="sendQuickReply('Onde vocês ficam?')">Endereço</button>
+                <button class="quick-btn" onclick="sendQuickReply('Quais serviços vocês oferecem?')">Serviços</button>
+                <button class="quick-btn" onclick="sendQuickReply('Quero agendar uma avaliação')">Agendar</button>
+            </div>
+        </div>
+
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Digite sua mensagem..." onkeypress="handleKeyPress(event)">
+            <button class="chat-send-btn" onclick="sendMessage()">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
     <script>
         function toggleMenu() {
             const navLinks = document.getElementById("navLinks");
@@ -720,6 +956,73 @@
             if (!isOpen) {
                 faqItem.classList.add('active');
             }
+        }
+
+        /* LÓGICA DO CHATBOT FLUTUANTE */
+        function toggleChatWidget() {
+            const container = document.getElementById("chatContainer");
+            const iconContainer = document.getElementById("chatIcon");
+            
+            container.classList.toggle("active");
+            if (container.classList.contains("active")) {
+                iconContainer.innerHTML = '<i class="fas fa-times" style="font-size: 1.5rem; line-height: 60px;"></i>';
+            } else {
+                iconContainer.innerHTML = '<img src="avatar-bot.png" alt="Assistente Virtual" style="width: 100%; height: 100%; object-fit: cover;">';
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById("chatInput");
+            const text = input.value.trim();
+            if (!text) return;
+
+            appendMessage(text, "user");
+            input.value = "";
+
+            setTimeout(() => {
+                processBotResponse(text);
+            }, 600);
+        }
+
+        function sendQuickReply(text) {
+            appendMessage(text, "user");
+            setTimeout(() => {
+                processBotResponse(text);
+            }, 600);
+        }
+
+        function appendMessage(text, sender) {
+            const chatBody = document.getElementById("chatBody");
+            const msgDiv = document.createElement("div");
+            msgDiv.className = `chat-msg ${sender}`;
+            msgDiv.innerHTML = text;
+            chatBody.appendChild(msgDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function processBotResponse(userMsg) {
+            const msg = userMsg.toLowerCase();
+            let reply = "";
+
+            if (msg.includes("horário") || msg.includes("horario") || msg.includes("hora")) {
+                reply = "Atendemos de **Segunda a Sexta-feira**, das **07h às 12h** e das **14h às 19h** (com agendamento prévio).";
+            } else if (msg.includes("endereço") || msg.includes("onde") || msg.includes("ficas") || msg.includes("local")) {
+                reply = "Estamos localizados na **Rua Nogueira Neves, 22 - Loja 07, Centro - Cataguases / MG**.";
+            } else if (msg.includes("serviço") || msg.includes("pilates") || msg.includes("fisioterapia")) {
+                reply = "Oferecemos **Studio de Pilates** em aparelhos completos, **Fisioterapia e Terapias Manuais** e **Eletrotermofototerapia** (Laser e Ultrassom).";
+            } else if (msg.includes("agendar") || msg.includes("avaliação") || msg.includes("aula") || msg.includes("preço") || msg.includes("valor")) {
+                reply = 'Para agendamentos e informações de valores, fale diretamente conosco via WhatsApp: <br><br><a href="https://wa.me/5532999531990?text=Olá!%20Vim%20pelo%20chatbot%20do%20site%20e%20gostaria%20de%20agendar." target="_blank" style="color:#25D366; font-weight:bold; text-decoration:underline;"><i class="fab fa-whatsapp"></i> Clique aqui para falar no WhatsApp</a>';
+            } else {
+                reply = 'Para dúvidas específicas ou agendamento imediato, você pode conversar com nossa equipe no WhatsApp: <br><br><a href="https://wa.me/5532999531990?text=Olá!%20Gostaria%20de%20tirar%20uma%20dúvida." target="_blank" style="color:#25D366; font-weight:bold; text-decoration:underline;"><i class="fab fa-whatsapp"></i> Iniciar conversa no WhatsApp</a>';
+            }
+
+            appendMessage(reply, "bot");
         }
     </script>
 
