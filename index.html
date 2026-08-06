@@ -232,7 +232,7 @@
         footer { background: var(--deep-emerald); color: #fff; text-align: center; padding: 25px 24px; font-size: 0.88rem; }
 
         /* ==========================================
-           WIDGET CHATBOT FLUTUANTE & ANIMAÇÃO PULSE
+           WIDGET CHATBOT FLUTUANTE, BALÃO & PULSE
            ========================================== */
         @keyframes greenPulse {
             0% {
@@ -246,10 +246,69 @@
             }
         }
 
-        .chat-widget-toggle {
+        @keyframes floatBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        .chat-widget-wrapper {
             position: fixed;
             bottom: 25px;
             right: 25px;
+            z-index: 1500;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        /* BALÃO DE FALA EM CIMA DA MASCOTE */
+        .chat-speech-bubble {
+            background: #fff;
+            color: var(--text-dark);
+            padding: 10px 14px;
+            border-radius: 16px;
+            border-bottom-right-radius: 2px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            box-shadow: 0 8px 20px rgba(20, 80, 67, 0.15);
+            border: 1px solid rgba(120, 181, 162, 0.4);
+            margin-bottom: 12px;
+            max-width: 210px;
+            position: relative;
+            cursor: pointer;
+            animation: floatBounce 3s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .chat-speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 20px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid #fff;
+        }
+
+        .chat-speech-bubble .bubble-close {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1;
+            cursor: pointer;
+            padding: 0 2px;
+        }
+
+        .chat-speech-bubble .bubble-close:hover {
+            color: #E53E3E;
+        }
+
+        .chat-widget-toggle {
             width: 60px;
             height: 60px;
             border-radius: 50%;
@@ -258,7 +317,6 @@
             border: none;
             box-shadow: 0 8px 25px rgba(20, 80, 67, 0.3);
             cursor: pointer;
-            z-index: 1500;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -895,12 +953,21 @@
         <p>&copy; 2026 Thamyres Lobo Pilates e Fisioterapia. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- CHATBOT WIDGET -->
-    <button class="chat-widget-toggle pulse" id="chatToggle" onclick="toggleChatWidget()" aria-label="Abrir Atendimento">
-        <div id="chatIcon" style="width: 100%; height: 100%; border-radius: 50%; overflow: hidden;">
-            <img src="avatar-bot.png" alt="Assistente Virtual" style="width: 100%; height: 100%; object-fit: cover;">
+    <!-- CHATBOT WIDGET WRAPPER -->
+    <div class="chat-widget-wrapper">
+        <!-- BALÃO DE FALA -->
+        <div class="chat-speech-bubble" id="chatBubble" onclick="toggleChatWidget()">
+            <span>Olá, eu sou a Tha! Como posso te ajudar?</span>
+            <span class="bubble-close" onclick="closeBubble(event)">&times;</span>
         </div>
-    </button>
+
+        <!-- BOTÃO FLUTUANTE -->
+        <button class="chat-widget-toggle pulse" id="chatToggle" onclick="toggleChatWidget()" aria-label="Abrir Atendimento">
+            <div id="chatIcon" style="width: 100%; height: 100%; border-radius: 50%; overflow: hidden;">
+                <img src="avatar-bot.png" alt="Assistente Virtual" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+        </button>
+    </div>
 
     <div class="chat-widget-container" id="chatContainer">
         <div class="chat-header">
@@ -909,7 +976,7 @@
                     <img src="avatar-bot.png" alt="Mascote Thamyres Lobo">
                 </div>
                 <div>
-                    <h4>Assistente Thá</h4>
+                    <h4>Assistente Tha</h4>
                     <span><i class="fas fa-circle" style="color: #25D366; font-size: 0.5rem;"></i> Online agora</span>
                 </div>
             </div>
@@ -975,14 +1042,25 @@
         }
 
         /* LÓGICA DO CHATBOT FLUTUANTE */
+        function closeBubble(event) {
+            event.stopPropagation();
+            const bubble = document.getElementById("chatBubble");
+            if (bubble) {
+                bubble.style.display = "none";
+            }
+        }
+
         function toggleChatWidget() {
             const container = document.getElementById("chatContainer");
             const iconContainer = document.getElementById("chatIcon");
             const toggleBtn = document.getElementById("chatToggle");
+            const bubble = document.getElementById("chatBubble");
             
             container.classList.toggle("active");
+            
             if (container.classList.contains("active")) {
                 toggleBtn.classList.remove("pulse");
+                if (bubble) bubble.style.display = "none";
                 iconContainer.innerHTML = '<i class="fas fa-times" style="font-size: 1.5rem; line-height: 60px;"></i>';
             } else {
                 toggleBtn.classList.add("pulse");
