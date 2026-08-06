@@ -232,8 +232,20 @@
         footer { background: var(--deep-emerald); color: #fff; text-align: center; padding: 25px 24px; font-size: 0.88rem; }
 
         /* ==========================================
-           WIDGET CHATBOT FLUTUANTE
+           WIDGET CHATBOT FLUTUANTE & ANIMAÇÃO PULSE
            ========================================== */
+        @keyframes greenPulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.8);
+            }
+            70% {
+                box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
         .chat-widget-toggle {
             position: fixed;
             bottom: 25px;
@@ -253,6 +265,10 @@
             font-size: 1.6rem;
             transition: var(--transition);
             padding: 0;
+        }
+
+        .chat-widget-toggle.pulse {
+            animation: greenPulse 2s infinite;
         }
 
         .chat-widget-toggle:hover {
@@ -880,7 +896,7 @@
     </footer>
 
     <!-- CHATBOT WIDGET -->
-    <button class="chat-widget-toggle" id="chatToggle" onclick="toggleChatWidget()" aria-label="Abrir Atendimento">
+    <button class="chat-widget-toggle pulse" id="chatToggle" onclick="toggleChatWidget()" aria-label="Abrir Atendimento">
         <div id="chatIcon" style="width: 100%; height: 100%; border-radius: 50%; overflow: hidden;">
             <img src="avatar-bot.png" alt="Assistente Virtual" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
@@ -893,7 +909,7 @@
                     <img src="avatar-bot.png" alt="Mascote Thamyres Lobo">
                 </div>
                 <div>
-                    <h4>Assistente Tha</h4>
+                    <h4>Assistente Thá</h4>
                     <span><i class="fas fa-circle" style="color: #25D366; font-size: 0.5rem;"></i> Online agora</span>
                 </div>
             </div>
@@ -962,11 +978,14 @@
         function toggleChatWidget() {
             const container = document.getElementById("chatContainer");
             const iconContainer = document.getElementById("chatIcon");
+            const toggleBtn = document.getElementById("chatToggle");
             
             container.classList.toggle("active");
             if (container.classList.contains("active")) {
+                toggleBtn.classList.remove("pulse");
                 iconContainer.innerHTML = '<i class="fas fa-times" style="font-size: 1.5rem; line-height: 60px;"></i>';
             } else {
+                toggleBtn.classList.add("pulse");
                 iconContainer.innerHTML = '<img src="avatar-bot.png" alt="Assistente Virtual" style="width: 100%; height: 100%; object-fit: cover;">';
             }
         }
@@ -1011,11 +1030,11 @@
             let reply = "";
 
             if (msg.includes("horário") || msg.includes("horario") || msg.includes("hora")) {
-                reply = "Atendemos de **Segunda a Sexta-feira**, das 07h às 12h e das 14h às 19h (com agendamento prévio).";
+                reply = "Atendemos de <b>Segunda a Sexta-feira</b>, das <b>07h às 12h</b> e das <b>14h às 19h</b> (com agendamento prévio).";
             } else if (msg.includes("endereço") || msg.includes("onde") || msg.includes("ficas") || msg.includes("local")) {
-                reply = "Estamos localizados na Rua Nogueira Neves, 22 - Loja 07, Centro - Cataguases / MG.";
+                reply = "Estamos localizados na <b>Rua Nogueira Neves, 22 - Loja 07, Centro - Cataguases / MG</b>.";
             } else if (msg.includes("serviço") || msg.includes("pilates") || msg.includes("fisioterapia")) {
-                reply = "Oferecemos Studio de Pilates em aparelhos completos, Fisioterapia Reabilitadora e Terapias Manuais e Eletrotermofototerapia (Laser e Ultrassom).";
+                reply = "Oferecemos <b>Studio de Pilates</b> em aparelhos completos, <b>Fisioterapia Reabilitadora e Terapias Manuais</b> e <b>Eletrotermofototerapia</b> (Laser e Ultrassom).";
             } else if (msg.includes("agendar") || msg.includes("avaliação") || msg.includes("aula") || msg.includes("preço") || msg.includes("valor")) {
                 reply = 'Para agendamentos e informações de valores, fale diretamente conosco via WhatsApp: <br><br><a href="https://wa.me/5532999531990?text=Olá!%20Vim%20pelo%20chatbot%20do%20site%20e%20gostaria%20de%20agendar." target="_blank" style="color:#25D366; font-weight:bold; text-decoration:underline;"><i class="fab fa-whatsapp"></i> Clique aqui para falar no WhatsApp</a>';
             } else {
