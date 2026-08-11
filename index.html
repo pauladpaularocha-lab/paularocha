@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thamyres Lobo | Pilates e Fisioterapia</title>
     
-    <!-- Favicon (Ícone da Aba) -->
     <link rel="icon" type="image/png" href="favicon.png?v=2">
     
-    <!-- Google Fonts (Inter + Playfair Display) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -235,15 +232,9 @@
            WIDGET CHATBOT FLUTUANTE, BALÃO & PULSE
            ========================================== */
         @keyframes greenPulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.8);
-            }
-            70% {
-                box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.8); }
+            70% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
         @keyframes floatBounce {
@@ -251,7 +242,6 @@
             50% { transform: translateY(-6px); }
         }
 
-        /* Animação do dedinho apontando estilo GIF */
         @keyframes pointingHand {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(5px); }
@@ -342,6 +332,8 @@
             font-size: 1.6rem;
             transition: var(--transition);
             padding: 0;
+            position: relative;
+            overflow: hidden;
         }
 
         .chat-widget-toggle.pulse {
@@ -351,6 +343,38 @@
         .chat-widget-toggle:hover {
             transform: scale(1.08);
             background-color: var(--deep-emerald);
+        }
+
+        /* EFEITO DE HOVER DA MASCOTE ANIMADA */
+        .avatar-box {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .avatar-static-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .avatar-hover-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.25s ease-in-out;
+            pointer-events: none;
+        }
+
+        .chat-widget-toggle:hover .avatar-hover-video {
+            opacity: 1;
         }
 
         .chat-widget-container {
@@ -568,7 +592,6 @@
 </head>
 <body>
 
-    <!-- NAV -->
     <header>
         <nav class="nav-container">
             <a href="#" class="logo-box">
@@ -596,7 +619,6 @@
         </nav>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="hero" id="inicio">
         <div class="hero-container">
             <div class="hero-content">
@@ -611,7 +633,6 @@
 
     <div class="section-divider"></div>
 
-    <!-- SERVIÇOS -->
     <section class="section" id="servicos">
         <div class="section-title">
             <h2><i class="fas fa-hand-holding-medical"></i> Nossos Serviços</h2>
@@ -647,7 +668,6 @@
 
     <div class="section-divider"></div>
 
-    <!-- QUEM SOMOS -->
     <section class="section about-section" id="quemsomos">
         <div class="section-title">
             <h2><i class="fas fa-user-friends"></i> Quem Somos</h2>
@@ -701,7 +721,6 @@
 
     <div class="section-divider"></div>
 
-    <!-- ESPAÇO -->
     <section class="section" id="espaco">
         <div class="section-title">
             <h2><i class="fas fa-spa"></i> Conheça o Nosso Espaço</h2>
@@ -745,13 +764,12 @@
     </section>
 
     <div id="imageModal" class="image-modal" onclick="closeModal()">
-        <span class="close-modal">&times;</span>
+        <span class="close-modal">×</span>
         <img class="modal-content" id="imgExpanded">
     </div>
 
     <div class="section-divider"></div>
 
-    <!-- CURIOSIDADES -->
     <section class="section" id="curiosidades" style="background: var(--bg-white);">
         <div class="section-title">
             <h2><i class="fas fa-lightbulb"></i> Você Sabia? Curiosidades sobre o Pilates</h2>
@@ -795,7 +813,6 @@
 
     <div class="section-divider"></div>
 
-    <!-- FAQ -->
     <section class="section" id="faq">
         <div class="section-title">
             <h2><i class="fas fa-question-circle"></i> Principais Dúvidas</h2>
@@ -857,7 +874,6 @@
 
     <div class="section-divider"></div>
 
-    <!-- LOCALIZAÇÃO -->
     <section class="section" id="localizacao">
         <div class="section-title">
             <h2><i class="fas fa-map-marker-alt"></i> Onde Estamos</h2>
@@ -890,7 +906,6 @@
 
     <div class="section-divider"></div>
 
-    <!-- CONTATO -->
     <section class="section" id="contato" style="background: var(--bg-white);">
         <div class="section-title" style="margin-bottom: 30px;">
             <h2><i class="fas fa-comments"></i> Fale Conosco</h2>
@@ -947,7 +962,6 @@
                 </div>
             </div>
 
-            <!-- CTA BOX -->
             <div class="cta-box">
                 <h3>Dê o primeiro passo para uma vida sem dores!</h3>
                 <p>Agende sua avaliação inicial e descubra como o Pilates e a Fisioterapia podem devolver sua disposição e qualidade de vida.</p>
@@ -967,23 +981,24 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Thamyres Lobo Pilates e Fisioterapia. Todos os direitos reservados.</p>
+        <p>© 2026 Thamyres Lobo Pilates e Fisioterapia. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- CHATBOT WIDGET WRAPPER -->
     <div class="chat-widget-wrapper">
-        <!-- BALÃO DE FALA COM TEXTO DESTACADO E DEDINHO ANIMADO -->
         <div class="chat-speech-bubble" id="chatBubble" onclick="toggleChatWidget()">
             <span>Olá, eu sou a <span class="highlight-name">Tha!</span> Como posso te ajudar? <span class="animated-finger">👇</span></span>
-            <span class="bubble-close" onclick="closeBubble(event)">&times;</span>
+            <span class="bubble-close" onclick="closeBubble(event)">×</span>
         </div>
 
-        <!-- BOTÃO FLUTUANTE -->
         <button class="chat-widget-toggle pulse" id="chatToggle" onclick="toggleChatWidget()" aria-label="Abrir Atendimento">
             <div id="chatIcon" style="width: 100%; height: 100%; border-radius: 50%; overflow: hidden;">
-                <img src="avatar-bot.png" alt="Assistente Virtual" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="avatar-box" id="avatarBox">
+                    <img src="avatar-bot.png" alt="Assistente Virtual" class="avatar-static-img">
+                    <video class="avatar-hover-video" id="avatarVideo" loop muted playsinline>
+                        <source src="http://googleusercontent.com/generated_video_content/7141491613567463552" type="video/mp4">
+                    </video>
+                </div>
             </div>
         </button>
     </div>
@@ -999,7 +1014,7 @@
                     <span><i class="fas fa-circle" style="color: #25D366; font-size: 0.5rem;"></i> Online agora</span>
                 </div>
             </div>
-            <button class="chat-close-btn" onclick="toggleChatWidget()">&times;</button>
+            <button class="chat-close-btn" onclick="toggleChatWidget()">×</button>
         </div>
 
         <div class="chat-body" id="chatBody">
@@ -1022,7 +1037,6 @@
         </div>
     </div>
 
-    <!-- SCRIPTS -->
     <script>
         function toggleMenu() {
             const navLinks = document.getElementById("navLinks");
@@ -1060,6 +1074,21 @@
             }
         }
 
+        /* LÓGICA DE HOVER NO BOTÃO DO CHATBOT PARA REPRODUZIR O VÍDEO */
+        const avatarBox = document.getElementById("avatarBox");
+        const avatarVideo = document.getElementById("avatarVideo");
+
+        if (avatarBox && avatarVideo) {
+            avatarBox.addEventListener("mouseenter", () => {
+                avatarVideo.currentTime = 0;
+                avatarVideo.play().catch(() => {});
+            });
+
+            avatarBox.addEventListener("mouseleave", () => {
+                avatarVideo.pause();
+            });
+        }
+
         /* LÓGICA DO CHATBOT FLUTUANTE */
         function closeBubble(event) {
             event.stopPropagation();
@@ -1083,7 +1112,27 @@
                 iconContainer.innerHTML = '<i class="fas fa-times" style="font-size: 1.5rem; line-height: 60px;"></i>';
             } else {
                 toggleBtn.classList.add("pulse");
-                iconContainer.innerHTML = '<img src="avatar-bot.png" alt="Assistente Virtual" style="width: 100%; height: 100%; object-fit: cover;">';
+                iconContainer.innerHTML = `
+                    <div class="avatar-box" id="avatarBox">
+                        <img src="avatar-bot.png" alt="Assistente Virtual" class="avatar-static-img">
+                        <video class="avatar-hover-video" id="avatarVideo" loop muted playsinline>
+                            <source src="http://googleusercontent.com/generated_video_content/7141491613567463552" type="video/mp4">
+                        </video>
+                    </div>
+                `;
+                
+                // Reatribui os eventos de hover após fechar o chat
+                const newBox = document.getElementById("avatarBox");
+                const newVideo = document.getElementById("avatarVideo");
+                if (newBox && newVideo) {
+                    newBox.addEventListener("mouseenter", () => {
+                        newVideo.currentTime = 0;
+                        newVideo.play().catch(() => {});
+                    });
+                    newBox.addEventListener("mouseleave", () => {
+                        newVideo.pause();
+                    });
+                }
             }
         }
 
