@@ -257,911 +257,102 @@
             align-items: flex-end;
         }
 
+        /* BALÃO DE FALA ESTILO ANEXO (LAYOUT CARD VERDE) */
         .chat-speech-bubble {
-            background: #fff;
+            background: #ffffff;
             color: var(--text-dark);
-            padding: 12px 16px;
-            border-radius: 18px;
-            border-bottom-right-radius: 2px;
-            font-size: 0.92rem;
-            font-weight: 500;
-            box-shadow: 0 8px 20px rgba(20, 80, 67, 0.15);
-            border: 1px solid rgba(120, 181, 162, 0.4);
-            margin-bottom: 14px;
-            max-width: 250px;
+            padding: 22px 22px 18px;
+            border-radius: 28px;
+            box-shadow: 0 12px 30px rgba(20, 80, 67, 0.16);
+            border: 1px solid rgba(120, 181, 162, 0.35);
+            margin-bottom: 16px;
+            width: 320px;
+            max-width: calc(100vw - 60px);
             position: relative;
             cursor: pointer;
-            animation: floatBounce 3s ease-in-out infinite;
+            animation: floatBounce 3.5s ease-in-out infinite;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
+            flex-direction: column;
+            gap: 12px;
             transition: all 0.3s ease;
         }
 
         .chat-speech-bubble::after {
             content: '';
             position: absolute;
-            bottom: -8px;
-            right: 25px;
+            bottom: -10px;
+            right: 32px;
             width: 0;
             height: 0;
-            border-left: 8px solid transparent;
-            border-right: 8px solid transparent;
-            border-top: 8px solid #fff;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #ffffff;
         }
 
-        .chat-speech-bubble .highlight-name {
-            color: var(--primary-dark-teal);
+        .bubble-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .bubble-title-box h3 {
+            font-size: 1.35rem;
             font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: 4px;
         }
 
-        .chat-speech-bubble .animated-finger {
-            display: inline-block;
-            font-size: 1.15rem;
-            animation: pointingHand 1s ease-in-out infinite;
-            vertical-align: middle;
-            margin-left: 2px;
+        .bubble-title-box h3 .highlight-name {
+            color: var(--primary-dark-teal);
+            font-weight: 800;
         }
 
-        .chat-speech-bubble .bubble-close {
+        .bubble-title-box p {
+            font-size: 0.95rem;
             color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .bubble-close-btn {
+            background: rgba(120, 181, 162, 0.15);
+            color: var(--primary-dark-teal);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1.1rem;
             line-height: 1;
             cursor: pointer;
-            padding: 0 2px;
-        }
-
-        .chat-speech-bubble .bubble-close:hover {
-            color: #E53E3E;
-        }
-
-        /* BOTÃO FLUTUANTE (75px) COM ZOOM SUAVE NO HOVER */
-        .chat-widget-toggle {
-            width: 75px;
-            height: 75px;
-            border-radius: 50%;
-            background-color: var(--primary-dark-teal);
-            color: #fff;
+            transition: var(--transition);
             border: none;
-            box-shadow: 0 10px 28px rgba(20, 80, 67, 0.35);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s ease, box-shadow 0.3s ease;
-            padding: 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .chat-widget-toggle.pulse {
-            animation: greenPulse 2s infinite;
-        }
-
-        .chat-widget-toggle:hover {
-            transform: scale(1.18);
-            box-shadow: 0 14px 35px rgba(20, 80, 67, 0.45);
-            background-color: var(--deep-emerald);
-        }
-
-        .avatar-box {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .avatar-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-
-        .close-icon {
-            display: none;
-            font-size: 2rem;
-            line-height: 1;
-        }
-
-        .chat-widget-toggle.open .avatar-box {
-            display: none;
-        }
-
-        .chat-widget-toggle.open .close-icon {
-            display: block;
-        }
-
-        /* JANELA DO CHATBOT (400px x 540px) */
-        .chat-widget-container {
-            position: fixed;
-            bottom: 115px;
-            right: 30px;
-            width: 400px;
-            max-width: calc(100vw - 40px);
-            height: 540px;
-            background: #fff;
-            border-radius: 22px;
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
-            z-index: 1500;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(120, 181, 162, 0.3);
-        }
-
-        .chat-widget-container.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .chat-header {
-            background: var(--deep-emerald);
-            color: #fff;
-            padding: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .chat-header-info {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .chat-avatar {
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid var(--primary-teal);
-            display: flex;
-            align-items: center;
-            justify-content: center;
             flex-shrink: 0;
         }
 
-        .chat-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .chat-header h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.15rem;
-            margin: 0;
-        }
-
-        .chat-header span {
-            font-size: 0.8rem;
-            opacity: 0.85;
-            display: block;
-        }
-
-        .chat-close-btn {
-            background: transparent;
-            border: none;
+        .bubble-close-btn:hover {
+            background: #E53E3E;
             color: #fff;
-            font-size: 1.3rem;
-            cursor: pointer;
         }
 
-        .chat-body {
-            flex: 1;
-            padding: 18px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            background-color: var(--bg-cream);
-        }
-
-        .chat-msg {
-            max-width: 82%;
-            padding: 11px 15px;
-            border-radius: 16px;
-            font-size: 0.92rem;
-            line-height: 1.5;
-        }
-
-        .chat-msg.bot {
-            background: #fff;
-            color: var(--text-dark);
-            align-self: flex-start;
-            border-bottom-left-radius: 4px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-        }
-
-        .chat-msg.user {
-            background: var(--primary-dark-teal);
-            color: #fff;
-            align-self: flex-end;
-            border-bottom-right-radius: 4px;
-        }
-
-        .chat-quick-replies {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 4px;
-        }
-
-        .quick-btn {
-            background: #fff;
-            border: 1px solid var(--primary-teal);
+        /* PILL BUTTON INTERNO DO BALÃO */
+        .bubble-cta-pill {
+            background: rgba(120, 181, 162, 0.15);
             color: var(--primary-dark-teal);
-            padding: 7px 14px;
-            border-radius: 18px;
-            font-size: 0.82rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .quick-btn:hover {
-            background: var(--primary-teal);
-            color: #fff;
-        }
-
-        .chat-footer {
-            padding: 14px;
-            background: #fff;
-            border-top: 1px solid rgba(0,0,0,0.08);
-            display: flex;
-            gap: 10px;
-        }
-
-        .chat-footer input {
-            flex: 1;
-            border: 1px solid rgba(120, 181, 162, 0.4);
             padding: 10px 16px;
-            border-radius: 22px;
-            font-size: 0.92rem;
-            outline: none;
-        }
-
-        .chat-footer input:focus {
-            border-color: var(--primary-dark-teal);
-        }
-
-        .chat-send-btn {
-            background: var(--primary-dark-teal);
-            color: #fff;
-            border: none;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            cursor: pointer;
+            border-radius: 25px;
+            font-size: 0.88rem;
+            font-weight: 600;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
+            gap: 8px;
             transition: var(--transition);
+            border: 1px solid rgba(120, 181, 162, 0.3);
         }
 
-        .chat-send-btn:hover {
-            background: var(--deep-emerald);
-        }
-
-        /* AJUSTES RESPONSIVOS */
-        @media (max-width: 1050px) {
-            .menu-toggle { display: block; }
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(20, 80, 67, 0.98);
-                backdrop-filter: blur(10px);
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-                border-top: 1px solid rgba(255,255,255,0.1);
-            }
-            .nav-links.active { display: flex; }
-            .nav-links li { width: 100%; text-align: center; }
-            .nav-links a { display: block; padding: 12px; font-size: 1rem; border-radius: 0; }
-            .nav-links a:hover { background: rgba(255,255,255,0.1); }
-        }
-
-        @media (max-width: 900px) {
-            .contact-container, .map-container { grid-template-columns: 1fr; }
-            .hero-content h1 { font-size: 2.3rem; }
-            .hero-content p { font-size: 1.05rem; }
-            .stat-divider { display: none; }
-            .stats-inline { gap: 20px; }
-            .map-iframe-box { height: 300px; min-height: 300px; }
-            .section { padding: 50px 16px; }
-            .about-box { padding: 30px 20px; }
-            .contact-info, .cta-box { padding: 30px 20px; }
-            .section-title h2 { font-size: 1.7rem; }
-            
-            .chat-widget-container {
-                right: 15px;
-                bottom: 100px;
-                width: calc(100vw - 30px);
-            }
-            .chat-widget-wrapper {
-                right: 15px;
-                bottom: 20px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <nav class="nav-container">
-            <a href="#" class="logo-box">
-                <img src="logo.png" alt="Thamyres Lobo Pilates e Fisioterapia">
-            </a>
-            
-            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir Menu">
-                <i class="fas fa-bars"></i>
-            </button>
-
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#inicio" onclick="closeMenu()">Início</a></li>
-                <li><a href="#servicos" onclick="closeMenu()">Nossos Cuidados</a></li>
-                <li><a href="#quemsomos" onclick="closeMenu()">Quem Somos</a></li>
-                <li><a href="#espaco" onclick="closeMenu()">Nosso Espaço</a></li>
-                <li><a href="#curiosidades" onclick="closeMenu()">Curiosidades</a></li>
-                <li><a href="#faq" onclick="closeMenu()">Dúvidas</a></li>
-                <li><a href="#localizacao" onclick="closeMenu()">Localização</a></li>
-                <li><a href="#contato" onclick="closeMenu()">Fale Conosco</a></li>
-            </ul>
-
-            <a href="https://wa.me/5532999531990?text=Olá!%20Gostaria%20de%20agendar%20um%20horário." class="btn-cta" target="_blank">
-                <i class="fab fa-whatsapp"></i> Agendar Horário
-            </a>
-        </nav>
-    </header>
-
-    <section class="hero" id="inicio">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>O Movimento que Transforma. O Cuidado que Você Merece.</h1>
-                <p>Recupere sua mobilidade e viva sem dores com atendimento personalizado em Pilates e Fisioterapia em Cataguases - MG.</p>
-                <a href="#servicos" class="btn-secondary">
-                    Conheça Nossos Serviços
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <section class="section" id="servicos">
-        <div class="section-title">
-            <h2><i class="fas fa-hand-holding-medical"></i> Nossos Serviços</h2>
-            <p>Tratamentos especializados e atendimento individualizado para sua saúde.</p>
-        </div>
-        
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-child"></i>
-                </div>
-                <h3>Studio de Pilates</h3>
-                <p>Aulas personalizadas em aparelhos (Reformer, Barrel, Chair) focadas em fortalecimento postural, flexibilidade e equilíbrio.</p>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-hands"></i>
-                </div>
-                <h3>Fisioterapia e Terapias Manuais</h3>
-                <p>Liberação miofascial e mobilizações articulares direcionadas para o alívio imediato da dor e reabilitação funcional.</p>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-bolt"></i>
-                </div>
-                <h3>Eletrotermofototerapia</h3>
-                <p>Aplicação de Laser Terapêutico e Ultrassom para acelerar a regeneração tecidual e combater processos inflamatórios.</p>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <section class="section about-section" id="quemsomos">
-        <div class="section-title">
-            <h2><i class="fas fa-user-friends"></i> Quem Somos</h2>
-            <p>Comprometimento, dedicação e paixão pelo cuidado com a sua saúde e bem-estar.</p>
-        </div>
-
-        <div class="about-box">
-            <div class="about-manifesto">
-                <h3>Um espaço criado com o propósito de oferecer saúde, reabilitação e qualidade de vida.</h3>
-                <p>Aqui no Studio, entendemos que cada corpo tem sua história. Por isso, nosso compromisso é oferecer um acompanhamento atencioso, seguro e humanizado, guiado por profissionais qualificadas e apaixonadas pelo que fazem.</p>
-            </div>
-
-            <div class="stats-inline">
-                <div class="stat-item">
-                    <div class="stat-number">+2 Anos</div>
-                    <div class="stat-desc">de história em Cataguases</div>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <div class="stat-number">+7 Anos</div>
-                    <div class="stat-desc">de experiência clínica</div>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-desc">foco no seu bem-estar</div>
-                </div>
-            </div>
-
-            <div class="team-highlights">
-                <div class="team-card">
-                    <img src="thamyres1.jpeg" alt="Thamyres Lobo Fisioterapeuta" class="team-avatar avatar-thamyres" onclick="openModal(this)">
-                    <div class="team-info">
-                        <h4>Thamyres Lobo</h4>
-                        <span>Fisioterapeuta & Instrutora de Pilates</span>
-                        <p>Responsável principal pelo Studio, é fisioterapeuta com mais de 7 anos de experiência de mercado e formação especializada em Pilates, dedicada a promover saúde e reabilitação integrativa.</p>
-                    </div>
-                </div>
-
-                <div class="team-card">
-                    <img src="Micaelly.jpeg" alt="Micaelly Saraiva" class="team-avatar avatar-micaelly" onclick="openModal(this)">
-                    <div class="team-info">
-                        <h4>Micaelly Saraiva</h4>
-                        <span>Fisioterapeuta & Instrutora de Pilates</span>
-                        <p>Fisioterapeuta com curso de formação em Pilates, integra nossa equipe com um olhar cuidadoso, técnico e focado no bem-estar e na evolução contínua de cada paciente.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <section class="section" id="espaco">
-        <div class="section-title">
-            <h2><i class="fas fa-spa"></i> Conheça o Nosso Espaço</h2>
-            <p>Um local aconchegante, climatizado e preparado com todo o carinho para você se sentir em casa.</p>
-        </div>
-
-        <div class="gallery-grid">
-            <div class="gallery-card">
-                <div class="img-container">
-                    <img src="Pilates.jpeg" alt="Studio de Pilates Equipado" onclick="openModal(this)">
-                    <span class="zoom-badge"><i class="fas fa-search-plus"></i> Ampliar</span>
-                </div>
-                <div class="gallery-caption">
-                    <h4>Equipamentos Completos</h4>
-                    <p>Aparelhos modernos para trabalhar força, mobilidade e postura de forma segura.</p>
-                </div>
-            </div>
-
-            <div class="gallery-card">
-                <div class="img-container">
-                    <img src="Fisioterapia.jpeg" alt="Espaço do Studio de Pilates" onclick="openModal(this)">
-                    <span class="zoom-badge"><i class="fas fa-search-plus"></i> Ampliar</span>
-                </div>
-                <div class="gallery-caption">
-                    <h4>Ambiente Aconchegante</h4>
-                    <p>Estrutura pensada para o seu conforto, foco e tranquilidade a cada sessão.</p>
-                </div>
-            </div>
-
-            <div class="gallery-card">
-                <div class="img-container">
-                    <img src="studio3.jpeg" alt="Atendimento no Studio" onclick="openModal(this)">
-                    <span class="zoom-badge"><i class="fas fa-search-plus"></i> Ampliar</span>
-                </div>
-                <div class="gallery-caption">
-                    <h4>Atendimento Personalizado</h4>
-                    <p>Acompanhamento próximo e individualizado para você alcançar seus objetivos.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div id="imageModal" class="image-modal" onclick="closeModal()">
-        <span class="close-modal">×</span>
-        <img class="modal-content" id="imgExpanded">
-    </div>
-
-    <div class="section-divider"></div>
-
-    <section class="section" id="curiosidades" style="background: var(--bg-white);">
-        <div class="section-title">
-            <h2><i class="fas fa-lightbulb"></i> Você Sabia? Curiosidades sobre o Pilates</h2>
-            <p>Descubra fatos fascinantes sobre a história e os benefícios do método que conquistou o mundo.</p>
-        </div>
-
-        <div class="curiosidades-grid">
-            <div class="curiosidade-card">
-                <div class="curiosidade-icon">
-                    <i class="fas fa-lightbulb"></i>
-                </div>
-                <h3>O nome original era Contrologia</h3>
-                <p>Criado por Joseph Pilates na década de 1920, o método foi batizado inicialmente de Contrologia, destacando o controle consciente da mente sobre os músculos.</p>
-            </div>
-
-            <div class="curiosidade-card">
-                <div class="curiosidade-icon">
-                    <i class="fas fa-bed"></i>
-                </div>
-                <h3>Aparelhos de hospital</h3>
-                <p>Durante a Primeira Guerra Mundial, Joseph improvisou molas de camas hospitalares para exercitar pacientes acamados, dando origem aos primeiros Reformers.</p>
-            </div>
-
-            <div class="curiosidade-card">
-                <div class="curiosidade-icon">
-                    <i class="fas fa-running"></i>
-                </div>
-                <h3>Criado para atletas e homens</h3>
-                <p>Embora muito associado ao público feminino hoje, o método nasceu para auxiliar no condicionamento de atletas, dançarinos de balé e boxeadores.</p>
-            </div>
-
-            <div class="curiosidade-card">
-                <div class="curiosidade-icon">
-                    <i class="fas fa-child-reaching"></i>
-                </div>
-                <h3>Sensação de "crescer"</h3>
-                <p>Com o foco intenso na descompressão da coluna e correção postural, o Pilates melhora o alinhamento corporal e gera uma sensação imediata de leveza e altura.</p>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <section class="section" id="faq">
-        <div class="section-title">
-            <h2><i class="fas fa-question-circle"></i> Principais Dúvidas</h2>
-            <p>Respostas simples para as perguntas mais comuns de nossos alunos e pacientes.</p>
-        </div>
-
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Preciso ter experiência ou flexibilidade para começar o Pilates?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Não! O Pilates é para todos os níveis. As aulas e os exercícios em aparelhos são 100% adaptados às suas limitações, nível de condicionamento e objetivos individuais.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Como funciona a avaliação inicial?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Realizamos uma avaliação física e postural detalhada para identificar pontos de tensão, encurtamentos ou lesões. Com base nisso, elaboramos um plano de acompanhamento feito sob medida para você.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>O Studio atende quem tem dores crônicas ou lesões?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Com certeza. Nossa equipe é formada por fisioterapeutas especializadas. O Pilates clínico e a fisioterapia manual são altamente indicados no tratamento e prevenção de dores na coluna, articulações e lesões musculares.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Quantas vezes por semana é recomendado praticar?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Para resultados perceptíveis na postura e no alívio de dores, recomendamos de 2 a 3 sessões por semana. No entanto, mesmo 1 sessão semanal bem direcionada traz excelentes benefícios para o corpo.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Como faço para agendar minha aula ou sessão?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Todos os atendimentos são agendados previamente para garantir exclusividade e conforto. Você pode clicar em qualquer botão do site para falar diretamente conosco pelo WhatsApp.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <section class="section" id="localizacao">
-        <div class="section-title">
-            <h2><i class="fas fa-map-marker-alt"></i> Onde Estamos</h2>
-            <p>Fácil acesso no centro de Cataguases para o seu conforto.</p>
-        </div>
-
-        <div class="map-container">
-            <div class="map-info">
-                <h3>Venha Conhecer o Nosso Espaço</h3>
-                <p>Estamos localizados em uma área central de fácil acesso, climatizada e estruturada para oferecer a você a melhor experiência em cuidados e reabilitação.</p>
-                
-                <div class="map-address-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h5 style="color: var(--deep-emerald); font-size: 1.05rem;">Endereço</h5>
-                        <p style="margin-bottom: 0;">Rua Nogueira Neves, 22 - Loja 07<br>Centro - Cataguases / MG</p>
-                    </div>
-                </div>
-
-                <a href="https://maps.google.com/?q=Rua+Nogueira+Neves,+22,+Centro,+Cataguases+-+MG" target="_blank" class="btn-secondary" style="width: fit-content; text-decoration: none; color: var(--deep-emerald) !important; border-color: var(--primary-dark-teal);">
-                    <i class="fas fa-directions" style="margin-right: 8px;"></i> Abrir no Google Maps
-                </a>
-            </div>
-
-            <div class="map-iframe-box">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3714.478953188902!2d-42.6985038!3d-21.3908819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80352ef13eb53d%3A0xa1b2c3d4e5f6g7h8!2sRua%20Nogueira%20Neves%2C%2022%20-%20Centro%2C%20Cataguases%20-%20MG!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <section class="section" id="contato" style="background: var(--bg-white);">
-        <div class="section-title" style="margin-bottom: 30px;">
-            <h2><i class="fas fa-comments"></i> Fale Conosco</h2>
-            <p>Tire suas dúvidas e agende sua aula experimental.</p>
-        </div>
-
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--deep-emerald); margin-bottom: 6px;">Informações de Contato</h3>
-                <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 24px;">Entre em contato conosco através dos canais abaixo.</p>
-                
-                <div class="info-item">
-                    <div class="icon-bg icon-map">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div>
-                        <h5 style="color: var(--deep-emerald); font-size: 1rem;">Endereço</h5>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">Rua Nogueira Neves, 22 - Loja 07<br>Centro - Cataguases / MG</p>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <div class="icon-bg icon-whatsapp">
-                        <i class="fab fa-whatsapp"></i>
-                    </div>
-                    <div>
-                        <h5 style="color: var(--deep-emerald); font-size: 1rem;">WhatsApp</h5>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">(32) 99953-1990</p>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <div class="icon-bg icon-instagram">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <div>
-                        <h5 style="color: var(--deep-emerald); font-size: 1rem;">Instagram</h5>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">
-                            <a href="https://www.instagram.com/fisiothamyreslobo/" target="_blank" style="color: var(--primary-dark-teal); text-decoration: none; font-weight: 600;">
-                                @fisiothamyreslobo
-                            </a>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <div class="icon-bg icon-clock">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div>
-                        <h5 style="color: var(--deep-emerald); font-size: 1rem;">Horário de Atendimento</h5>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">Segunda a Sexta: 07h às 12h e 14h às 19h<br><small style="opacity: 0.8;">(Atendimento mediante agendamento prévio)</small></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cta-box">
-                <h3>Dê o primeiro passo para uma vida sem dores!</h3>
-                <p>Agende sua avaliação inicial e descubra como o Pilates e a Fisioterapia podem devolver sua disposição e qualidade de vida.</p>
-                
-                <ul class="cta-benefits">
-                    <li><i class="fas fa-check-circle"></i> Avaliação física individualizada</li>
-                    <li><i class="fas fa-check-circle"></i> Atendimento mediante agendamento</li>
-                    <li><i class="fas fa-check-circle"></i> Ambiente tranquilo e acolhedor</li>
-                </ul>
-
-                <a href="https://wa.me/5532999531990?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avaliação." class="btn-whatsapp" target="_blank">
-                    <i class="fab fa-whatsapp"></i> Agendar Minha Avaliação Inicial
-                </a>
-
-                <span class="cta-note"><i class="fas fa-shield-alt"></i> Atendimento rápido no WhatsApp</span>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2026 Thamyres Lobo Pilates e Fisioterapia. Todos os direitos reservados.</p>
-    </footer>
-
-    <div class="chat-widget-wrapper">
-        <div class="chat-speech-bubble" id="chatBubble" onclick="toggleChatWidget()">
-            <span>Olá, eu sou a <span class="highlight-name">Tha!</span> Como posso te ajudar? <span class="animated-finger">👇</span></span>
-            <span class="bubble-close" onclick="closeBubble(event)">×</span>
-        </div>
-
-        <button class="chat-widget-toggle pulse" id="chatToggle" onclick="toggleChatWidget()" aria-label="Abrir Atendimento">
-            <div class="avatar-box">
-                <img src="avatar-tchau.gif" alt="Assistente dando tchau" onerror="this.src='avatar-bot.png'">
-            </div>
-            <i class="fas fa-times close-icon"></i>
-        </button>
-    </div>
-
-    <div class="chat-widget-container" id="chatContainer">
-        <div class="chat-header">
-            <div class="chat-header-info">
-                <div class="chat-avatar">
-                    <img src="avatar-bot.png" alt="Mascote Thamyres Lobo">
-                </div>
-                <div>
-                    <h4>Assistente Tha</h4>
-                    <span><i class="fas fa-circle" style="color: #25D366; font-size: 0.5rem;"></i> Online agora</span>
-                </div>
-            </div>
-            <button class="chat-close-btn" onclick="toggleChatWidget()">×</button>
-        </div>
-
-        <div class="chat-body" id="chatBody">
-            <div class="chat-msg bot">
-                Olá! Seja bem-vindo(a) ao Studio Thamyres Lobo. Como posso te ajudar hoje?
-            </div>
-            <div class="chat-quick-replies">
-                <button class="quick-btn" onclick="sendQuickReply('Horário de Atendimento')">Horários</button>
-                <button class="quick-btn" onclick="sendQuickReply('Onde vocês ficam?')">Endereço</button>
-                <button class="quick-btn" onclick="sendQuickReply('Quais serviços vocês oferecem?')">Serviços</button>
-                <button class="quick-btn" onclick="sendQuickReply('Quero agendar uma avaliação')">Agendar</button>
-            </div>
-        </div>
-
-        <div class="chat-footer">
-            <input type="text" id="chatInput" placeholder="Digite sua mensagem..." onkeypress="handleKeyPress(event)">
-            <button class="chat-send-btn" onclick="sendMessage()">
-                <i class="fas fa-paper-plane"></i>
-            </button>
-        </div>
-    </div>
-
-    <script>
-        function toggleMenu() {
-            const navLinks = document.getElementById("navLinks");
-            navLinks.classList.toggle("active");
-        }
-
-        function closeMenu() {
-            const navLinks = document.getElementById("navLinks");
-            navLinks.classList.remove("active");
-        }
-
-        function openModal(element) {
-            const modal = document.getElementById("imageModal");
-            const modalImg = document.getElementById("imgExpanded");
-            modal.classList.add("active");
-            modalImg.src = element.src;
-            modalImg.alt = element.alt;
-        }
-
-        function closeModal() {
-            const modal = document.getElementById("imageModal");
-            modal.classList.remove("active");
-        }
-
-        function toggleFaq(element) {
-            const faqItem = element.parentElement;
-            const isOpen = faqItem.classList.contains('active');
-            
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.classList.remove('active');
-            });
-
-            if (!isOpen) {
-                faqItem.classList.add('active');
-            }
-        }
-
-        function closeBubble(event) {
-            event.stopPropagation();
-            const bubble = document.getElementById("chatBubble");
-            if (bubble) {
-                bubble.style.display = "none";
-            }
-        }
-
-        function toggleChatWidget() {
-            const container = document.getElementById("chatContainer");
-            const toggleBtn = document.getElementById("chatToggle");
-            const bubble = document.getElementById("chatBubble");
-            
-            container.classList.toggle("active");
-            toggleBtn.classList.toggle("open");
-            
-            if (container.classList.contains("active")) {
-                toggleBtn.classList.remove("pulse");
-                if (bubble) bubble.style.display = "none";
-            } else {
-                toggleBtn.classList.add("pulse");
-            }
-        }
-
-        function handleKeyPress(event) {
-            if (event.key === "Enter") {
-                sendMessage();
-            }
-        }
-
-        function sendMessage() {
-            const input = document.getElementById("chatInput");
-            const text = input.value.trim();
-            if (!text) return;
-
-            appendMessage(text, "user");
-            input.value = "";
-
-            setTimeout(() => {
-                processBotResponse(text);
-            }, 600);
-        }
-
-        function sendQuickReply(text) {
-            appendMessage(text, "user");
-            setTimeout(() => {
-                processBotResponse(text);
-            }, 600);
-        }
-
-        function appendMessage(text, sender) {
-            const chatBody = document.getElementById("chatBody");
-            const msgDiv = document.createElement("div");
-            msgDiv.className = `chat-msg ${sender}`;
-            msgDiv.innerHTML = text;
-            chatBody.appendChild(msgDiv);
-            chatBody.scrollTop = chatBody.scrollHeight;
-        }
-
-        function processBotResponse(userMsg) {
-            const msg = userMsg.toLowerCase();
-            let reply = "";
-
-            if (msg.includes("horário") || msg.includes("horario") || msg.includes("hora")) {
-                reply = "Atendemos de <b>Segunda a Sexta-feira</b>, das <b>07h às 12h</b> e das <b>14h às 19h</b> (com agendamento prévio).";
-            } else if (msg.includes("endereço") || msg.includes("onde") || msg.includes("ficas") || msg.includes("local")) {
-                reply = "Estamos localizados na <b>Rua Nogueira Neves, 22 - Loja 07, Centro - Cataguases / MG</b>.";
-            } else if (msg.includes("serviço") || msg.includes("pilates") || msg.includes("fisioterapia")) {
-                reply = "Oferecemos <b>Studio de Pilates</b> em aparelhos completos, <b>Fisioterapia Reabilitadora e Terapias Manuais</b> e <b>Eletrotermofototerapia</b> (Laser e Ultrassom).";
-            } else if (msg.includes("agendar") || msg.includes("avaliação") || msg.includes("aula") || msg.includes("preço") || msg.includes("valor")) {
-                reply = 'Para agendamentos e informações de valores, fale diretamente conosco via WhatsApp: <br><br><a href="https://wa.me/5532999531990?text=Olá!%20Vim%20pelo%20chatbot%20do%20site%20e%20gostaria%20de%20agendar." target="_blank" style="color:#25D366; font-weight:bold; text-decoration:underline;"><i class="fab fa-whatsapp"></i> Clique aqui para falar no WhatsApp</a>';
-            } else {
-                reply = 'Para dúvidas específicas ou agendamento imediato, você pode conversar com nossa equipe no WhatsApp: <br><br><a href="https://wa.me/5532999531990?text=Olá!%20Gostaria%20de%20tirar%20uma%20dúvida." target="_blank" style="color:#25D366; font-weight:bold; text-decoration:underline;"><i class="fab fa-whatsapp"></i> Iniciar conversa no WhatsApp</a>';
-            }
-
-            appendMessage(reply, "bot");
-        }
-    </script>
-
-</body>
-</html>
+        .chat-speech-bubble:hover .bubble-cta-pill {
+            background: var(--primary-dark-teal);
+            color: #ffffff;
