@@ -345,36 +345,21 @@
             background-color: var(--deep-emerald);
         }
 
-        /* EFEITO DE HOVER COM IMAGEM GIF */
+        /* EFEITO SEGURO DE HOVER DO BOTÃO */
         .avatar-box {
             position: relative;
-            width: 100%;
-            height: 100%;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             overflow: hidden;
+            display: block;
         }
 
-        .avatar-static-img {
+        .avatar-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
-        }
-
-        .avatar-hover-gif {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 0.25s ease-in-out;
-            pointer-events: none;
-        }
-
-        .chat-widget-toggle:hover .avatar-hover-gif {
-            opacity: 1;
         }
 
         .chat-widget-container {
@@ -956,4 +941,222 @@
                         <i class="fas fa-clock"></i>
                     </div>
                     <div>
-                        <h5 style="color: var
+                        <h5 style="color: var(--deep-emerald); font-size: 1rem;">Horário de Atendimento</h5>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">Segunda a Sexta: 07h às 12h e 14h às 19h<br><small style="opacity: 0.8;">(Atendimento mediante agendamento prévio)</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <h3>Dê o primeiro passo para uma vida sem dores!</h3>
+                <p>Agende sua avaliação inicial e descubra como o Pilates e a Fisioterapia podem devolver sua disposição e qualidade de vida.</p>
+                
+                <ul class="cta-benefits">
+                    <li><i class="fas fa-check-circle"></i> Avaliação física individualizada</li>
+                    <li><i class="fas fa-check-circle"></i> Atendimento mediante agendamento</li>
+                    <li><i class="fas fa-check-circle"></i> Ambiente tranquilo e acolhedor</li>
+                </ul>
+
+                <a href="https://wa.me/5532999531990?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avaliação." class="btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Agendar Minha Avaliação Inicial
+                </a>
+
+                <span class="cta-note"><i class="fas fa-shield-alt"></i> Atendimento rápido no WhatsApp</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Thamyres Lobo Pilates e Fisioterapia. Todos os direitos reservados.</p>
+    </footer>
+
+    <div class="chat-widget-wrapper">
+        <div class="chat-speech-bubble" id="chatBubble" onclick="toggleChatWidget()">
+            <span>Olá, eu sou a <span class="highlight-name">Tha!</span> Como posso te ajudar? <span class="animated-finger">👇</span></span>
+            <span class="bubble-close" onclick="closeBubble(event)">×</span>
+        </div>
+
+        <button class="chat-widget-toggle pulse" id="chatToggle" onclick="toggleChatWidget()" aria-label="Abrir Atendimento">
+            <div id="chatIcon" style="width: 100%; height: 100%; border-radius: 50%; overflow: hidden;">
+                <div class="avatar-box" id="avatarBox" onmouseenter="startGifAnimation()" onmouseleave="stopGifAnimation()">
+                    <img id="avatarImage" src="avatar-bot.png" alt="Assistente Virtual">
+                </div>
+            </div>
+        </button>
+    </div>
+
+    <div class="chat-widget-container" id="chatContainer">
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <div class="chat-avatar">
+                    <img src="avatar-bot.png" alt="Mascote Thamyres Lobo">
+                </div>
+                <div>
+                    <h4>Assistente Tha</h4>
+                    <span><i class="fas fa-circle" style="color: #25D366; font-size: 0.5rem;"></i> Online agora</span>
+                </div>
+            </div>
+            <button class="chat-close-btn" onclick="toggleChatWidget()">×</button>
+        </div>
+
+        <div class="chat-body" id="chatBody">
+            <div class="chat-msg bot">
+                Olá! Seja bem-vindo(a) ao Studio Thamyres Lobo. Como posso te ajudar hoje?
+            </div>
+            <div class="chat-quick-replies">
+                <button class="quick-btn" onclick="sendQuickReply('Horário de Atendimento')">Horários</button>
+                <button class="quick-btn" onclick="sendQuickReply('Onde vocês ficam?')">Endereço</button>
+                <button class="quick-btn" onclick="sendQuickReply('Quais serviços vocês oferecem?')">Serviços</button>
+                <button class="quick-btn" onclick="sendQuickReply('Quero agendar uma avaliação')">Agendar</button>
+            </div>
+        </div>
+
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Digite sua mensagem..." onkeypress="handleKeyPress(event)">
+            <button class="chat-send-btn" onclick="sendMessage()">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById("navLinks");
+            navLinks.classList.toggle("active");
+        }
+
+        function closeMenu() {
+            const navLinks = document.getElementById("navLinks");
+            navLinks.classList.remove("active");
+        }
+
+        function openModal(element) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("imgExpanded");
+            modal.classList.add("active");
+            modalImg.src = element.src;
+            modalImg.alt = element.alt;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("imageModal");
+            modal.classList.remove("active");
+        }
+
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const isOpen = faqItem.classList.contains('active');
+            
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            if (!isOpen) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        /* TROCA DE AVATAR ESTÁTICO PARA GIF NO HOVER */
+        function startGifAnimation() {
+            const img = document.getElementById("avatarImage");
+            if (img) {
+                // Adiciona timestamp para forçar o recarregamento do GIF desde o início
+                img.src = "avatar-tchau.gif?t=" + new Date().getTime();
+            }
+        }
+
+        function stopGifAnimation() {
+            const img = document.getElementById("avatarImage");
+            if (img) {
+                img.src = "avatar-bot.png";
+            }
+        }
+
+        /* LÓGICA DO CHATBOT FLUTUANTE */
+        function closeBubble(event) {
+            event.stopPropagation();
+            const bubble = document.getElementById("chatBubble");
+            if (bubble) {
+                bubble.style.display = "none";
+            }
+        }
+
+        function toggleChatWidget() {
+            const container = document.getElementById("chatContainer");
+            const iconContainer = document.getElementById("chatIcon");
+            const toggleBtn = document.getElementById("chatToggle");
+            const bubble = document.getElementById("chatBubble");
+            
+            container.classList.toggle("active");
+            
+            if (container.classList.contains("active")) {
+                toggleBtn.classList.remove("pulse");
+                if (bubble) bubble.style.display = "none";
+                iconContainer.innerHTML = '<i class="fas fa-times" style="font-size: 1.5rem; line-height: 60px;"></i>';
+            } else {
+                toggleBtn.classList.add("pulse");
+                iconContainer.innerHTML = `
+                    <div class="avatar-box" id="avatarBox" onmouseenter="startGifAnimation()" onmouseleave="stopGifAnimation()">
+                        <img id="avatarImage" src="avatar-bot.png" alt="Assistente Virtual">
+                    </div>
+                `;
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById("chatInput");
+            const text = input.value.trim();
+            if (!text) return;
+
+            appendMessage(text, "user");
+            input.value = "";
+
+            setTimeout(() => {
+                processBotResponse(text);
+            }, 600);
+        }
+
+        function sendQuickReply(text) {
+            appendMessage(text, "user");
+            setTimeout(() => {
+                processBotResponse(text);
+            }, 600);
+        }
+
+        function appendMessage(text, sender) {
+            const chatBody = document.getElementById("chatBody");
+            const msgDiv = document.createElement("div");
+            msgDiv.className = `chat-msg ${sender}`;
+            msgDiv.innerHTML = text;
+            chatBody.appendChild(msgDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function processBotResponse(userMsg) {
+            const msg = userMsg.toLowerCase();
+            let reply = "";
+
+            if (msg.includes("horário") || msg.includes("horario") || msg.includes("hora")) {
+                reply = "Atendemos de <b>Segunda a Sexta-feira</b>, das <b>07h às 12h</b> e das <b>14h às 19h</b> (com agendamento prévio).";
+            } else if (msg.includes("endereço") || msg.includes("onde") || msg.includes("ficas") || msg.includes("local")) {
+                reply = "Estamos localizados na <b>Rua Nogueira Neves, 22 - Loja 07, Centro - Cataguases / MG</b>.";
+            } else if (msg.includes("serviço") || msg.includes("pilates") || msg.includes("fisioterapia")) {
+                reply = "Oferecemos <b>Studio de Pilates</b> em aparelhos completos, <b>Fisioterapia Reabilitadora e Terapias Manuais</b> e <b>Eletrotermofototerapia</b> (Laser e Ultrassom).";
+            } else if (msg.includes("agendar") || msg.includes("avaliação") || msg.includes("aula") || msg.includes("preço") || msg.includes("valor")) {
+                reply = 'Para agendamentos e informações de valores, fale diretamente conosco via WhatsApp: <br><br><a href="https://wa.me/5532999531990?text=Olá!%20Vim%20pelo%20chatbot%20do%20site%20e%20gostaria%20de%20agendar." target="_blank" style="color:#25D366; font-weight:bold; text-decoration:underline;"><i class="fab fa-whatsapp"></i> Clique aqui para falar no WhatsApp</a>';
+            } else {
+                reply = 'Para dúvidas específicas ou agendamento imediato, você pode conversar com nossa equipe no WhatsApp: <br><br><a href="https://wa.me/5532999531990?text=Olá!%20Gostaria%20de%20tirar%20uma%20dúvida." target="_blank" style="color:#25D366; font-weight:bold; text-decoration:underline;"><i class="fab fa-whatsapp"></i> Iniciar conversa no WhatsApp</a>';
+            }
+
+            appendMessage(reply, "bot");
+        }
+    </script>
+
+</body>
+</html>
