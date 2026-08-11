@@ -229,7 +229,7 @@
         footer { background: var(--deep-emerald); color: #fff; text-align: center; padding: 25px 24px; font-size: 0.88rem; }
 
         /* ==========================================
-           WIDGET CHATBOT FLUTUANTE, BALÃO MINIMALISTA
+           WIDGET CHATBOT FLUTUANTE, BALÃO FORMATO CARD COM FONTES AJUSTADAS
            ========================================== */
         @keyframes greenPulse {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.8); }
@@ -257,82 +257,119 @@
             align-items: flex-end;
         }
 
-        /* BALÃO ENXUTO ESTILO REFERÊNCIA */
+        /* BALÃO ESTILO CARD COMPACTO E PERFEITAMENTE AJUSTADO */
         .chat-speech-bubble {
             background: #ffffff;
             color: var(--text-dark);
-            padding: 12px 16px 10px;
-            border-radius: 18px;
-            box-shadow: 0 8px 20px rgba(20, 80, 67, 0.12);
+            padding: 16px 18px 14px;
+            border-radius: 22px;
+            box-shadow: 0 10px 25px rgba(20, 80, 67, 0.15);
             border: 1px solid rgba(120, 181, 162, 0.35);
             margin-bottom: 12px;
-            text-align: center;
+            width: 270px;
             position: relative;
             cursor: pointer;
             animation: floatBounce 3.5s ease-in-out infinite;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            gap: 10px;
             transition: all 0.3s ease;
         }
 
         .chat-speech-bubble::after {
             content: '';
             position: absolute;
-            bottom: -7px;
+            bottom: -8px;
             right: 30px;
             width: 0;
             height: 0;
-            border-left: 7px solid transparent;
-            border-right: 7px solid transparent;
-            border-top: 7px solid #ffffff;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid #ffffff;
         }
 
-        .bubble-text {
-            font-size: 0.88rem;
-            color: var(--text-dark);
-            font-weight: 500;
-            line-height: 1.35;
-        }
-
-        .bubble-text strong {
-            color: var(--primary-dark-teal);
-            font-weight: 700;
-        }
-
-        .bubble-action {
-            font-size: 0.85rem;
-            color: var(--text-dark);
-            font-weight: 600;
-            margin-top: 2px;
+        .bubble-header {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
+            align-items: flex-start;
+            justify-content: space-between;
         }
 
-        .bubble-action .animated-finger {
-            display: inline-block;
-            font-size: 0.95rem;
-            animation: pointingHand 1s ease-in-out infinite;
+        .bubble-title-box h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.25;
+            margin-bottom: 2px;
+        }
+
+        .bubble-title-box h3 .highlight-name {
+            color: var(--primary-dark-teal);
+            font-weight: 800;
+        }
+
+        .bubble-title-box p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-weight: 500;
         }
 
         .bubble-close-btn {
-            position: absolute;
-            top: 6px;
-            right: 8px;
-            background: transparent;
-            color: var(--text-muted);
-            font-size: 0.85rem;
+            background: rgba(120, 181, 162, 0.15);
+            color: var(--primary-dark-teal);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
             line-height: 1;
             cursor: pointer;
-            border: none;
             transition: var(--transition);
+            border: none;
+            flex-shrink: 0;
+            margin-top: -2px;
+            margin-right: -2px;
         }
 
         .bubble-close-btn:hover {
-            color: #E53E3E;
+            background: #E53E3E;
+            color: #fff;
+        }
+
+        /* PILL BUTTON COMPACTO COM FONTE AJUSTADA */
+        .bubble-cta-pill {
+            background: rgba(120, 181, 162, 0.15);
+            color: var(--primary-dark-teal);
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: var(--transition);
+            border: 1px solid rgba(120, 181, 162, 0.3);
+            width: 100%;
+            white-space: nowrap;
+        }
+
+        .chat-speech-bubble:hover .bubble-cta-pill {
+            background: var(--primary-dark-teal);
+            color: #ffffff;
+        }
+
+        .bubble-cta-pill i {
+            font-size: 0.88rem;
+            flex-shrink: 0;
+        }
+
+        .bubble-cta-pill .animated-finger {
+            display: inline-block;
+            font-size: 0.95rem;
+            animation: pointingHand 1s ease-in-out infinite;
+            flex-shrink: 0;
         }
 
         /* BOTÃO FLUTUANTE (75px) COM ZOOM SUAVE NO HOVER */
@@ -879,7 +916,7 @@
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="faq-answer">
-                    Com certeza. Nossa equipe é formada por fisioterapeutas especializadas. O Pilates clínico e a fisioterapia manual são altamente indicados no tratamento e prevenção de dores na coluna, articulações e lesões musculares.
+                    Com certeza. Nossa equipe é formada por fisioterapeutas especializadas. O Pilates clínico e a fisioterapia manual são highly indicados no tratamento e prevenção de dores na coluna, articulações e lesões musculares.
                 </div>
             </div>
 
@@ -1020,12 +1057,16 @@
 
     <div class="chat-widget-wrapper">
         <div class="chat-speech-bubble" id="chatBubble" onclick="toggleChatWidget()">
-            <button class="bubble-close-btn" onclick="closeBubble(event)" aria-label="Fechar">×</button>
-            <div class="bubble-text">
-                Olá! Eu sou a <strong>Tha.</strong> Como posso ajudar?
+            <div class="bubble-header">
+                <div class="bubble-title-box">
+                    <h3>Olá! Eu sou a <span class="highlight-name">Tha.</span></h3>
+                    <p>Estou aqui para te ajudar!</p>
+                </div>
+                <button class="bubble-close-btn" onclick="closeBubble(event)" aria-label="Fechar">×</button>
             </div>
-            <div class="bubble-action">
-                Clique aqui! <span class="animated-finger">👇</span>
+            
+            <div class="bubble-cta-pill">
+                <i class="far fa-comment-dots"></i> <span>Clique aqui para conversar comigo</span> <span class="animated-finger">👇</span>
             </div>
         </div>
 
