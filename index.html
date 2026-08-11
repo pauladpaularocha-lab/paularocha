@@ -317,6 +317,7 @@
             color: #E53E3E;
         }
 
+        /* BOTÃO FLUTUANTE COM ZOOM NO HOVER */
         .chat-widget-toggle {
             width: 60px;
             height: 60px;
@@ -330,7 +331,7 @@
             align-items: center;
             justify-content: center;
             font-size: 1.6rem;
-            transition: var(--transition);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s ease, box-shadow 0.3s ease;
             padding: 0;
             position: relative;
             overflow: hidden;
@@ -340,16 +341,17 @@
             animation: greenPulse 2s infinite;
         }
 
+        /* AUMENTA A BOLINHA E O GIF QUANDO PASSA O MOUSE */
         .chat-widget-toggle:hover {
-            transform: scale(1.08);
+            transform: scale(1.22);
+            box-shadow: 0 12px 30px rgba(20, 80, 67, 0.45);
             background-color: var(--deep-emerald);
         }
 
-        /* EFEITO SEGURO DE HOVER DO BOTÃO */
         .avatar-box {
             position: relative;
-            width: 60px;
-            height: 60px;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             overflow: hidden;
             display: block;
@@ -360,6 +362,12 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            transition: transform 0.3s ease;
+        }
+
+        /* EFEITO EXTRA DE ZOOM NA IMAGEM INTERNA */
+        .chat-widget-toggle:hover .avatar-box img {
+            transform: scale(1.08);
         }
 
         .chat-widget-container {
@@ -978,8 +986,8 @@
 
         <button class="chat-widget-toggle pulse" id="chatToggle" onclick="toggleChatWidget()" aria-label="Abrir Atendimento">
             <div id="chatIcon" style="width: 100%; height: 100%; border-radius: 50%; overflow: hidden;">
-                <div class="avatar-box" id="avatarBox" onmouseenter="startGifAnimation()" onmouseleave="stopGifAnimation()">
-                    <img id="avatarImage" src="avatar-bot.png" alt="Assistente Virtual">
+                <div class="avatar-box">
+                    <img src="avatar-tchau.gif" alt="Assistente dando tchau" onerror="this.src='avatar-bot.png'">
                 </div>
             </div>
         </button>
@@ -1056,23 +1064,6 @@
             }
         }
 
-        /* TROCA DE AVATAR ESTÁTICO PARA GIF NO HOVER */
-        function startGifAnimation() {
-            const img = document.getElementById("avatarImage");
-            if (img) {
-                // Adiciona timestamp para forçar o recarregamento do GIF desde o início
-                img.src = "avatar-tchau.gif?t=" + new Date().getTime();
-            }
-        }
-
-        function stopGifAnimation() {
-            const img = document.getElementById("avatarImage");
-            if (img) {
-                img.src = "avatar-bot.png";
-            }
-        }
-
-        /* LÓGICA DO CHATBOT FLUTUANTE */
         function closeBubble(event) {
             event.stopPropagation();
             const bubble = document.getElementById("chatBubble");
@@ -1096,8 +1087,8 @@
             } else {
                 toggleBtn.classList.add("pulse");
                 iconContainer.innerHTML = `
-                    <div class="avatar-box" id="avatarBox" onmouseenter="startGifAnimation()" onmouseleave="stopGifAnimation()">
-                        <img id="avatarImage" src="avatar-bot.png" alt="Assistente Virtual">
+                    <div class="avatar-box">
+                        <img src="avatar-tchau.gif" alt="Assistente dando tchau" onerror="this.src='avatar-bot.png'">
                     </div>
                 `;
             }
