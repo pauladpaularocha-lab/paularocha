@@ -229,7 +229,7 @@
         footer { background: var(--deep-emerald); color: #fff; text-align: center; padding: 25px 24px; font-size: 0.88rem; }
 
         /* ==========================================
-           WIDGET CHATBOT FLUTUANTE COM CABEÇALHO CENTRALIZADO
+           WIDGET CHATBOT FLUTUANTE E ARRASTÁVEL (DRAGGABLE)
            ========================================== */
         @keyframes greenPulse {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.8); }
@@ -255,6 +255,8 @@
             display: flex;
             flex-direction: column;
             align-items: flex-end;
+            touch-action: none;
+            user-select: none;
         }
 
         /* BALÃO COM CONTEÚDO E TÍTULO TOTALMENTE CENTRALIZADOS */
@@ -273,7 +275,7 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
         .chat-speech-bubble::after {
@@ -295,7 +297,7 @@
             text-align: center;
             position: relative;
             width: 100%;
-            padding-right: 15px; /* Espaço para não cobrir o X */
+            padding-right: 15px;
         }
 
         .bubble-title-box {
@@ -409,7 +411,7 @@
             flex-shrink: 0;
         }
 
-        /* BOTÃO FLUTUANTE (75px) COM ZOOM SUAVE NO HOVER */
+        /* BOTÃO FLUTUANTE COM ARRASTE */
         .chat-widget-toggle {
             width: 75px;
             height: 75px;
@@ -418,12 +420,12 @@
             color: #fff;
             border: none;
             box-shadow: 0 10px 28px rgba(20, 80, 67, 0.35);
-            cursor: pointer;
+            cursor: grab;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.8rem;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s ease, box-shadow 0.3s ease;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
             padding: 0;
             position: relative;
             overflow: hidden;
@@ -434,7 +436,6 @@
         }
 
         .chat-widget-toggle:hover {
-            transform: scale(1.18);
             box-shadow: 0 14px 35px rgba(20, 80, 67, 0.45);
             background-color: var(--deep-emerald);
         }
@@ -448,6 +449,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            pointer-events: none;
         }
 
         .avatar-box img {
@@ -455,13 +457,14 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.3s ease;
+            pointer-events: none;
         }
 
         .close-icon {
             display: none;
             font-size: 2rem;
             line-height: 1;
+            pointer-events: none;
         }
 
         .chat-widget-toggle.open .avatar-box {
@@ -472,11 +475,11 @@
             display: block;
         }
 
-        /* JANELA DO CHATBOT (400px x 540px) */
+        /* JANELA DO CHATBOT DENTRO DO WRAPPER ARRASTÁVEL */
         .chat-widget-container {
-            position: fixed;
-            bottom: 115px;
-            right: 30px;
+            position: absolute;
+            bottom: 85px;
+            right: 0;
             width: 400px;
             max-width: calc(100vw - 40px);
             height: 540px;
@@ -490,7 +493,7 @@
             opacity: 0;
             visibility: hidden;
             transform: translateY(20px);
-            transition: all 0.3s ease;
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
             border: 1px solid rgba(120, 181, 162, 0.3);
         }
 
@@ -507,12 +510,14 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            cursor: move;
         }
 
         .chat-header-info {
             display: flex;
             align-items: center;
             gap: 12px;
+            pointer-events: none;
         }
 
         .chat-avatar {
@@ -551,6 +556,7 @@
             color: #fff;
             font-size: 1.3rem;
             cursor: pointer;
+            pointer-events: auto;
         }
 
         .chat-body {
@@ -686,8 +692,8 @@
             .section-title h2 { font-size: 1.7rem; }
             
             .chat-widget-container {
-                right: 15px;
-                bottom: 100px;
+                right: 0;
+                bottom: 85px;
                 width: calc(100vw - 30px);
             }
             .chat-widget-wrapper {
@@ -1092,7 +1098,45 @@
         <p>© 2026 Thamyres Lobo Pilates e Fisioterapia. Todos os direitos reservados.</p>
     </footer>
 
-    <div class="chat-widget-wrapper">
+    <!-- WIDGET CHATBOT FLUTUANTE E ARRASTÁVEL -->
+    <div class="chat-widget-wrapper" id="chatWidgetWrapper">
+        
+        <!-- JANELA DO CHAT (ENQUADRADA JUNTO COM O BOTÃO) -->
+        <div class="chat-widget-container" id="chatContainer">
+            <div class="chat-header" id="chatHeader">
+                <div class="chat-header-info">
+                    <div class="chat-avatar">
+                        <img src="avatar-bot.png" alt="Mascote Thamyres Lobo">
+                    </div>
+                    <div>
+                        <h4>Assistente Tha</h4>
+                        <span><i class="fas fa-circle" style="color: #25D366; font-size: 0.5rem;"></i> Online agora</span>
+                    </div>
+                </div>
+                <button class="chat-close-btn" onclick="toggleChatWidget()">×</button>
+            </div>
+
+            <div class="chat-body" id="chatBody">
+                <div class="chat-msg bot">
+                    Olá! Seja bem-vindo(a) ao Studio Thamyres Lobo. Como posso te ajudar hoje?
+                </div>
+                <div class="chat-quick-replies">
+                    <button class="quick-btn" onclick="sendQuickReply('Horário de Atendimento')">Horários</button>
+                    <button class="quick-btn" onclick="sendQuickReply('Onde vocês ficam?')">Endereço</button>
+                    <button class="quick-btn" onclick="sendQuickReply('Quais serviços vocês oferecem?')">Serviços</button>
+                    <button class="quick-btn" onclick="sendQuickReply('Quero agendar uma avaliação')">Agendar</button>
+                </div>
+            </div>
+
+            <div class="chat-footer">
+                <input type="text" id="chatInput" placeholder="Digite sua mensagem..." onkeypress="handleKeyPress(event)">
+                <button class="chat-send-btn" onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- BALÃO DE SAUDAÇÃO -->
         <div class="chat-speech-bubble" id="chatBubble" onclick="toggleChatWidget()">
             <button class="bubble-close-btn" onclick="closeBubble(event)" aria-label="Fechar">×</button>
             <div class="bubble-header">
@@ -1107,46 +1151,13 @@
             </div>
         </div>
 
+        <!-- BOTÃO ÍCONE DO CHAT (ARRASTÁVEL) -->
         <button class="chat-widget-toggle pulse" id="chatToggle" onclick="toggleChatWidget()" aria-label="Abrir Atendimento">
             <div class="avatar-box">
                 <img src="avatar-tchau.gif" alt="Assistente dando tchau" onerror="this.src='avatar-bot.png'">
             </div>
             <i class="fas fa-times close-icon"></i>
         </button>
-    </div>
-
-    <div class="chat-widget-container" id="chatContainer">
-        <div class="chat-header">
-            <div class="chat-header-info">
-                <div class="chat-avatar">
-                    <img src="avatar-bot.png" alt="Mascote Thamyres Lobo">
-                </div>
-                <div>
-                    <h4>Assistente Tha</h4>
-                    <span><i class="fas fa-circle" style="color: #25D366; font-size: 0.5rem;"></i> Online agora</span>
-                </div>
-            </div>
-            <button class="chat-close-btn" onclick="toggleChatWidget()">×</button>
-        </div>
-
-        <div class="chat-body" id="chatBody">
-            <div class="chat-msg bot">
-                Olá! Seja bem-vindo(a) ao Studio Thamyres Lobo. Como posso te ajudar hoje?
-            </div>
-            <div class="chat-quick-replies">
-                <button class="quick-btn" onclick="sendQuickReply('Horário de Atendimento')">Horários</button>
-                <button class="quick-btn" onclick="sendQuickReply('Onde vocês ficam?')">Endereço</button>
-                <button class="quick-btn" onclick="sendQuickReply('Quais serviços vocês oferecem?')">Serviços</button>
-                <button class="quick-btn" onclick="sendQuickReply('Quero agendar uma avaliação')">Agendar</button>
-            </div>
-        </div>
-
-        <div class="chat-footer">
-            <input type="text" id="chatInput" placeholder="Digite sua mensagem..." onkeypress="handleKeyPress(event)">
-            <button class="chat-send-btn" onclick="sendMessage()">
-                <i class="fas fa-paper-plane"></i>
-            </button>
-        </div>
     </div>
 
     <script>
@@ -1240,7 +1251,14 @@
             setTimeout(typeTitle, 500);
         });
 
+        /* LÓGICA DO CHATBOT */
         function toggleChatWidget() {
+            // Evita abrir/fechar se o usuário apenas arrastou o ícone
+            if (hasDragged) {
+                hasDragged = false;
+                return;
+            }
+
             const container = document.getElementById("chatContainer");
             const toggleBtn = document.getElementById("chatToggle");
             const bubble = document.getElementById("chatBubble");
@@ -1309,6 +1327,87 @@
 
             appendMessage(reply, "bot");
         }
+
+        /* ==========================================
+           LÓGICA DE ARRASTAR E SOLTAR (DRAG & DROP)
+           ========================================== */
+        const dragWrapper = document.getElementById("chatWidgetWrapper");
+        const dragToggle = document.getElementById("chatToggle");
+        const chatHeader = document.getElementById("chatHeader");
+
+        let isDragging = false;
+        let startX = 0, startY = 0;
+        let initialLeft = 0, initialTop = 0;
+        let hasDragged = false;
+
+        function startDrag(e) {
+            if (e.type === 'mousedown' && e.button !== 0) return;
+
+            isDragging = true;
+            hasDragged = false;
+
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+            startX = clientX;
+            startY = clientY;
+
+            const rect = dragWrapper.getBoundingClientRect();
+            initialLeft = rect.left;
+            initialTop = rect.top;
+
+            dragToggle.style.cursor = "grabbing";
+            if (chatHeader) chatHeader.style.cursor = "grabbing";
+        }
+
+        function moveDrag(e) {
+            if (!isDragging) return;
+
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+            const deltaX = clientX - startX;
+            const deltaY = clientY - startY;
+
+            if (Math.abs(deltaX) > 5 || Math.abs(deltaY) > 5) {
+                hasDragged = true;
+            }
+
+            if (hasDragged) {
+                dragWrapper.style.bottom = "auto";
+                dragWrapper.style.right = "auto";
+
+                let newLeft = initialLeft + deltaX;
+                let newTop = initialTop + deltaY;
+
+                const maxLeft = window.innerWidth - dragWrapper.offsetWidth;
+                const maxTop = window.innerHeight - dragWrapper.offsetHeight;
+
+                newLeft = Math.max(10, Math.min(newLeft, maxLeft - 10));
+                newTop = Math.max(10, Math.min(newTop, maxTop - 10));
+
+                dragWrapper.style.left = `${newLeft}px`;
+                dragWrapper.style.top = `${newTop}px`;
+            }
+        }
+
+        function stopDrag() {
+            if (!isDragging) return;
+            isDragging = false;
+            dragToggle.style.cursor = "grab";
+            if (chatHeader) chatHeader.style.cursor = "move";
+        }
+
+        [dragToggle, chatHeader].forEach(element => {
+            if (!element) return;
+            element.addEventListener("mousedown", startDrag);
+            element.addEventListener("touchstart", startDrag, { passive: true });
+        });
+
+        window.addEventListener("mousemove", moveDrag);
+        window.addEventListener("touchmove", moveDrag, { passive: true });
+        window.addEventListener("mouseup", stopDrag);
+        window.addEventListener("touchend", stopDrag);
     </script>
 
 </body>
