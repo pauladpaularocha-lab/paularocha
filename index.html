@@ -229,7 +229,7 @@
         footer { background: var(--deep-emerald); color: #fff; text-align: center; padding: 25px 24px; font-size: 0.88rem; }
 
         /* ==========================================
-           WIDGET CHATBOT FLUTUANTE, EFEITO DIGITADOR E BOTÃO ENQUADRADO
+           WIDGET CHATBOT FLUTUANTE COM CABEÇALHO CENTRALIZADO
            ========================================== */
         @keyframes greenPulse {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.8); }
@@ -257,11 +257,11 @@
             align-items: flex-end;
         }
 
-        /* BALÃO FORMATO CARD COM PÍLULA AJUSTADA */
+        /* BALÃO COM CONTEÚDO E TÍTULO TOTALMENTE CENTRALIZADOS */
         .chat-speech-bubble {
             background: #ffffff;
             color: var(--text-dark);
-            padding: 14px 16px 12px;
+            padding: 16px 18px 14px;
             border-radius: 22px;
             box-shadow: 0 10px 25px rgba(20, 80, 67, 0.15);
             border: 1px solid rgba(120, 181, 162, 0.35);
@@ -291,7 +291,16 @@
         .bubble-header {
             display: flex;
             align-items: flex-start;
-            justify-content: space-between;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            padding-right: 15px; /* Espaço para não cobrir o X */
+        }
+
+        .bubble-title-box {
+            text-align: center;
+            width: 100%;
         }
 
         .bubble-title-box h3 {
@@ -301,6 +310,7 @@
             line-height: 1.25;
             margin-bottom: 2px;
             min-height: 1.25em;
+            text-align: center;
         }
 
         .bubble-title-box h3 .highlight-name {
@@ -313,6 +323,7 @@
             color: var(--text-muted);
             font-weight: 500;
             min-height: 1.2em;
+            text-align: center;
         }
 
         .typing-cursor::after {
@@ -328,6 +339,9 @@
         }
 
         .bubble-close-btn {
+            position: absolute;
+            top: -2px;
+            right: -6px;
             background: rgba(120, 181, 162, 0.15);
             color: var(--primary-dark-teal);
             width: 22px;
@@ -342,8 +356,6 @@
             transition: var(--transition);
             border: none;
             flex-shrink: 0;
-            margin-top: -2px;
-            margin-right: -2px;
         }
 
         .bubble-close-btn:hover {
@@ -351,7 +363,7 @@
             color: #fff;
         }
 
-        /* BOTÃO INTERNO (PILL) COM CONTEÚDO TOTALMENTE ENQUADRADO */
+        /* PILL BUTTON COMPACTO E 100% ENQUADRADO */
         .bubble-cta-pill {
             background: rgba(120, 181, 162, 0.15);
             color: var(--primary-dark-teal);
@@ -1082,12 +1094,12 @@
 
     <div class="chat-widget-wrapper">
         <div class="chat-speech-bubble" id="chatBubble" onclick="toggleChatWidget()">
+            <button class="bubble-close-btn" onclick="closeBubble(event)" aria-label="Fechar">×</button>
             <div class="bubble-header">
                 <div class="bubble-title-box">
                     <h3 id="typingTitle"></h3>
                     <p id="typingSubtitle"></p>
                 </div>
-                <button class="bubble-close-btn" onclick="closeBubble(event)" aria-label="Fechar">×</button>
             </div>
             
             <div class="bubble-cta-pill" id="bubblePill">
