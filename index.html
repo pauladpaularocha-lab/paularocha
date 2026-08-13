@@ -11,8 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Shepherd.js CSS (Tour Guiado) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@14.0.0/dist/css/shepherd.css"/>
+    <!-- Shepherd.js (CSS e JS no HEAD para garantir carregamento antecipado) -->
+    <link rel="stylesheet" href="https://unpkg.com/shepherd.js@10.0.1/dist/css/shepherd.css"/>
+    <script src="https://unpkg.com/shepherd.js@10.0.1/dist/js/shepherd.min.js"></script>
     
     <style>
         :root {
@@ -1203,9 +1204,6 @@
             <i class="fas fa-times close-icon"></i>
         </button>
     </div>
-
-    <!-- Shepherd.js JS (Tour Guiado) -->
-    <script src="https://cdn.jsdelivr.net/npm/shepherd.js@14.0.0/dist/js/shepherd.min.js"></script>
 
     <script>
         function toggleMenu() {
