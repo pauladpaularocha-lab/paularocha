@@ -34,59 +34,112 @@
         body { font-family: 'Inter', sans-serif; background-color: var(--bg-cream); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
 
         /* ESTILIZAÇÃO CUSTOMIZADA DO SHEPHERD.JS */
-        .shepherd-element {
-            border-radius: 18px !important;
-            box-shadow: 0 10px 30px rgba(20, 80, 67, 0.25) !important;
-            border: 1px solid rgba(120, 181, 162, 0.4) !important;
+.shepherd-element {
+            background: #ffffff !important;
+            border-radius: 20px !important;
+            box-shadow: 0 15px 35px rgba(20, 80, 67, 0.3) !important;
+            border: 1px solid rgba(120, 181, 162, 0.3) !important;
             font-family: 'Inter', sans-serif !important;
             z-index: 10000 !important;
+            max-width: 380px !important;
+            overflow: hidden !important;
         }
+
+        /* Cabeçalho do Balão */
         .shepherd-header {
             background-color: var(--deep-emerald) !important;
-            padding: 14px 18px !important;
-            border-top-left-radius: 17px !important;
-            border-top-right-radius: 17px !important;
+            padding: 18px 22px 14px 22px !important;
+            border-bottom: none !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
         }
+
         .shepherd-title {
             color: #ffffff !important;
             font-family: 'Playfair Display', serif !important;
-            font-size: 1.15rem !important;
+            font-size: 1.25rem !important;
+            font-weight: 600 !important;
+            margin: 0 !important;
         }
+
+        /* Corpo do Texto */
         .shepherd-text {
+            background-color: #ffffff !important;
             color: var(--text-dark) !important;
-            font-size: 0.93rem !important;
-            padding: 18px !important;
-            line-height: 1.5 !important;
+            font-size: 0.95rem !important;
+            line-height: 1.6 !important;
+            padding: 20px 22px 10px 22px !important;
         }
+
+        /* Rodapé e Botões */
+        .shepherd-footer {
+            background-color: #ffffff !important;
+            padding: 10px 22px 20px 22px !important;
+            display: flex !important;
+            justify-content: flex-end !important;
+            gap: 10px !important;
+            border-top: none !important;
+        }
+
         .shepherd-button {
             background-color: var(--primary-dark-teal) !important;
             color: #ffffff !important;
-            border-radius: 20px !important;
-            padding: 8px 18px !important;
-            font-size: 0.85rem !important;
+            border-radius: 30px !important;
+            padding: 9px 20px !important;
+            font-size: 0.88rem !important;
             font-weight: 600 !important;
+            border: none !important;
+            box-shadow: 0 4px 12px rgba(31, 110, 109, 0.2) !important;
             transition: var(--transition) !important;
-        }
-        .shepherd-button:hover {
-            background-color: var(--deep-emerald) !important;
-        }
-        .shepherd-button-secondary {
-            background-color: transparent !important;
-            color: var(--text-muted) !important;
-            border: 1px solid rgba(120, 181, 162, 0.5) !important;
-        }
-        .shepherd-button-secondary:hover {
-            background-color: rgba(120, 181, 162, 0.15) !important;
-            color: var(--deep-emerald) !important;
-        }
-        .shepherd-cancel-icon {
-            color: #ffffff !important;
-            opacity: 0.8 !important;
-        }
-        .shepherd-cancel-icon:hover {
-            opacity: 1 !important;
+            cursor: pointer !important;
         }
 
+        .shepherd-button:hover {
+            background-color: var(--deep-emerald) !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 6px 16px rgba(20, 80, 67, 0.3) !important;
+        }
+
+        /* Botão Secundário (Voltar) */
+        .shepherd-button-secondary {
+            background-color: #F0F4F2 !important;
+            color: var(--text-muted) !important;
+            box-shadow: none !important;
+        }
+
+        .shepherd-button-secondary:hover {
+            background-color: #E2EAE6 !important;
+            color: var(--deep-emerald) !important;
+        }
+
+        /* Ícone de Fechar (X) */
+        .shepherd-cancel-icon {
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-size: 1.4rem !important;
+            font-weight: normal !important;
+            transition: var(--transition) !important;
+        }
+
+        .shepherd-cancel-icon:hover {
+            color: #ffffff !important;
+            transform: scale(1.1) !important;
+        }
+
+        /* Seta Indicadora (Arrow) */
+        .shepherd-arrow,
+        .shepherd-arrow::before {
+            position: absolute !important;
+            width: 16px !important;
+            height: 16px !important;
+            z-index: -1 !important;
+        }
+
+        .shepherd-arrow::before {
+            content: '' !important;
+            transform: rotate(45deg) !important;
+            background: var(--deep-emerald) !important;
+        }
         /* HEADER & NAVIGATION */
         header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(20, 80, 67, 0.9); backdrop-filter: blur(10px); z-index: 1000; box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; }
