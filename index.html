@@ -6,11 +6,9 @@
     <title>Thamyres Lobo | Pilates e Fisioterapia</title>
     
     <link rel="icon" type="image/png" href="favicon.png?v=2">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -51,7 +49,7 @@
         }
         .nav-links a:hover { color: var(--primary-teal); background: rgba(255, 255, 255, 0.15); }
 
-        /* MENU HAMBÚRGUER (MOBILE) */
+        /* MENU HAMBURGUER (MOBILE) */
         .menu-toggle { display: none; background: transparent; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; padding: 8px; }
 
         .btn-cta { 
@@ -113,14 +111,14 @@
             opacity: 0.6;
         }
 
-        /* SECTIONS & TÍTULOS */
+        /* SECTIONS & TITULOS */
         .section { padding: 80px 24px; }
         .section-title { text-align: center; max-width: 700px; margin: 0 auto 50px; }
         .section-title h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--deep-emerald); margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
         .section-title h2 i { color: var(--primary-dark-teal); font-size: 1.8rem; }
         .section-title p { color: var(--text-muted); font-size: 1.05rem; }
 
-        /* SERVIÇOS */
+        /* SERVICOS */
         .services-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .service-card { background: var(--bg-white); padding: 40px 32px; border-radius: 24px; box-shadow: var(--shadow); border: 1px solid rgba(120, 181, 162, 0.25); border-top: 5px solid var(--primary-dark-teal); transition: var(--transition); display: flex; flex-direction: column; }
         .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(20, 80, 67, 0.12); }
@@ -129,14 +127,14 @@
         .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: var(--deep-emerald); margin-bottom: 14px; line-height: 1.35; }
         .service-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0; line-height: 1.6; }
 
-        /* SEÇÃO QUEM SOMOS */
+        /* SECAO QUEM SOMOS */
         .about-section { background: var(--bg-white); }
         .about-box { max-width: 1200px; margin: 0 auto; background: linear-gradient(135deg, rgba(120, 181, 162, 0.12) 0%, rgba(245, 249, 247, 0.8) 100%); border: 1px solid rgba(120, 181, 162, 0.3); border-radius: 28px; padding: 50px 40px; box-shadow: var(--shadow); }
         .about-manifesto { text-align: center; max-width: 850px; margin: 0 auto 35px; }
         .about-manifesto h3 { font-family: 'Playfair Display', serif; font-size: 1.55rem; color: var(--deep-emerald); margin-bottom: 14px; line-height: 1.4; }
         .about-manifesto p { font-size: 1.05rem; color: var(--text-dark); line-height: 1.8; }
 
-        /* ESTATÍSTICAS */
+        /* ESTATISTICAS */
         .stats-inline { display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; margin-bottom: 45px; }
         .stat-item { text-align: center; padding: 0 15px; }
         .stat-number { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--primary-dark-teal); line-height: 1; }
@@ -186,7 +184,7 @@
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0 28px; color: var(--text-muted); font-size: 0.98rem; line-height: 1.7; }
         .faq-item.active .faq-answer { max-height: 300px; padding: 0 28px 22px 28px; }
 
-        /* LOCALIZAÇÃO */
+        /* LOCALIZACAO */
         .map-container { max-width: 1200px; margin: 0 auto; background: #fff; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid rgba(120, 181, 162, 0.3); display: grid; grid-template-columns: 1fr 1.5fr; }
         .map-info { padding: 40px; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, rgba(120, 181, 162, 0.08) 0%, rgba(245, 249, 247, 0.5) 100%); }
         .map-info h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--deep-emerald); margin-bottom: 12px; }
@@ -228,9 +226,7 @@
 
         footer { background: var(--deep-emerald); color: #fff; text-align: center; padding: 25px 24px; font-size: 0.88rem; }
 
-        /* ==========================================
-           WIDGET CHATBOT FLUTUANTE E ARRASTÁVEL (DRAGGABLE)
-           ========================================== */
+        /* WIDGET CHATBOT FLUTUANTE */
         @keyframes greenPulse {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.8); }
             70% { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
@@ -259,7 +255,6 @@
             user-select: none;
         }
 
-        /* BALÃO COM CONTEÚDO E TÍTULO TOTALMENTE CENTRALIZADOS */
         .chat-speech-bubble {
             background: #ffffff;
             color: var(--text-dark);
@@ -365,7 +360,6 @@
             color: #fff;
         }
 
-        /* PILL BUTTON COMPACTO E 100% ENQUADRADO */
         .bubble-cta-pill {
             background: rgba(120, 181, 162, 0.15);
             color: var(--primary-dark-teal);
@@ -377,7 +371,6 @@
             align-items: center;
             justify-content: space-between;
             gap: 6px;
-            transition: var(--transition);
             border: 1px solid rgba(120, 181, 162, 0.3);
             width: 100%;
             opacity: 0;
@@ -411,7 +404,6 @@
             flex-shrink: 0;
         }
 
-        /* BOTÃO FLUTUANTE COM ARRASTE */
         .chat-widget-toggle {
             width: 75px;
             height: 75px;
@@ -475,7 +467,6 @@
             display: block;
         }
 
-        /* JANELA DO CHATBOT DENTRO DO WRAPPER ARRASTÁVEL */
         .chat-widget-container {
             position: absolute;
             bottom: 85px;
@@ -815,7 +806,7 @@
                     <img src="thamyres1.jpeg" alt="Thamyres Lobo Fisioterapeuta" class="team-avatar avatar-thamyres" onclick="openModal(this)">
                     <div class="team-info">
                         <h4>Thamyres Lobo</h4>
-                        <span>Fisioterapeuta & Instrutora de Pilates</span>
+                        <span>Fisioterapeuta &amp; Instrutora de Pilates</span>
                         <p>Responsável principal pelo Studio, é fisioterapeuta com mais de 7 anos de experiência de mercado e formação especializada em Pilates, dedicada a promover saúde e reabilitação integrativa.</p>
                     </div>
                 </div>
@@ -824,7 +815,7 @@
                     <img src="Micaelly.jpeg" alt="Micaelly Saraiva" class="team-avatar avatar-micaelly" onclick="openModal(this)">
                     <div class="team-info">
                         <h4>Micaelly Saraiva</h4>
-                        <span>Fisioterapeuta & Instrutora de Pilates</span>
+                        <span>Fisioterapeuta &amp; Instrutora de Pilates</span>
                         <p>Fisioterapeuta com curso de formação em Pilates, integra nossa equipe com um olhar cuidadoso, técnico e focado no bem-estar e na evolução contínua de cada paciente.</p>
                     </div>
                 </div>
@@ -877,8 +868,8 @@
     </section>
 
     <div id="imageModal" class="image-modal" onclick="closeModal()">
-        <span class="close-modal">×</span>
-        <img class="modal-content" id="imgExpanded">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="imgExpanded" alt="Imagem Expandida">
     </div>
 
     <div class="section-divider"></div>
@@ -1095,13 +1086,11 @@
     </section>
 
     <footer>
-        <p>© 2026 Thamyres Lobo Pilates e Fisioterapia. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Thamyres Lobo Pilates e Fisioterapia. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- WIDGET CHATBOT FLUTUANTE E ARRASTÁVEL -->
+    <!-- CHATBOT FLUTUANTE E ARRASTAVEL -->
     <div class="chat-widget-wrapper" id="chatWidgetWrapper">
-        
-        <!-- JANELA DO CHAT (ENQUADRADA JUNTO COM O BOTÃO) -->
         <div class="chat-widget-container" id="chatContainer">
             <div class="chat-header" id="chatHeader">
                 <div class="chat-header-info">
@@ -1113,7 +1102,7 @@
                         <span><i class="fas fa-circle" style="color: #25D366; font-size: 0.5rem;"></i> Online agora</span>
                     </div>
                 </div>
-                <button class="chat-close-btn" onclick="toggleChatWidget()">×</button>
+                <button class="chat-close-btn" onclick="toggleChatWidget()">&times;</button>
             </div>
 
             <div class="chat-body" id="chatBody">
@@ -1136,9 +1125,8 @@
             </div>
         </div>
 
-        <!-- BALÃO DE SAUDAÇÃO -->
         <div class="chat-speech-bubble" id="chatBubble" onclick="toggleChatWidget()">
-            <button class="bubble-close-btn" onclick="closeBubble(event)" aria-label="Fechar">×</button>
+            <button class="bubble-close-btn" onclick="closeBubble(event)" aria-label="Fechar">&times;</button>
             <div class="bubble-header">
                 <div class="bubble-title-box">
                     <h3 id="typingTitle"></h3>
@@ -1151,7 +1139,6 @@
             </div>
         </div>
 
-        <!-- BOTÃO ÍCONE DO CHAT (ARRASTÁVEL) -->
         <button class="chat-widget-toggle pulse" id="chatToggle" onclick="toggleChatWidget()" aria-label="Abrir Atendimento">
             <div class="avatar-box">
                 <img src="avatar-tchau.gif" alt="Assistente dando tchau" onerror="this.src='avatar-bot.png'">
@@ -1205,21 +1192,20 @@
             }
         }
 
-        /* LÓGICA DO EFEITO TYPEWRITER (DIGITADOR) NO BALÃO */
-        document.addEventListener("DOMContentLoaded", () => {
+        document.addEventListener("DOMContentLoaded", function() {
             const titleElement = document.getElementById("typingTitle");
             const subtitleElement = document.getElementById("typingSubtitle");
             const pillElement = document.getElementById("bubblePill");
 
             const subtitleText = 'Estou aqui para te ajudar!';
-
             let titleIndex = 0;
             let subtitleIndex = 0;
 
-            titleElement.classList.add("typing-cursor");
+            if (titleElement) titleElement.classList.add("typing-cursor");
 
             function typeTitle() {
-                if (titleIndex < "Olá! Eu sou a Tha.".length) {
+                const targetText = "Olá! Eu sou a Tha.";
+                if (titleIndex < targetText.length) {
                     if (titleIndex < 15) {
                         titleElement.innerHTML = "Olá! Eu sou a ".slice(0, titleIndex + 1);
                     } else {
@@ -1230,7 +1216,7 @@
                     setTimeout(typeTitle, 55);
                 } else {
                     titleElement.classList.remove("typing-cursor");
-                    subtitleElement.classList.add("typing-cursor");
+                    if (subtitleElement) subtitleElement.classList.add("typing-cursor");
                     setTimeout(typeSubtitle, 200);
                 }
             }
@@ -1241,19 +1227,20 @@
                     subtitleIndex++;
                     setTimeout(typeSubtitle, 45);
                 } else {
-                    subtitleElement.classList.remove("typing-cursor");
-                    if (pillElement) {
-                        pillElement.classList.add("visible");
-                    }
+                    if (subtitleElement) subtitleElement.classList.remove("typing-cursor");
+                    if (pillElement) pillElement.classList.add("visible");
                 }
             }
 
             setTimeout(typeTitle, 500);
         });
 
-        /* LÓGICA DO CHATBOT */
+        let isDragging = false;
+        let startX = 0, startY = 0;
+        let initialLeft = 0, initialTop = 0;
+        let hasDragged = false;
+
         function toggleChatWidget() {
-            // Evita abrir/fechar se o usuário apenas arrastou o ícone
             if (hasDragged) {
                 hasDragged = false;
                 return;
@@ -1288,14 +1275,14 @@
             appendMessage(text, "user");
             input.value = "";
 
-            setTimeout(() => {
+            setTimeout(function() {
                 processBotResponse(text);
             }, 600);
         }
 
         function sendQuickReply(text) {
             appendMessage(text, "user");
-            setTimeout(() => {
+            setTimeout(function() {
                 processBotResponse(text);
             }, 600);
         }
@@ -1303,7 +1290,7 @@
         function appendMessage(text, sender) {
             const chatBody = document.getElementById("chatBody");
             const msgDiv = document.createElement("div");
-            msgDiv.className = `chat-msg ${sender}`;
+            msgDiv.className = 'chat-msg ' + sender;
             msgDiv.innerHTML = text;
             chatBody.appendChild(msgDiv);
             chatBody.scrollTop = chatBody.scrollHeight;
@@ -1328,17 +1315,9 @@
             appendMessage(reply, "bot");
         }
 
-        /* ==========================================
-           LÓGICA DE ARRASTAR E SOLTAR (DRAG & DROP)
-           ========================================== */
         const dragWrapper = document.getElementById("chatWidgetWrapper");
         const dragToggle = document.getElementById("chatToggle");
         const chatHeader = document.getElementById("chatHeader");
-
-        let isDragging = false;
-        let startX = 0, startY = 0;
-        let initialLeft = 0, initialTop = 0;
-        let hasDragged = false;
 
         function startDrag(e) {
             if (e.type === 'mousedown' && e.button !== 0) return;
@@ -1386,8 +1365,8 @@
                 newLeft = Math.max(10, Math.min(newLeft, maxLeft - 10));
                 newTop = Math.max(10, Math.min(newTop, maxTop - 10));
 
-                dragWrapper.style.left = `${newLeft}px`;
-                dragWrapper.style.top = `${newTop}px`;
+                dragWrapper.style.left = newLeft + 'px';
+                dragWrapper.style.top = newTop + 'px';
             }
         }
 
@@ -1398,7 +1377,7 @@
             if (chatHeader) chatHeader.style.cursor = "move";
         }
 
-        [dragToggle, chatHeader].forEach(element => {
+        [dragToggle, chatHeader].forEach(function(element) {
             if (!element) return;
             element.addEventListener("mousedown", startDrag);
             element.addEventListener("touchstart", startDrag, { passive: true });
@@ -1409,6 +1388,5 @@
         window.addEventListener("mouseup", stopDrag);
         window.addEventListener("touchend", stopDrag);
     </script>
-
 </body>
 </html>
