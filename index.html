@@ -11,6 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Shepherd.js CSS (Tour Guiado) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@14.0.0/dist/css/shepherd.css"/>
+    
     <style>
         :root {
             --primary-teal: #78B5A2;
@@ -28,6 +31,60 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg-cream); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
+
+        /* ESTILIZAÇÃO CUSTOMIZADA DO SHEPHERD.JS */
+        .shepherd-element {
+            border-radius: 18px !important;
+            box-shadow: 0 10px 30px rgba(20, 80, 67, 0.25) !important;
+            border: 1px solid rgba(120, 181, 162, 0.4) !important;
+            font-family: 'Inter', sans-serif !important;
+            z-index: 10000 !important;
+        }
+        .shepherd-header {
+            background-color: var(--deep-emerald) !important;
+            padding: 14px 18px !important;
+            border-top-left-radius: 17px !important;
+            border-top-right-radius: 17px !important;
+        }
+        .shepherd-title {
+            color: #ffffff !important;
+            font-family: 'Playfair Display', serif !important;
+            font-size: 1.15rem !important;
+        }
+        .shepherd-text {
+            color: var(--text-dark) !important;
+            font-size: 0.93rem !important;
+            padding: 18px !important;
+            line-height: 1.5 !important;
+        }
+        .shepherd-button {
+            background-color: var(--primary-dark-teal) !important;
+            color: #ffffff !important;
+            border-radius: 20px !important;
+            padding: 8px 18px !important;
+            font-size: 0.85rem !important;
+            font-weight: 600 !important;
+            transition: var(--transition) !important;
+        }
+        .shepherd-button:hover {
+            background-color: var(--deep-emerald) !important;
+        }
+        .shepherd-button-secondary {
+            background-color: transparent !important;
+            color: var(--text-muted) !important;
+            border: 1px solid rgba(120, 181, 162, 0.5) !important;
+        }
+        .shepherd-button-secondary:hover {
+            background-color: rgba(120, 181, 162, 0.15) !important;
+            color: var(--deep-emerald) !important;
+        }
+        .shepherd-cancel-icon {
+            color: #ffffff !important;
+            opacity: 0.8 !important;
+        }
+        .shepherd-cancel-icon:hover {
+            opacity: 1 !important;
+        }
 
         /* HEADER & NAVIGATION */
         header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(20, 80, 67, 0.9); backdrop-filter: blur(10px); z-index: 1000; box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); }
@@ -717,7 +774,7 @@
                 <li><a href="#contato" onclick="closeMenu()">Fale Conosco</a></li>
             </ul>
 
-            <a href="https://wa.me/5532999531990?text=Olá!%20Gostaria%20de%20agendar%20um%20horário." class="btn-cta" target="_blank">
+            <a href="https://wa.me/5532999531990?text=Olá!%20Gostaria%20de%20agendar%20um%20horário." class="btn-cta" target="_blank" id="btn-agendar-header">
                 <i class="fab fa-whatsapp"></i> Agendar Horário
             </a>
         </nav>
@@ -1147,6 +1204,9 @@
         </button>
     </div>
 
+    <!-- Shepherd.js JS (Tour Guiado) -->
+    <script src="https://cdn.jsdelivr.net/npm/shepherd.js@14.0.0/dist/js/shepherd.min.js"></script>
+
     <script>
         function toggleMenu() {
             const navLinks = document.getElementById("navLinks");
@@ -1233,6 +1293,88 @@
             }
 
             setTimeout(typeTitle, 500);
+
+            // -------------------------------------------------------------
+            // INTEGRACAO SHEPHERD.JS COM LOCALSTORAGE
+            // -------------------------------------------------------------
+            const tourJaVisto = localStorage.getItem('shepherd_tour_visto');
+
+            const tour = new Shepherd.Tour({
+                useModalOverlay: true,
+                defaultStepOptions: {
+                    classes: 'shepherd-theme-custom',
+                    scrollTo: { behavior: 'smooth', block: 'center' },
+                    cancelIcon: { enabled: true }
+                }
+            });
+
+            tour.addStep({
+                id: 'step-boas-vindas',
+                title: 'Bem-vindo(a) ao Nosso Studio!',
+                text: 'Preparamos um tour bem rápido para te mostrar como navegar pelo nosso site e conhecer nossos atendimentos.',
+                attachTo: { element: '.logo-box', on: 'bottom' },
+                buttons: [
+                    { text: 'Conhecer Site', action: tour.next }
+                ]
+            });
+
+            tour.addStep({
+                id: 'step-servicos',
+                title: 'Nossos Tratamentos',
+                text: 'Aqui você descobre nossas modalidades de Pilates em Aparelhos, Fisioterapia e Terapias Manuais.',
+                attachTo: { element: '#servicos', on: 'bottom' },
+                buttons: [
+                    { text: 'Voltar', action: tour.back, classes: 'shepherd-button-secondary' },
+                    { text: 'Próximo', action: tour.next }
+                ]
+            });
+
+            tour.addStep({
+                id: 'step-espaco',
+                title: 'Nosso Espaço Climatizado',
+                text: 'Veja fotos do nosso estúdio, projetado com carinho para o seu total conforto em Cataguases.',
+                attachTo: { element: '#espaco', on: 'bottom' },
+                buttons: [
+                    { text: 'Voltar', action: tour.back, classes: 'shepherd-button-secondary' },
+                    { text: 'Próximo', action: tour.next }
+                ]
+            });
+
+            tour.addStep({
+                id: 'step-assistente',
+                title: 'Assistente Tha (IA)',
+                text: 'Tem dúvidas rápidas sobre horários ou localização? Nossa assistente virtual está sempre aqui para te responder!',
+                attachTo: { element: '#chatToggle', on: 'top' },
+                buttons: [
+                    { text: 'Voltar', action: tour.back, classes: 'shepherd-button-secondary' },
+                    { text: 'Próximo', action: tour.next }
+                ]
+            });
+
+            tour.addStep({
+                id: 'step-agendar',
+                title: 'Agende pelo WhatsApp',
+                text: 'Pronto(a) para começar? Clique aqui a qualquer momento para falar direto conosco no WhatsApp e agendar sua avaliação.',
+                attachTo: { element: '#btn-agendar-header', on: 'bottom' },
+                buttons: [
+                    { text: 'Voltar', action: tour.back, classes: 'shepherd-button-secondary' },
+                    { text: 'Entendido!', action: tour.complete }
+                ]
+            });
+
+            const marcarComoVisto = () => {
+                localStorage.setItem('shepherd_tour_visto', 'true');
+            };
+
+            tour.on('complete', marcarComoVisto);
+            tour.on('cancel', marcarComoVisto);
+
+            // Inicia o tour apenas na primeira visita (após 1s do carregamento)
+            if (!tourJaVisto) {
+                setTimeout(() => {
+                    tour.start();
+                }, 1000);
+            }
         });
 
         let isDragging = false;
