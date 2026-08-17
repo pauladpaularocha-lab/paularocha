@@ -233,6 +233,108 @@
         .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: var(--deep-emerald); margin-bottom: 14px; line-height: 1.35; }
         .service-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0; line-height: 1.6; }
 
+        /* SECAO DO APP FIQUEZEN */
+        .app-section {
+            background: linear-gradient(135deg, rgba(20, 80, 67, 0.05) 0%, rgba(120, 181, 162, 0.15) 100%);
+            border-radius: 28px;
+            border: 1px solid rgba(120, 181, 162, 0.35);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 40px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 40px;
+            align-items: center;
+            box-shadow: var(--shadow);
+        }
+
+        .app-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--deep-emerald);
+            margin-bottom: 15px;
+            line-height: 1.25;
+        }
+
+        .app-content p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .app-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .app-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .app-features li i {
+            color: var(--primary-dark-teal);
+            font-size: 1.15rem;
+            background: rgba(120, 181, 162, 0.2);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .app-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .app-btn-download {
+            background: var(--deep-emerald);
+            color: #fff !important;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.92rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(20, 80, 67, 0.2);
+        }
+
+        .app-btn-download:hover {
+            background: var(--primary-dark-teal);
+            transform: translateY(-2px);
+        }
+
+        .app-mockup-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .app-mockup-img {
+            max-width: 280px;
+            width: 100%;
+            border-radius: 28px;
+            box-shadow: 0 18px 45px rgba(20, 80, 67, 0.22);
+            border: 6px solid #ffffff;
+            transition: transform 0.4s ease;
+        }
+
+        .app-mockup-img:hover {
+            transform: scale(1.03) translateY(-4px);
+        }
+
         /* SECAO QUEM SOMOS */
         .about-section { background: var(--bg-white); }
         .about-box { max-width: 1200px; margin: 0 auto; background: linear-gradient(135deg, rgba(120, 181, 162, 0.12) 0%, rgba(245, 249, 247, 0.8) 100%); border: 1px solid rgba(120, 181, 162, 0.3); border-radius: 28px; padding: 50px 40px; box-shadow: var(--shadow); }
@@ -788,6 +890,18 @@
             .contact-info, .cta-box { padding: 30px 20px; }
             .section-title h2 { font-size: 1.7rem; }
             
+            .app-section {
+                grid-template-columns: 1fr;
+                padding: 35px 20px;
+                text-align: center;
+            }
+            .app-features li {
+                justify-content: center;
+            }
+            .app-badges {
+                justify-content: center;
+            }
+            
             .chat-widget-container {
                 right: 0;
                 bottom: 85px;
@@ -815,6 +929,7 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#inicio" onclick="closeMenu()">Início</a></li>
                 <li><a href="#servicos" onclick="closeMenu()">Nossos Cuidados</a></li>
+                <li><a href="#app-fiquezen" onclick="closeMenu()">App FiqueZen</a></li>
                 <li><a href="#quemsomos" onclick="closeMenu()">Quem Somos</a></li>
                 <li><a href="#espaco" onclick="closeMenu()">Nosso Espaço</a></li>
                 <li><a href="#curiosidades" onclick="closeMenu()">Curiosidades</a></li>
@@ -873,6 +988,38 @@
                 </div>
                 <h3>Eletrotermofototerapia</h3>
                 <p>Aplicação de Laser Terapêutico e Ultrassom para acelerar a regeneração tecidual e combater processos inflamatórios.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- SEÇÃO DIVULGAÇÃO APP FIQUEZEN -->
+    <section class="section" id="app-fiquezen">
+        <div class="app-section">
+            <div class="app-content">
+                <span style="color: var(--primary-dark-teal); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px;">Praticidade na sua rotina</span>
+                <h2>Gerencie seus horários com o app FiqueZen</h2>
+                <p>Alunos do Studio contam com a facilidade do aplicativo <b>FiqueZen</b> para acompanhar sessões, solicitar reposições e visualizar a evolução do tratamento na palma da mão.</p>
+                
+                <ul class="app-features">
+                    <li><i class="fas fa-calendar-check"></i> Confirme, remarque ou solicite novos horários</li>
+                    <li><i class="fas fa-file-medical-alt"></i> Acompanhe seu prontuário e evolução clínica</li>
+                    <li><i class="fas fa-bell"></i> Lembretes automáticos das suas aulas de Pilates</li>
+                </ul>
+
+                <div class="app-badges">
+                    <a href="https://play.google.com/store" target="_blank" class="app-btn-download">
+                        <i class="fab fa-google-play"></i> Baixar no Google Play
+                    </a>
+                    <a href="https://www.apple.com/app-store/" target="_blank" class="app-btn-download" style="background: var(--primary-dark-teal);">
+                        <i class="fab fa-apple"></i> Baixar na App Store
+                    </a>
+                </div>
+            </div>
+
+            <div class="app-mockup-wrapper">
+                <img src="fiquezen-print.jpg" alt="Aplicativo FiqueZen - Studio Thamyres Lobo" class="app-mockup-img" onerror="this.src='WhatsApp Image 2026-08-17 at 17.28.36.jpeg'">
             </div>
         </div>
     </section>
@@ -1379,6 +1526,17 @@
                 title: 'Nossos Tratamentos',
                 text: 'Aqui você descobre nossas modalidades de Pilates em Aparelhos, Fisioterapia e Terapias Manuais.',
                 attachTo: { element: '#servicos', on: 'bottom' },
+                buttons: [
+                    { text: 'Voltar', action: globalTour.back, classes: 'shepherd-button-secondary' },
+                    { text: 'Próximo', action: globalTour.next }
+                ]
+            });
+
+            globalTour.addStep({
+                id: 'step-app-fiquezen',
+                title: 'App FiqueZen para Alunos',
+                text: 'Facilidade para você: agende, cancele e acompanhe sua evolução de Pilates e Fisioterapia direto pelo aplicativo FiqueZen!',
+                attachTo: { element: '#app-fiquezen', on: 'bottom' },
                 buttons: [
                     { text: 'Voltar', action: globalTour.back, classes: 'shepherd-button-secondary' },
                     { text: 'Próximo', action: globalTour.next }
