@@ -373,16 +373,6 @@
         .gallery-caption h4 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--deep-emerald); margin-bottom: 6px; }
         .gallery-caption p { font-size: 0.9rem; color: var(--text-muted); }
 
-        /* CURIOSIDADES GRID */
-        .curiosidades-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
-        .curiosidade-card { background: var(--bg-white); padding: 35px 28px; border-radius: 24px; box-shadow: var(--shadow); border: 1px solid rgba(120, 181, 162, 0.3); transition: var(--transition); display: flex; flex-direction: column; position: relative; overflow: hidden; }
-        .curiosidade-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, var(--primary-teal), var(--primary-dark-teal)); }
-        .curiosidade-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(20, 80, 67, 0.15); border-color: var(--primary-dark-teal); }
-        .curiosidade-icon { width: 60px; height: 60px; background: rgba(120, 181, 162, 0.15); color: var(--primary-dark-teal); border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 22px; transition: var(--transition); }
-        .curiosidade-card:hover .curiosidade-icon { background: var(--primary-dark-teal); color: #fff; transform: scale(1.1) rotate(5deg); }
-        .curiosidade-card h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--deep-emerald); margin-bottom: 12px; line-height: 1.35; }
-        .curiosidade-card p { color: var(--text-muted); font-size: 0.93rem; line-height: 1.6; }
-
         /* FAQ */
         .faq-container { max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
         .faq-item { background: var(--bg-white); border: 1px solid rgba(120, 181, 162, 0.3); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(20, 80, 67, 0.04); transition: var(--transition); }
@@ -1123,53 +1113,11 @@
 
     <div class="section-divider"></div>
 
-    <section class="section" id="curiosidades" style="background: var(--bg-white);">
-        <div class="section-title">
-            <h2><i class="fas fa-lightbulb"></i> Você Sabia? Curiosidades sobre o Pilates</h2>
-            <p>Descubra fatos fascinantes sobre a história e os benefícios do método que conquistou o mundo.</p>
-        </div>
-
-        <div class="curiosidades-grid">
-            <div class="curiosidade-card">
-                <div class="curiosidade-icon">
-                    <i class="fas fa-lightbulb"></i>
-                </div>
-                <h3>O nome original era Contrologia</h3>
-                <p>Criado por Joseph Pilates na década de 1920, o método foi batizado inicialmente de Contrologia, destacando o controle consciente da mente sobre os músculos.</p>
-            </div>
-
-            <div class="curiosidade-card">
-                <div class="curiosidade-icon">
-                    <i class="fas fa-bed"></i>
-                </div>
-                <h3>Aparelhos de hospital</h3>
-                <p>Durante a Primeira Guerra Mundial, Joseph improvisou molas de camas hospitalares para exercitar pacientes acamados, dando origem aos primeiros Reformers.</p>
-            </div>
-
-            <div class="curiosidade-card">
-                <div class="curiosidade-icon">
-                    <i class="fas fa-running"></i>
-                </div>
-                <h3>Criado para atletas e homens</h3>
-                <p>Embora muito associado ao público feminino hoje, o método nasceu para auxiliar no condicionamento de atletas, dançarinos de balé e boxeadores.</p>
-            </div>
-
-            <div class="curiosidade-card">
-                <div class="curiosidade-icon">
-                    <i class="fas fa-child-reaching"></i>
-                </div>
-                <h3>Sensação de "crescer"</h3>
-                <p>Com o foco intenso na descompressão da coluna e correção postural, o Pilates melhora o alinhamento corporal e gera uma sensação imediata de leveza e altura.</p>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <section class="section" id="faq">
+    <!-- FAQ ENXUTO (3 PERGUNTAS ESSENCIAIS) -->
+    <section class="section" id="faq" style="background: var(--bg-white);">
         <div class="section-title">
             <h2><i class="fas fa-question-circle"></i> Principais Dúvidas</h2>
-            <p>Respostas simples para as perguntas mais comuns de nossos alunos e pacientes.</p>
+            <p>Respostas simples para você dar o primeiro passo com segurança.</p>
         </div>
 
         <div class="faq-container">
@@ -1200,26 +1148,6 @@
                 </div>
                 <div class="faq-answer">
                     Com certeza. Nossa equipe é formada por fisioterapeutas especializadas. O Pilates clínico e a fisioterapia manual são altamente indicados no tratamento e prevenção de dores na coluna, articulações e lesões musculares.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Quantas vezes por semana é recomendado praticar?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Para resultados perceptíveis na postura e no alívio de dores, recomendamos de 2 a 3 sessões por semana. No entanto, mesmo 1 sessão semanal bem direcionada traz excelentes benefícios para o corpo.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Como faço para agendar minha aula ou sessão?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Todos os atendimentos são agendados previamente para garantir exclusividade e conforto. Você pode clicar em qualquer botão do site para falar diretamente conosco pelo WhatsApp.
                 </div>
             </div>
         </div>
