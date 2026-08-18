@@ -41,7 +41,7 @@
             border: 1px solid rgba(120, 181, 162, 0.35) !important;
             font-family: 'Inter', sans-serif !important;
             z-index: 10000 !important;
-            max-width: 390px !important;
+            max-width: 400px !important;
             overflow: hidden !important;
         }
 
@@ -52,33 +52,13 @@
             display: flex !important;
             align-items: center !important;
             justify-content: space-between !important;
+            gap: 12px !important;
         }
 
-        .shepherd-title {
-            color: #ffffff !important;
-            font-family: 'Playfair Display', serif !important;
-            font-size: 1.2rem !important;
-            font-weight: 600 !important;
-            margin: 0 !important;
-            line-height: 1.3 !important;
-        }
-
-        .shepherd-text {
-            background-color: #ffffff !important;
-            color: var(--text-dark) !important;
-            font-size: 0.95rem !important;
-            line-height: 1.6 !important;
-            padding: 20px 22px 14px 22px !important;
-        }
-
-        /* Avatar e Saudação da Tha no topo do Balão */
-        .tour-tha-intro {
+        .tour-header-custom {
             display: flex;
             align-items: center;
             gap: 12px;
-            margin-bottom: 14px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid rgba(120, 181, 162, 0.2);
         }
 
         .tour-tha-avatar {
@@ -87,36 +67,45 @@
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--primary-teal);
-            box-shadow: 0 4px 10px rgba(20, 80, 67, 0.15);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             flex-shrink: 0;
+            background: #fff;
         }
 
-        .tour-tha-name {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--deep-emerald);
-            line-height: 1.2;
+        .tour-header-text {
+            display: flex;
+            flex-direction: column;
         }
 
-        .tour-tha-name span {
-            color: var(--primary-dark-teal);
+        .tour-tha-greeting {
+            font-size: 0.78rem;
+            color: var(--primary-teal);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
         }
 
-        .tour-tha-tag {
-            font-size: 0.76rem;
-            color: var(--text-muted);
-            font-weight: 500;
-            display: block;
+        .shepherd-title {
+            color: #ffffff !important;
+            font-family: 'Playfair Display', serif !important;
+            font-size: 1.18rem !important;
+            font-weight: 600 !important;
+            margin: 0 !important;
+            line-height: 1.25 !important;
         }
 
-        .tour-desc-text {
-            margin: 0;
-            color: var(--text-dark);
+        .shepherd-text {
+            background-color: #ffffff !important;
+            color: var(--text-dark) !important;
+            font-size: 0.95rem !important;
+            line-height: 1.6 !important;
+            padding: 22px 22px 14px 22px !important;
         }
 
         .shepherd-footer {
             background-color: #ffffff !important;
-            padding: 12px 22px 20px 22px !important;
+            padding: 10px 22px 20px 22px !important;
             display: flex !important;
             justify-content: space-between !important;
             align-items: center !important;
@@ -125,17 +114,11 @@
 
         .tour-step-counter {
             font-size: 0.82rem;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--primary-dark-teal);
-            background: rgba(120, 181, 162, 0.15);
-            padding: 5px 12px;
-            border-radius: 14px;
-        }
-
-        .tour-footer-buttons {
-            display: flex;
-            gap: 8px;
-            align-items: center;
+            background: rgba(120, 181, 162, 0.18);
+            padding: 6px 14px;
+            border-radius: 16px;
         }
 
         .shepherd-button {
@@ -507,7 +490,7 @@
         .info-item:hover .icon-bg { transform: scale(1.08); }
 
         /* CTA BOX */
-        .cta-box { background: linear-gradient(135deg, var(--deep-emerald), var(--primary-dark-teal)); padding: 42px 36px; border-radius: 24px; color: #fff; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 15px 35px rgba(20, 80, 67, 0.18); border: 1px solid rgba(255, 255, 255, 0.15); }
+        .cta-box { background: linear-gradient(135deg, var(--deep-emerald), var(--primary-dark-teal)); padding: 42px 36px; border-radius: 24px; color: #fff; display: flex-direction: column; justify-content: center; box-shadow: 0 15px 35px rgba(20, 80, 67, 0.18); border: 1px solid rgba(255, 255, 255, 0.15); }
         .cta-box h3 { font-family: 'Playfair Display', serif; font-size: 1.85rem; line-height: 1.3; margin-bottom: 12px; }
         .cta-box p { font-size: 0.98rem; opacity: 0.9; margin-bottom: 20px; }
         .cta-benefits { list-style: none; margin-bottom: 28px; }
@@ -1525,7 +1508,7 @@
             setTimeout(typeTitle, 500);
 
             // -------------------------------------------------------------
-            // INTEGRACAO SHEPHERD.JS COM SAUDACAO DA THA E CONTADOR DE PASSOS
+            // INTEGRACAO SHEPHERD.JS
             // -------------------------------------------------------------
             const tourJaVisto = localStorage.getItem('shepherd_tour_visto');
 
@@ -1538,25 +1521,24 @@
                 }
             });
 
-            // Função auxiliar para montar o cabeçalho interno da Tha
-            const criarCorpoTour = (textoDescricao) => {
+            // Função para montar o cabeçalho do Tour com a foto da Tha
+            const criarTituloComTha = (tituloPasso) => {
                 return `
-                    <div class="tour-tha-intro">
-                        <img src="avatar-bot.png" alt="Tha" class="tour-tha-avatar">
-                        <div>
-                            <div class="tour-tha-name">Olá! Eu sou a <span>Tha</span>.</div>
-                            <span class="tour-tha-tag">Assistente do Studio Thamyres Lobo</span>
+                    <div class="tour-header-custom">
+                        <img src="avatar-bot.png" alt="Tha" class="tour-tha-avatar" onerror="this.src='logo.png'">
+                        <div class="tour-header-text">
+                            <span class="tour-tha-greeting">Olá! Eu sou a Tha.</span>
+                            <span class="shepherd-title">${tituloPasso}</span>
                         </div>
                     </div>
-                    <p class="tour-desc-text">${textoDescricao}</p>
                 `;
             };
 
             // Passo 1 de 5
             globalTour.addStep({
                 id: 'step-boas-vindas',
-                title: 'Bem-vindo(a) ao Nosso Studio!',
-                text: criarCorpoTour('Preparamos uma apresentação rápida para você conhecer nosso espaço, tratamentos e agendamentos.'),
+                title: criarTituloComTha('Bem-vindo(a) ao Nosso Studio!'),
+                text: 'Preparamos uma apresentação rápida para você conhecer nosso espaço, tratamentos e agendamentos.',
                 attachTo: { element: '.logo-box', on: 'bottom' },
                 buttons: [
                     { text: 'Conhecer Site', action: globalTour.next }
@@ -1577,8 +1559,8 @@
             // Passo 2 de 5
             globalTour.addStep({
                 id: 'step-servicos',
-                title: 'Nossos Tratamentos',
-                text: criarCorpoTour('Aqui você descobre nossas modalidades de Pilates em Aparelhos, Fisioterapia e Terapias Manuais.'),
+                title: criarTituloComTha('Nossos Tratamentos'),
+                text: 'Aqui você descobre nossas modalidades de Pilates em Aparelhos, Fisioterapia e Terapias Manuais.',
                 attachTo: { element: '#servicos', on: 'bottom' },
                 buttons: [
                     { text: 'Voltar', action: globalTour.back, classes: 'shepherd-button-secondary' },
@@ -1600,8 +1582,8 @@
             // Passo 3 de 5
             globalTour.addStep({
                 id: 'step-app-fiquezen',
-                title: 'App FiqueZen para Alunos',
-                text: criarCorpoTour('Facilidade para você: agende, cancele e acompanhe sua evolução de Pilates e Fisioterapia direto pelo app!'),
+                title: criarTituloComTha('App FiqueZen para Alunos'),
+                text: 'Facilidade para você: agende, cancele e acompanhe sua evolução de Pilates e Fisioterapia direto pelo app!',
                 attachTo: { element: '#app-fiquezen', on: 'bottom' },
                 buttons: [
                     { text: 'Voltar', action: globalTour.back, classes: 'shepherd-button-secondary' },
@@ -1623,8 +1605,8 @@
             // Passo 4 de 5
             globalTour.addStep({
                 id: 'step-espaco',
-                title: 'Nosso Espaço Climatizado',
-                text: criarCorpoTour('Veja fotos do estúdio, planejado com carinho para o seu total conforto e bem-estar.'),
+                title: criarTituloComTha('Nosso Espaço Climatizado'),
+                text: 'Veja fotos do estúdio, planejado com carinho para o seu total conforto e bem-estar.',
                 attachTo: { element: '#espaco', on: 'bottom' },
                 buttons: [
                     { text: 'Voltar', action: globalTour.back, classes: 'shepherd-button-secondary' },
@@ -1646,8 +1628,8 @@
             // Passo 5 de 5
             globalTour.addStep({
                 id: 'step-agendar',
-                title: 'Agende pelo WhatsApp',
-                text: criarCorpoTour('Pronto(a) para começar? Clique no botão verde a qualquer momento para falar diretamente conosco e agendar sua avaliação.'),
+                title: criarTituloComTha('Agende pelo WhatsApp'),
+                text: 'Pronto(a) para começar? Clique no botão verde a qualquer momento para falar diretamente conosco e agendar sua avaliação.',
                 attachTo: { element: '#btn-agendar-header', on: 'bottom' },
                 buttons: [
                     { text: 'Voltar', action: globalTour.back, classes: 'shepherd-button-secondary' },
