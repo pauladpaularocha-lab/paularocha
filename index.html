@@ -33,7 +33,7 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg-cream); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
 
-        /* ESTILIZAÇÃO CUSTOMIZADA E MODERNA DO SHEPHERD.JS */
+        /* ESTILIZAÇÃO DEFINITIVA DO SHEPHERD.JS */
         .shepherd-element {
             background: #ffffff !important;
             border-radius: 22px !important;
@@ -41,8 +41,20 @@
             border: 1px solid rgba(120, 181, 162, 0.35) !important;
             font-family: 'Inter', sans-serif !important;
             z-index: 10000 !important;
-            max-width: 400px !important;
+            max-width: 420px !important;
             overflow: hidden !important;
+            display: flex !important;
+            flex-direction: column !important;
+        }
+
+        .shepherd-content {
+            display: flex !important;
+            flex-direction: column !important;
+            padding: 0 !important;
+            background: #ffffff !important;
+            border-radius: 22px !important;
+            overflow: visible !important;
+            height: auto !important;
         }
 
         .shepherd-header {
@@ -53,6 +65,8 @@
             align-items: center !important;
             justify-content: space-between !important;
             gap: 12px !important;
+            position: relative !important;
+            flex-shrink: 0 !important;
         }
 
         .tour-header-custom {
@@ -98,18 +112,29 @@
         .shepherd-text {
             background-color: #ffffff !important;
             color: var(--text-dark) !important;
-            font-size: 0.95rem !important;
+            font-size: 0.96rem !important;
+            line-height: 1.65 !important;
+            padding: 22px 24px 14px 24px !important;
+            display: block !important;
+            height: auto !important;
+            overflow: visible !important;
+            box-sizing: border-box !important;
+        }
+
+        .shepherd-text p {
+            margin: 0 !important;
+            color: var(--text-dark) !important;
             line-height: 1.6 !important;
-            padding: 22px 22px 14px 22px !important;
         }
 
         .shepherd-footer {
             background-color: #ffffff !important;
-            padding: 10px 22px 20px 22px !important;
+            padding: 10px 24px 20px 24px !important;
             display: flex !important;
             justify-content: space-between !important;
             align-items: center !important;
             border-top: none !important;
+            flex-shrink: 0 !important;
         }
 
         .tour-step-counter {
@@ -490,7 +515,7 @@
         .info-item:hover .icon-bg { transform: scale(1.08); }
 
         /* CTA BOX */
-        .cta-box { background: linear-gradient(135deg, var(--deep-emerald), var(--primary-dark-teal)); padding: 42px 36px; border-radius: 24px; color: #fff; display: flex-direction: column; justify-content: center; box-shadow: 0 15px 35px rgba(20, 80, 67, 0.18); border: 1px solid rgba(255, 255, 255, 0.15); }
+        .cta-box { background: linear-gradient(135deg, var(--deep-emerald), var(--primary-dark-teal)); padding: 42px 36px; border-radius: 24px; color: #fff; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 15px 35px rgba(20, 80, 67, 0.18); border: 1px solid rgba(255, 255, 255, 0.15); }
         .cta-box h3 { font-family: 'Playfair Display', serif; font-size: 1.85rem; line-height: 1.3; margin-bottom: 12px; }
         .cta-box p { font-size: 0.98rem; opacity: 0.9; margin-bottom: 20px; }
         .cta-benefits { list-style: none; margin-bottom: 28px; }
@@ -1521,7 +1546,6 @@
                 }
             });
 
-            // Função para montar o cabeçalho do Tour com a foto da Tha
             const criarTituloComTha = (tituloPasso) => {
                 return `
                     <div class="tour-header-custom">
@@ -1538,7 +1562,7 @@
             globalTour.addStep({
                 id: 'step-boas-vindas',
                 title: criarTituloComTha('Bem-vindo(a) ao Nosso Studio!'),
-                text: 'Preparamos uma apresentação rápida para você conhecer nosso espaço, tratamentos e agendamentos.',
+                text: '<p>Preparamos uma apresentação rápida para você conhecer nosso espaço, tratamentos e agendamentos.</p>',
                 attachTo: { element: '.logo-box', on: 'bottom' },
                 buttons: [
                     { text: 'Conhecer Site', action: globalTour.next }
@@ -1560,7 +1584,7 @@
             globalTour.addStep({
                 id: 'step-servicos',
                 title: criarTituloComTha('Nossos Tratamentos'),
-                text: 'Aqui você descobre nossas modalidades de Pilates em Aparelhos, Fisioterapia e Terapias Manuais.',
+                text: '<p>Aqui você descobre nossas modalidades de Pilates em Aparelhos, Fisioterapia e Terapias Manuais.</p>',
                 attachTo: { element: '#servicos', on: 'bottom' },
                 buttons: [
                     { text: 'Voltar', action: globalTour.back, classes: 'shepherd-button-secondary' },
@@ -1583,7 +1607,7 @@
             globalTour.addStep({
                 id: 'step-app-fiquezen',
                 title: criarTituloComTha('App FiqueZen para Alunos'),
-                text: 'Facilidade para você: agende, cancele e acompanhe sua evolução de Pilates e Fisioterapia direto pelo app!',
+                text: '<p>Facilidade para você: agende, cancele e acompanhe sua evolução de Pilates e Fisioterapia direto pelo app!</p>',
                 attachTo: { element: '#app-fiquezen', on: 'bottom' },
                 buttons: [
                     { text: 'Voltar', action: globalTour.back, classes: 'shepherd-button-secondary' },
@@ -1606,7 +1630,7 @@
             globalTour.addStep({
                 id: 'step-espaco',
                 title: criarTituloComTha('Nosso Espaço Climatizado'),
-                text: 'Veja fotos do estúdio, planejado com carinho para o seu total conforto e bem-estar.',
+                text: '<p>Veja fotos do estúdio, planejado com carinho para o seu total conforto e bem-estar.</p>',
                 attachTo: { element: '#espaco', on: 'bottom' },
                 buttons: [
                     { text: 'Voltar', action: globalTour.back, classes: 'shepherd-button-secondary' },
@@ -1629,7 +1653,7 @@
             globalTour.addStep({
                 id: 'step-agendar',
                 title: criarTituloComTha('Agende pelo WhatsApp'),
-                text: 'Pronto(a) para começar? Clique no botão verde a qualquer momento para falar diretamente conosco e agendar sua avaliação.',
+                text: '<p>Pronto(a) para começar? Clique no botão verde a qualquer momento para falar diretamente conosco e agendar sua avaliação.</p>',
                 attachTo: { element: '#btn-agendar-header', on: 'bottom' },
                 buttons: [
                     { text: 'Voltar', action: globalTour.back, classes: 'shepherd-button-secondary' },
