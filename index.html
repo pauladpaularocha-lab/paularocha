@@ -148,12 +148,21 @@
             color: #fff; 
             font-weight: 500; 
             font-size: 0.88rem; 
-            padding: 8px 14px;
+            padding: 8px 12px;
             border-radius: 20px;
             transition: var(--transition);
             white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .nav-links a i {
+            font-size: 0.85rem;
+            opacity: 0.85;
+            transition: var(--transition);
         }
         .nav-links a:hover { color: var(--primary-teal); background: rgba(255, 255, 255, 0.15); }
+        .nav-links a:hover i { opacity: 1; }
 
         /* MENU HAMBURGUER (MOBILE) */
         .menu-toggle { display: none; background: transparent; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; padding: 8px; }
@@ -917,10 +926,10 @@
             </button>
 
             <ul class="nav-links" id="navLinks">
-                <li><a href="#servicos" onclick="closeMenu()">Serviços</a></li>
-                <li><a href="#app-fiquezen" onclick="closeMenu()">App Aluno</a></li>
-                <li><a href="#quemsomos" onclick="closeMenu()">O Studio</a></li>
-                <li><a href="#contato" onclick="closeMenu()">Contato</a></li>
+                <li><a href="#servicos" onclick="closeMenu()"><i class="fas fa-hand-holding-medical"></i> Serviços</a></li>
+                <li><a href="#app-fiquezen" onclick="closeMenu()"><i class="fas fa-mobile-alt"></i> App Aluno</a></li>
+                <li><a href="#quemsomos" onclick="closeMenu()"><i class="fas fa-spa"></i> O Studio</a></li>
+                <li><a href="#contato" onclick="closeMenu()"><i class="fas fa-envelope"></i> Contato</a></li>
                 <li><a href="javascript:void(0)" onclick="iniciarTourManualmente(); closeMenu();" style="color: var(--primary-teal); font-weight: 600;"><i class="fas fa-compass"></i> Tour</a></li>
             </ul>
 
@@ -1094,7 +1103,7 @@
                 </div>
                 <div class="gallery-caption">
                     <h4>Ambiente Aconchegante</h4>
-                    <p>Estrutura pensada para o seu conforto, foco e招待ilidade a cada sessão.</p>
+                    <p>Estrutura pensada para o seu conforto, foco e tranquilidade a cada sessão.</p>
                 </div>
             </div>
 
